@@ -98,7 +98,7 @@ function Ratgeber() {
         </p>
         <Link
           to="/berater"
-          className="mt-8 inline-block rounded-sm bg-cream px-7 py-4 text-[0.8rem] tracking-[0.16em] text-primary uppercase"
+          className="mt-8 inline-block rounded-sm bg-background px-7 py-4 text-[0.8rem] tracking-[0.16em] text-primary uppercase"
         >
           Berater starten
         </Link>
