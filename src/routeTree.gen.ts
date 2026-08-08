@@ -15,6 +15,7 @@ import { Route as HundRouteImport } from './routes/hund'
 import { Route as KatzeRouteImport } from './routes/katze'
 import { Route as RatgeberRouteImport } from './routes/ratgeber'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as UeberUnsRouteImport } from './routes/ueber-uns'
 import { Route as WarenkorbRouteImport } from './routes/warenkorb'
 import { Route as BoxIndexRouteImport } from './routes/box.index'
 import { Route as BoxSlugRouteImport } from './routes/box.$slug'
@@ -50,6 +51,11 @@ const ShopRoute = ShopRouteImport.update({
   path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UeberUnsRoute = UeberUnsRouteImport.update({
+  id: '/ueber-uns',
+  path: '/ueber-uns',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WarenkorbRoute = WarenkorbRouteImport.update({
   id: '/warenkorb',
   path: '/warenkorb',
@@ -78,6 +84,7 @@ export interface FileRoutesByFullPath {
   '/katze': typeof KatzeRoute
   '/ratgeber': typeof RatgeberRoute
   '/shop': typeof ShopRoute
+  '/ueber-uns': typeof UeberUnsRoute
   '/warenkorb': typeof WarenkorbRoute
   '/box/$slug': typeof BoxSlugRoute
   '/produkt/$slug': typeof ProduktSlugRoute
@@ -90,6 +97,7 @@ export interface FileRoutesByTo {
   '/katze': typeof KatzeRoute
   '/ratgeber': typeof RatgeberRoute
   '/shop': typeof ShopRoute
+  '/ueber-uns': typeof UeberUnsRoute
   '/warenkorb': typeof WarenkorbRoute
   '/box/$slug': typeof BoxSlugRoute
   '/produkt/$slug': typeof ProduktSlugRoute
@@ -103,6 +111,7 @@ export interface FileRoutesById {
   '/katze': typeof KatzeRoute
   '/ratgeber': typeof RatgeberRoute
   '/shop': typeof ShopRoute
+  '/ueber-uns': typeof UeberUnsRoute
   '/warenkorb': typeof WarenkorbRoute
   '/box/$slug': typeof BoxSlugRoute
   '/produkt/$slug': typeof ProduktSlugRoute
@@ -117,6 +126,7 @@ export interface FileRouteTypes {
     | '/katze'
     | '/ratgeber'
     | '/shop'
+    | '/ueber-uns'
     | '/warenkorb'
     | '/box/$slug'
     | '/produkt/$slug'
@@ -129,6 +139,7 @@ export interface FileRouteTypes {
     | '/katze'
     | '/ratgeber'
     | '/shop'
+    | '/ueber-uns'
     | '/warenkorb'
     | '/box/$slug'
     | '/produkt/$slug'
@@ -141,6 +152,7 @@ export interface FileRouteTypes {
     | '/katze'
     | '/ratgeber'
     | '/shop'
+    | '/ueber-uns'
     | '/warenkorb'
     | '/box/$slug'
     | '/produkt/$slug'
@@ -154,6 +166,7 @@ export interface RootRouteChildren {
   KatzeRoute: typeof KatzeRoute
   RatgeberRoute: typeof RatgeberRoute
   ShopRoute: typeof ShopRoute
+  UeberUnsRoute: typeof UeberUnsRoute
   WarenkorbRoute: typeof WarenkorbRoute
   BoxSlugRoute: typeof BoxSlugRoute
   ProduktSlugRoute: typeof ProduktSlugRoute
@@ -204,6 +217,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ueber-uns': {
+      id: '/ueber-uns'
+      path: '/ueber-uns'
+      fullPath: '/ueber-uns'
+      preLoaderRoute: typeof UeberUnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/warenkorb': {
       id: '/warenkorb'
       path: '/warenkorb'
@@ -242,6 +262,7 @@ const rootRouteChildren: RootRouteChildren = {
   KatzeRoute: KatzeRoute,
   RatgeberRoute: RatgeberRoute,
   ShopRoute: ShopRoute,
+  UeberUnsRoute: UeberUnsRoute,
   WarenkorbRoute: WarenkorbRoute,
   BoxSlugRoute: BoxSlugRoute,
   ProduktSlugRoute: ProduktSlugRoute,
@@ -250,3 +271,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
