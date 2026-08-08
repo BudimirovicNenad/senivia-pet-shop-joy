@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BeraterRouteImport } from './routes/berater'
 import { Route as HundRouteImport } from './routes/hund'
 import { Route as KatzeRouteImport } from './routes/katze'
 import { Route as ShopRouteImport } from './routes/shop'
@@ -21,6 +22,11 @@ import { Route as ProduktSlugRouteImport } from './routes/produkt.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeraterRoute = BeraterRouteImport.update({
+  id: '/berater',
+  path: '/berater',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HundRoute = HundRouteImport.update({
@@ -61,6 +67,7 @@ const ProduktSlugRoute = ProduktSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/berater': typeof BeraterRoute
   '/hund': typeof HundRoute
   '/katze': typeof KatzeRoute
   '/shop': typeof ShopRoute
@@ -71,6 +78,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/berater': typeof BeraterRoute
   '/hund': typeof HundRoute
   '/katze': typeof KatzeRoute
   '/shop': typeof ShopRoute
@@ -82,6 +90,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/berater': typeof BeraterRoute
   '/hund': typeof HundRoute
   '/katze': typeof KatzeRoute
   '/shop': typeof ShopRoute
@@ -94,6 +103,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/berater'
     | '/hund'
     | '/katze'
     | '/shop'
@@ -104,6 +114,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/berater'
     | '/hund'
     | '/katze'
     | '/shop'
@@ -114,6 +125,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/berater'
     | '/hund'
     | '/katze'
     | '/shop'
@@ -125,6 +137,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BeraterRoute: typeof BeraterRoute
   HundRoute: typeof HundRoute
   KatzeRoute: typeof KatzeRoute
   ShopRoute: typeof ShopRoute
@@ -141,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/berater': {
+      id: '/berater'
+      path: '/berater'
+      fullPath: '/berater'
+      preLoaderRoute: typeof BeraterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hund': {
@@ -197,6 +217,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BeraterRoute: BeraterRoute,
   HundRoute: HundRoute,
   KatzeRoute: KatzeRoute,
   ShopRoute: ShopRoute,
