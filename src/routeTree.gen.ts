@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as HundRouteImport } from './routes/hund'
 import { Route as KatzeRouteImport } from './routes/katze'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as BoxIndexRouteImport } from './routes/box.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +35,25 @@ const ShopRoute = ShopRouteImport.update({
   path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BoxIndexRoute = BoxIndexRouteImport.update({
+  id: '/box/',
+  path: '/box/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/hund': typeof HundRoute
   '/katze': typeof KatzeRoute
   '/shop': typeof ShopRoute
+  '/box/': typeof BoxIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/hund': typeof HundRoute
   '/katze': typeof KatzeRoute
   '/shop': typeof ShopRoute
+  '/box': typeof BoxIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,14 @@ export interface FileRoutesById {
   '/hund': typeof HundRoute
   '/katze': typeof KatzeRoute
   '/shop': typeof ShopRoute
+  '/box/': typeof BoxIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/hund' | '/katze' | '/shop'
+  fullPaths: '/' | '/hund' | '/katze' | '/shop' | '/box/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/hund' | '/katze' | '/shop'
-  id: '__root__' | '/' | '/hund' | '/katze' | '/shop'
+  to: '/' | '/hund' | '/katze' | '/shop' | '/box'
+  id: '__root__' | '/' | '/hund' | '/katze' | '/shop' | '/box/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +76,7 @@ export interface RootRouteChildren {
   HundRoute: typeof HundRoute
   KatzeRoute: typeof KatzeRoute
   ShopRoute: typeof ShopRoute
+  BoxIndexRoute: typeof BoxIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/box/': {
+      id: '/box/'
+      path: '/box'
+      fullPath: '/box/'
+      preLoaderRoute: typeof BoxIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +124,7 @@ const rootRouteChildren: RootRouteChildren = {
   HundRoute: HundRoute,
   KatzeRoute: KatzeRoute,
   ShopRoute: ShopRoute,
+  BoxIndexRoute: BoxIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
