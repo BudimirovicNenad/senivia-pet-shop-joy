@@ -15,6 +15,7 @@ import { Route as KatzeRouteImport } from './routes/katze'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as BoxIndexRouteImport } from './routes/box.index'
 import { Route as BoxSlugRouteImport } from './routes/box.$slug'
+import { Route as ProduktSlugRouteImport } from './routes/produkt.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,11 @@ const BoxSlugRoute = BoxSlugRouteImport.update({
   path: '/box/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProduktSlugRoute = ProduktSlugRouteImport.update({
+  id: '/produkt/$slug',
+  path: '/produkt/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/katze': typeof KatzeRoute
   '/shop': typeof ShopRoute
   '/box/$slug': typeof BoxSlugRoute
+  '/produkt/$slug': typeof ProduktSlugRoute
   '/box/': typeof BoxIndexRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/katze': typeof KatzeRoute
   '/shop': typeof ShopRoute
   '/box/$slug': typeof BoxSlugRoute
+  '/produkt/$slug': typeof ProduktSlugRoute
   '/box': typeof BoxIndexRoute
 }
 export interface FileRoutesById {
@@ -70,14 +78,37 @@ export interface FileRoutesById {
   '/katze': typeof KatzeRoute
   '/shop': typeof ShopRoute
   '/box/$slug': typeof BoxSlugRoute
+  '/produkt/$slug': typeof ProduktSlugRoute
   '/box/': typeof BoxIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/hund' | '/katze' | '/shop' | '/box/$slug' | '/box/'
+  fullPaths:
+    | '/'
+    | '/hund'
+    | '/katze'
+    | '/shop'
+    | '/box/$slug'
+    | '/produkt/$slug'
+    | '/box/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/hund' | '/katze' | '/shop' | '/box/$slug' | '/box'
-  id: '__root__' | '/' | '/hund' | '/katze' | '/shop' | '/box/$slug' | '/box/'
+  to:
+    | '/'
+    | '/hund'
+    | '/katze'
+    | '/shop'
+    | '/box/$slug'
+    | '/produkt/$slug'
+    | '/box'
+  id:
+    | '__root__'
+    | '/'
+    | '/hund'
+    | '/katze'
+    | '/shop'
+    | '/box/$slug'
+    | '/produkt/$slug'
+    | '/box/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -86,6 +117,7 @@ export interface RootRouteChildren {
   KatzeRoute: typeof KatzeRoute
   ShopRoute: typeof ShopRoute
   BoxSlugRoute: typeof BoxSlugRoute
+  ProduktSlugRoute: typeof ProduktSlugRoute
   BoxIndexRoute: typeof BoxIndexRoute
 }
 
@@ -133,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BoxSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/produkt/$slug': {
+      id: '/produkt/$slug'
+      path: '/produkt/$slug'
+      fullPath: '/produkt/$slug'
+      preLoaderRoute: typeof ProduktSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -142,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   KatzeRoute: KatzeRoute,
   ShopRoute: ShopRoute,
   BoxSlugRoute: BoxSlugRoute,
+  ProduktSlugRoute: ProduktSlugRoute,
   BoxIndexRoute: BoxIndexRoute,
 }
 export const routeTree = rootRouteImport
