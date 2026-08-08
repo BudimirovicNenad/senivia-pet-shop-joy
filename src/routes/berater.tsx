@@ -34,7 +34,7 @@ const ageOptions = [
 
 const observationOptions: { value: NeedId; label: string; note: string }[] = [
   {
-    value: "gelenke",
+    value: "mobilitaet",
     label: "Steht schwerer auf, mag kürzere Wege",
     note: "Gelenke & Beweglichkeit",
   },
@@ -43,22 +43,19 @@ const observationOptions: { value: NeedId; label: string; note: string }[] = [
     label: "Empfindlicher Magen, wechselnder Kot",
     note: "Darm & Verdauung",
   },
-  { value: "zaehne", label: "Mundgeruch, Belag auf den Zähnen", note: "Zahn & Atem" },
-  { value: "fell", label: "Stumpfes Fell, trockene Haut", note: "Haut & Fell" },
+  { value: "zahnpflege", label: "Mundgeruch, Belag auf den Zähnen", note: "Zahn & Atem" },
+  { value: "pflege", label: "Stumpfes Fell, trockene Haut", note: "Haut & Fell" },
   { value: "vitalitaet", label: "Weniger Energie, schläft mehr", note: "Vitalität" },
 ];
 
 const needToBundle: Partial<Record<NeedId, string>> = {
-  gelenke: "senior-mobility",
+  mobilitaet: "senior-mobility",
   vitalitaet: "senior-mobility",
   verdauung: "darm-sensitiv",
-  fell: "darm-sensitiv",
-  zaehne: "zahn-atem",
+  pflege: "darm-sensitiv",
+  ernaehrung: "darm-sensitiv",
+  zahnpflege: "zahn-atem",
 };
-
-export default function _unused() {
-  return null;
-}
 
 function Berater() {
   const [step, setStep] = useState(0);
