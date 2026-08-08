@@ -14,6 +14,7 @@ import { Route as HundRouteImport } from './routes/hund'
 import { Route as KatzeRouteImport } from './routes/katze'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as BoxIndexRouteImport } from './routes/box.index'
+import { Route as BoxSlugRouteImport } from './routes/box.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,12 +41,18 @@ const BoxIndexRoute = BoxIndexRouteImport.update({
   path: '/box/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BoxSlugRoute = BoxSlugRouteImport.update({
+  id: '/box/$slug',
+  path: '/box/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/hund': typeof HundRoute
   '/katze': typeof KatzeRoute
   '/shop': typeof ShopRoute
+  '/box/$slug': typeof BoxSlugRoute
   '/box/': typeof BoxIndexRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/hund': typeof HundRoute
   '/katze': typeof KatzeRoute
   '/shop': typeof ShopRoute
+  '/box/$slug': typeof BoxSlugRoute
   '/box': typeof BoxIndexRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,15 @@ export interface FileRoutesById {
   '/hund': typeof HundRoute
   '/katze': typeof KatzeRoute
   '/shop': typeof ShopRoute
+  '/box/$slug': typeof BoxSlugRoute
   '/box/': typeof BoxIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/hund' | '/katze' | '/shop' | '/box/'
+  fullPaths: '/' | '/hund' | '/katze' | '/shop' | '/box/$slug' | '/box/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/hund' | '/katze' | '/shop' | '/box'
-  id: '__root__' | '/' | '/hund' | '/katze' | '/shop' | '/box/'
+  to: '/' | '/hund' | '/katze' | '/shop' | '/box/$slug' | '/box'
+  id: '__root__' | '/' | '/hund' | '/katze' | '/shop' | '/box/$slug' | '/box/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +85,7 @@ export interface RootRouteChildren {
   HundRoute: typeof HundRoute
   KatzeRoute: typeof KatzeRoute
   ShopRoute: typeof ShopRoute
+  BoxSlugRoute: typeof BoxSlugRoute
   BoxIndexRoute: typeof BoxIndexRoute
 }
 
@@ -116,6 +126,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BoxIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/box/$slug': {
+      id: '/box/$slug'
+      path: '/box/$slug'
+      fullPath: '/box/$slug'
+      preLoaderRoute: typeof BoxSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -124,6 +141,7 @@ const rootRouteChildren: RootRouteChildren = {
   HundRoute: HundRoute,
   KatzeRoute: KatzeRoute,
   ShopRoute: ShopRoute,
+  BoxSlugRoute: BoxSlugRoute,
   BoxIndexRoute: BoxIndexRoute,
 }
 export const routeTree = rootRouteImport
