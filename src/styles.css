@@ -5,6 +5,12 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
+ * SENIVIA design system
+ * Forest #183C34 · Cream #F5F0E7 · Sage #A9B9A5 · Taupe #B7A89A
+ * Anthracite #252A28 · Bronze #B58A52
+ */
+
+/*
  * Design system definition.
  *
  * The @theme inline block maps CSS custom properties to Tailwind utility
@@ -19,6 +25,14 @@
  */
 
 @theme inline {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-cream: var(--cream);
+  --color-sage: var(--sage);
+  --color-taupe: var(--taupe);
+  --color-bronze: var(--bronze);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -62,26 +76,34 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --radius: 0.25rem;
+
+  --forest: oklch(0.322 0.045 165.5);
+  --forest-deep: oklch(0.255 0.038 165.5);
+  --cream: oklch(0.957 0.017 88);
+  --sage: oklch(0.759 0.028 138);
+  --taupe: oklch(0.733 0.021 72);
+  --bronze: oklch(0.643 0.079 74);
+
+  --background: var(--cream);
+  --foreground: oklch(0.253 0.008 155);
+  --card: oklch(0.985 0.008 88);
+  --card-foreground: oklch(0.253 0.008 155);
+  --popover: oklch(0.985 0.008 88);
+  --popover-foreground: oklch(0.253 0.008 155);
+  --primary: var(--forest);
+  --primary-foreground: oklch(0.968 0.014 88);
+  --secondary: oklch(0.906 0.021 100);
+  --secondary-foreground: var(--forest);
+  --muted: oklch(0.918 0.017 95);
+  --muted-foreground: oklch(0.475 0.014 150);
+  --accent: var(--sage);
+  --accent-foreground: var(--forest-deep);
+  --destructive: oklch(0.516 0.163 25);
+  --destructive-foreground: oklch(0.97 0.01 88);
+  --border: oklch(0.878 0.017 95);
+  --input: oklch(0.878 0.017 95);
+  --ring: var(--sage);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -95,6 +117,10 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  --shadow-soft: 0 1px 2px oklch(0.255 0.038 165.5 / 4%), 0 12px 32px -12px oklch(0.255 0.038 165.5 / 12%);
+  --shadow-lift: 0 2px 4px oklch(0.255 0.038 165.5 / 6%), 0 24px 48px -20px oklch(0.255 0.038 165.5 / 18%);
+  --gradient-forest: linear-gradient(160deg, var(--forest) 0%, var(--forest-deep) 100%);
 }
 
 .dark {
@@ -140,5 +166,42 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  blockquote {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+@utility shadow-lift {
+  box-shadow: var(--shadow-lift);
+}
+
+@utility bg-gradient-forest {
+  background-image: var(--gradient-forest);
+}
+
+@utility rule-bronze {
+  width: 2.5rem;
+  height: 1px;
+  background-color: var(--bronze);
 }

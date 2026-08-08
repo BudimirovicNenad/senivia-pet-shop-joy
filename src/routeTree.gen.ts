@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BeraterRouteImport } from './routes/berater'
+import { Route as HundRouteImport } from './routes/hund'
+import { Route as KatzeRouteImport } from './routes/katze'
+import { Route as RatgeberRouteImport } from './routes/ratgeber'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as UeberUnsRouteImport } from './routes/ueber-uns'
+import { Route as WarenkorbRouteImport } from './routes/warenkorb'
+import { Route as BoxIndexRouteImport } from './routes/box.index'
+import { Route as BoxSlugRouteImport } from './routes/box.$slug'
+import { Route as ProduktSlugRouteImport } from './routes/produkt.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BeraterRoute = BeraterRouteImport.update({
+  id: '/berater',
+  path: '/berater',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HundRoute = HundRouteImport.update({
+  id: '/hund',
+  path: '/hund',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KatzeRoute = KatzeRouteImport.update({
+  id: '/katze',
+  path: '/katze',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RatgeberRoute = RatgeberRouteImport.update({
+  id: '/ratgeber',
+  path: '/ratgeber',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UeberUnsRoute = UeberUnsRouteImport.update({
+  id: '/ueber-uns',
+  path: '/ueber-uns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WarenkorbRoute = WarenkorbRouteImport.update({
+  id: '/warenkorb',
+  path: '/warenkorb',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BoxIndexRoute = BoxIndexRouteImport.update({
+  id: '/box/',
+  path: '/box/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BoxSlugRoute = BoxSlugRouteImport.update({
+  id: '/box/$slug',
+  path: '/box/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProduktSlugRoute = ProduktSlugRouteImport.update({
+  id: '/produkt/$slug',
+  path: '/produkt/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/berater': typeof BeraterRoute
+  '/hund': typeof HundRoute
+  '/katze': typeof KatzeRoute
+  '/ratgeber': typeof RatgeberRoute
+  '/shop': typeof ShopRoute
+  '/ueber-uns': typeof UeberUnsRoute
+  '/warenkorb': typeof WarenkorbRoute
+  '/box/$slug': typeof BoxSlugRoute
+  '/produkt/$slug': typeof ProduktSlugRoute
+  '/box/': typeof BoxIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/berater': typeof BeraterRoute
+  '/hund': typeof HundRoute
+  '/katze': typeof KatzeRoute
+  '/ratgeber': typeof RatgeberRoute
+  '/shop': typeof ShopRoute
+  '/ueber-uns': typeof UeberUnsRoute
+  '/warenkorb': typeof WarenkorbRoute
+  '/box/$slug': typeof BoxSlugRoute
+  '/produkt/$slug': typeof ProduktSlugRoute
+  '/box': typeof BoxIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/berater': typeof BeraterRoute
+  '/hund': typeof HundRoute
+  '/katze': typeof KatzeRoute
+  '/ratgeber': typeof RatgeberRoute
+  '/shop': typeof ShopRoute
+  '/ueber-uns': typeof UeberUnsRoute
+  '/warenkorb': typeof WarenkorbRoute
+  '/box/$slug': typeof BoxSlugRoute
+  '/produkt/$slug': typeof ProduktSlugRoute
+  '/box/': typeof BoxIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/berater'
+    | '/hund'
+    | '/katze'
+    | '/ratgeber'
+    | '/shop'
+    | '/ueber-uns'
+    | '/warenkorb'
+    | '/box/$slug'
+    | '/produkt/$slug'
+    | '/box/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/berater'
+    | '/hund'
+    | '/katze'
+    | '/ratgeber'
+    | '/shop'
+    | '/ueber-uns'
+    | '/warenkorb'
+    | '/box/$slug'
+    | '/produkt/$slug'
+    | '/box'
+  id:
+    | '__root__'
+    | '/'
+    | '/berater'
+    | '/hund'
+    | '/katze'
+    | '/ratgeber'
+    | '/shop'
+    | '/ueber-uns'
+    | '/warenkorb'
+    | '/box/$slug'
+    | '/produkt/$slug'
+    | '/box/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BeraterRoute: typeof BeraterRoute
+  HundRoute: typeof HundRoute
+  KatzeRoute: typeof KatzeRoute
+  RatgeberRoute: typeof RatgeberRoute
+  ShopRoute: typeof ShopRoute
+  UeberUnsRoute: typeof UeberUnsRoute
+  WarenkorbRoute: typeof WarenkorbRoute
+  BoxSlugRoute: typeof BoxSlugRoute
+  ProduktSlugRoute: typeof ProduktSlugRoute
+  BoxIndexRoute: typeof BoxIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +182,92 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/berater': {
+      id: '/berater'
+      path: '/berater'
+      fullPath: '/berater'
+      preLoaderRoute: typeof BeraterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hund': {
+      id: '/hund'
+      path: '/hund'
+      fullPath: '/hund'
+      preLoaderRoute: typeof HundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/katze': {
+      id: '/katze'
+      path: '/katze'
+      fullPath: '/katze'
+      preLoaderRoute: typeof KatzeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ratgeber': {
+      id: '/ratgeber'
+      path: '/ratgeber'
+      fullPath: '/ratgeber'
+      preLoaderRoute: typeof RatgeberRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ueber-uns': {
+      id: '/ueber-uns'
+      path: '/ueber-uns'
+      fullPath: '/ueber-uns'
+      preLoaderRoute: typeof UeberUnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/warenkorb': {
+      id: '/warenkorb'
+      path: '/warenkorb'
+      fullPath: '/warenkorb'
+      preLoaderRoute: typeof WarenkorbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/box/': {
+      id: '/box/'
+      path: '/box'
+      fullPath: '/box/'
+      preLoaderRoute: typeof BoxIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/box/$slug': {
+      id: '/box/$slug'
+      path: '/box/$slug'
+      fullPath: '/box/$slug'
+      preLoaderRoute: typeof BoxSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/produkt/$slug': {
+      id: '/produkt/$slug'
+      path: '/produkt/$slug'
+      fullPath: '/produkt/$slug'
+      preLoaderRoute: typeof ProduktSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BeraterRoute: BeraterRoute,
+  HundRoute: HundRoute,
+  KatzeRoute: KatzeRoute,
+  RatgeberRoute: RatgeberRoute,
+  ShopRoute: ShopRoute,
+  UeberUnsRoute: UeberUnsRoute,
+  WarenkorbRoute: WarenkorbRoute,
+  BoxSlugRoute: BoxSlugRoute,
+  ProduktSlugRoute: ProduktSlugRoute,
+  BoxIndexRoute: BoxIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

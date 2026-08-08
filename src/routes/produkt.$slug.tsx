@@ -1,0 +1,218 @@
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { useState } from "react";
+import { bundles, formatCHF, getProduct, needs, products } from "@/data/products";
+import { ProductCard } from "@/components/ProductCard";
+import { useCart } from "@/lib/cart";
+
+export const Route = createFileRoute("/produkt/$slug")({
+  loader: ({ params }) => {
+    const product = getProduct(params.slug);
+    if (!product) throw notFound();
+    return { slug: product.slug, name: product.name, tagline: product.tagline, brand: product.brand };
+  },
+  head: ({ loaderData }) => {
+    if (!loaderData) {
+      return {
+        meta: [
+          { title: "Produkt nicht gefunden — SENIVIA" },
+          { name: "robots", content: "noindex" },
+        ],
+      };
+    }
+    const title = `${loaderData.name} — ${loaderData.brand} | SENIVIA`;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: loaderData.tagline },
+        { property: "og:title", content: title },
+        { property: "og:description", content: loaderData.tagline },
+      ],
+    };
+  },
+  component: ProductDetail,
+});
+
+function ProductDetail() {
+  const { slug } = Route.useParams();
+  const product = getProduct(slug)!;
+  const { add } = useCart();
+  const [qty, setQty] = useState(1);
+
+  const speciesLabel =
+    product.species === "beide" ? "Für Hund und Katze" : product.species === "hund" ? "Für Hunde" : "Für Katzen";
+
+  const inBundles = bundles.filter((b) => b.productSlugs.includes(product.slug));
+  const related = products
+    .filter((p) => p.slug !== product.slug && p.needs.some((n) => product.needs.includes(n)))
+    .slice(0, 3);
+
+  return (
+    <div className="mx-auto max-w-6xl px-5 py-14">
+      <Link to="/shop" search={{}} className="text-[0.75rem] tracking-[0.14em] text-muted-foreground uppercase">
+        ← Alle Produkte
+      </Link>
+
+      <div className="mt-8 grid gap-12 lg:grid-cols-2">
+        <figure className="overflow-hidden rounded-sm bg-card shadow-soft">
+          <img
+            src={product.image}
+            alt={`${product.brand} ${product.name}`}
+            width={800}
+            height={800}
+            className="aspect-square w-full object-cover"
+          />
+        </figure>
+
+        <div>
+          <p className="eyebrow text-muted-foreground">{product.brand}</p>
+          <h1 className="mt-4 text-4xl leading-tight">{product.name}</h1>
+          <p className="mt-3 text-sm text-muted-foreground">{product.tagline}</p>
+
+          <div className="mt-5 flex flex-wrap gap-2 text-[0.7rem] tracking-[0.12em] uppercase">
+            <span className="rounded-sm bg-secondary px-3 py-1.5 text-secondary-foreground">
+              {speciesLabel}
+            </span>
+            <span className="rounded-sm bg-secondary px-3 py-1.5 text-secondary-foreground">
+              Senior-Lebensphase
+            </span>
+            <span className="rounded-sm bg-secondary px-3 py-1.5 text-secondary-foreground">
+              {product.size}
+            </span>
+          </div>
+
+          <p className="mt-6 text-sm text-muted-foreground">
+            {product.rating.toFixed(1)} / 5 · {product.reviews} Bewertungen
+          </p>
+
+          <p className="mt-6 text-2xl">{formatCHF(product.price)}</p>
+
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <div className="flex items-center rounded-sm border border-input">
+              <button
+                type="button"
+                aria-label="Menge verringern"
+                onClick={() => setQty((q) => Math.max(1, q - 1))}
+                className="px-4 py-3 text-muted-foreground"
+              >
+                −
+              </button>
+              <span className="w-8 text-center text-sm">{qty}</span>
+              <button
+                type="button"
+                aria-label="Menge erhöhen"
+                onClick={() => setQty((q) => q + 1)}
+                className="px-4 py-3 text-muted-foreground"
+              >
+                +
+              </button>
+            </div>
+            <button
+              type="button"
+              onClick={() => add("product", product.slug, qty)}
+              className="flex-1 rounded-sm bg-primary px-7 py-4 text-[0.8rem] tracking-[0.16em] text-primary-foreground uppercase transition-colors hover:bg-forest-deep sm:flex-none"
+            >
+              In den Warenkorb
+            </button>
+          </div>
+
+          <ul className="mt-8 space-y-2.5 border-t border-border pt-7 text-sm">
+            {product.benefits.map((benefit) => (
+              <li key={benefit} className="flex gap-3">
+                <span className="text-bronze">·</span>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="mt-16 grid gap-12 lg:grid-cols-[1.4fr_1fr]">
+        <div>
+          <h2 className="text-2xl">Beschreibung</h2>
+          <p className="mt-4 text-[0.98rem] leading-relaxed">{product.description}</p>
+
+          <h3 className="mt-10 text-xl">Anwendung</h3>
+          <p className="mt-3 text-[0.98rem] leading-relaxed text-muted-foreground">{product.usage}</p>
+
+          <h3 className="mt-10 text-xl">Wichtiger Hinweis</h3>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Ergänzungs- und Pflegeprodukte ersetzen keine tierärztliche Behandlung. Bei anhaltenden
+            Beschwerden besprechen Sie die Anwendung bitte mit Ihrer Tierärztin oder Ihrem Tierarzt.
+          </p>
+
+          <p className="mt-8 text-xs text-muted-foreground">
+            Produktinformationen des Herstellers:{" "}
+            <a
+              href={product.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-bronze underline-offset-4"
+            >
+              Datenblatt ansehen
+            </a>
+          </p>
+        </div>
+
+        <aside className="space-y-8">
+          <div className="rounded-sm border border-border bg-card p-6">
+            <h3 className="eyebrow text-muted-foreground">Bedarf</h3>
+            <ul className="mt-4 space-y-2 text-sm">
+              {product.needs.map((needId) => {
+                const need = needs.find((n) => n.id === needId)!;
+                return (
+                  <li key={needId}>
+                    <Link
+                      to="/shop"
+                      search={{ bedarf: needId }}
+                      className="underline decoration-sage underline-offset-4 hover:text-primary"
+                    >
+                      {need.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          {inBundles.length > 0 && (
+            <div className="rounded-sm border border-border bg-card p-6">
+              <h3 className="eyebrow text-muted-foreground">Teil dieser Box</h3>
+              <ul className="mt-4 space-y-2 text-sm">
+                {inBundles.map((bundle) => (
+                  <li key={bundle.slug}>
+                    <Link
+                      to="/box/$slug"
+                      params={{ slug: bundle.slug }}
+                      className="underline decoration-sage underline-offset-4 hover:text-primary"
+                    >
+                      {bundle.name} · {formatCHF(bundle.price)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="rounded-sm border border-border bg-card p-6 text-sm text-muted-foreground">
+            <h3 className="eyebrow text-muted-foreground">Versand & Rückgabe</h3>
+            <p className="mt-4 leading-relaxed">
+              Versand innerhalb der Schweiz, kostenlos ab CHF 79. Lieferung in 2–4 Werktagen.
+              Ungeöffnete Produkte können innerhalb von 14 Tagen zurückgegeben werden.
+            </p>
+          </div>
+        </aside>
+      </div>
+
+      {related.length > 0 && (
+        <section className="mt-20">
+          <h2 className="text-2xl">Passt dazu</h2>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {related.map((item) => (
+              <ProductCard key={item.slug} product={item} />
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  );
+}
