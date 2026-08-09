@@ -4,8 +4,6 @@ import {
   RotateCcw,
   ShieldCheck,
   HeartHandshake,
-  Bone,
-  Cat,
   Sparkles,
   Leaf,
   Check,
@@ -220,43 +218,82 @@ function Home() {
         </div>
       </div>
 
-      {/* Species */}
+      {/* Species — Lifestyle photography split */}
       <section className="mx-auto max-w-6xl px-5 pt-10 pb-2 sm:pt-20 sm:pb-4">
-        <div className="grid grid-cols-2 gap-3 sm:gap-5">
-          <Link
-            to="/hund"
-            className="group flex items-center justify-between gap-4 rounded-[1.5rem] bg-sage/25 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-sage/40 hover:shadow-lift sm:rounded-[1.75rem] sm:p-8"
-          >
-            <div>
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 sm:h-11 sm:w-11">
-                <Bone className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" strokeWidth={1.6} />
-              </span>
-              <h2 className="mt-3.5 text-xl leading-snug sm:mt-4 sm:text-2xl">Für ältere Hunde</h2>
-              <p className="mt-2 max-w-xs text-[0.8rem] leading-snug text-muted-foreground sm:text-sm">
-                Gelenke, Ernährung, Pflege und Zahnpflege.
-              </p>
-              <span className="mt-3.5 inline-flex items-center gap-1.5 text-[0.8rem] font-medium text-primary sm:mt-4">
-                Entdecken <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </span>
+        <Reveal className="mx-auto max-w-xl text-center">
+          <span className="eyebrow text-bronze">Spezialisierte Pflege</span>
+          <h2 className="mt-3 text-[1.7rem] leading-tight font-serif sm:text-4xl">
+            Für Ihren treuen Begleiter
+          </h2>
+        </Reveal>
+
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:gap-6">
+          {/* Dog Card — large lifestyle photo */}
+          <Reveal delay={100}>
+            <Link
+              to="/hund"
+              className="group relative isolate block overflow-hidden rounded-[1.75rem] bg-white shadow-xl shadow-primary/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lift sm:rounded-[2.25rem]"
+            >
+              <div className="aspect-[4/5] sm:aspect-[16/9] lg:aspect-[21/9]">
+                <img
+                  src={heroImage}
+                  alt="Glücklicher älterer Hund in warmem Licht"
+                  width={1600}
+                  height={1104}
+                  className="absolute inset-0 -z-10 h-full w-full object-cover object-[60%_center] transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <div className="absolute inset-0 -z-10 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
+              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
+                <div className="inline-flex items-center gap-2 mb-3">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/20 backdrop-blur-md">
+                    <PawPrint className="h-3.5 w-3.5 text-white" strokeWidth={2} />
+                  </span>
+                  <span className="text-[11px] font-medium uppercase tracking-widest text-white/90">
+                    Verfügbar
+                  </span>
+                </div>
+                <h3 className="font-serif text-2xl font-medium text-white sm:text-3xl">
+                  Für ältere Hunde
+                </h3>
+                <p className="mt-2 max-w-md text-sm leading-relaxed text-white/80">
+                  Gelenke, Ernährung, Pflege und spezialisierte Zahnpflege für Senioren.
+                </p>
+                <span className="mt-5 inline-flex items-center gap-2 self-start rounded-xl bg-white px-5 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:bg-cream group-hover:translate-x-1">
+                  Entdecken
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </Link>
+          </Reveal>
+
+          {/* Cat Card — coming soon teaser */}
+          <Reveal delay={200}>
+            <div className="relative flex items-center gap-4 overflow-hidden rounded-[1.25rem] border border-border bg-secondary p-4 opacity-90 sm:gap-6 sm:rounded-[1.75rem] sm:p-6">
+              <div className="shrink-0 w-20 h-20 overflow-hidden rounded-xl bg-white grayscale sm:h-28 sm:w-28">
+                <img
+                  src={catImage}
+                  alt="Ältere Katze in Ruhe"
+                  width={400}
+                  height={400}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="flex-1 space-y-1">
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="font-serif text-lg font-medium text-primary sm:text-xl">
+                    Für ältere Katzen
+                  </h3>
+                  <span className="rounded-full bg-primary px-2 py-1 text-[10px] font-medium uppercase tracking-tighter text-primary-foreground">
+                    Demnächst
+                  </span>
+                </div>
+                <p className="text-xs leading-tight text-muted-foreground sm:text-sm">
+                  Milde Rezepturen und stressfreie Pflege für Katzen-Senioren.
+                </p>
+              </div>
             </div>
-          </Link>
-          <Link
-            to="/katze"
-            className="group flex items-center justify-between gap-4 rounded-[1.5rem] bg-taupe/25 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-taupe/40 hover:shadow-lift sm:rounded-[1.75rem] sm:p-8"
-          >
-            <div>
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 sm:h-11 sm:w-11">
-                <Cat className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" strokeWidth={1.6} />
-              </span>
-              <h2 className="mt-3.5 text-xl leading-snug sm:mt-4 sm:text-2xl">Für ältere Katzen</h2>
-              <p className="mt-2 max-w-xs text-[0.8rem] leading-snug text-muted-foreground sm:text-sm">
-                Milde Rezepturen, kleine Mengen, ohne Stress.
-              </p>
-              <span className="mt-3.5 inline-flex items-center gap-1.5 text-[0.8rem] font-medium text-primary sm:mt-4">
-                Entdecken <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </span>
-            </div>
-          </Link>
+          </Reveal>
         </div>
       </section>
 
