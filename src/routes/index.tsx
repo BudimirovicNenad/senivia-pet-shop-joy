@@ -258,20 +258,11 @@ function Home() {
       </section>
 
       {/* Bestseller */}
-      <section className="bg-card/60 py-20">
+      <section className="py-20">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="eyebrow text-bronze">Beliebt bei unseren Kundinnen</p>
-              <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">Häufig gewählt</h2>
-            </div>
-            <Link
-              to="/shop"
-              search={{}}
-              className="inline-flex items-center gap-2 text-[0.82rem] font-medium text-primary"
-            >
-              Alle Produkte <ArrowRight className="h-4 w-4" />
-            </Link>
+          <div className="mx-auto max-w-xl text-center">
+            <p className="eyebrow text-bronze">Beliebt bei unseren Kundinnen</p>
+            <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">Häufig gewählt</h2>
           </div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {bestsellers.slice(0, 4).map((product, i) => (
@@ -281,6 +272,15 @@ function Home() {
                 badge={i === 0 ? "Bestseller" : undefined}
               />
             ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              to="/shop"
+              search={{}}
+              className="inline-flex items-center gap-2 rounded-full border border-primary/25 px-7 py-3.5 text-[0.82rem] font-medium text-primary transition-colors hover:border-primary"
+            >
+              Alle Produkte ansehen <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
