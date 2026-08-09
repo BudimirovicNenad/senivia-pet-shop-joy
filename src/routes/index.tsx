@@ -53,6 +53,15 @@ const needTint: Record<string, string> = {
   vitalitaet: "bg-secondary/70",
 };
 
+const needIcon: Record<string, typeof Leaf> = {
+  mobilitaet: PawPrint,
+  ernaehrung: Utensils,
+  verdauung: Leaf,
+  zahnpflege: Smile,
+  pflege: Droplets,
+  vitalitaet: Sparkles,
+};
+
 const reviews = [
   {
     quote:
@@ -240,11 +249,16 @@ function Home() {
               search={{ bedarf: need.id }}
               className="group rounded-[1.5rem] border border-border/70 bg-card p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift"
             >
-              <span
-                className={`inline-flex h-11 w-11 items-center justify-center rounded-full text-primary ${needTint[need.id] ?? "bg-secondary"}`}
-              >
-                <Sparkles className="h-5 w-5" strokeWidth={1.6} />
-              </span>
+              {(() => {
+                const Icon = needIcon[need.id] ?? Sparkles;
+                return (
+                  <span
+                    className={`inline-flex h-11 w-11 items-center justify-center rounded-full text-primary ${needTint[need.id] ?? "bg-secondary"}`}
+                  >
+                    <Icon className="h-5 w-5" strokeWidth={1.6} />
+                  </span>
+                );
+              })()}
               <h3 className="mt-4 text-xl">{need.label}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {need.description}
