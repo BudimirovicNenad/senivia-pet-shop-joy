@@ -216,10 +216,10 @@ function Home() {
         <div className="grid grid-cols-2 gap-3 sm:gap-5">
           <Link
             to="/hund"
-            className="group flex items-center justify-between gap-4 rounded-[1.5rem] bg-sage/25 p-5 transition-colors hover:bg-sage/40 sm:rounded-[1.75rem] sm:p-8"
+            className="group flex items-center justify-between gap-4 rounded-[1.5rem] bg-sage/25 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-sage/40 hover:shadow-lift sm:rounded-[1.75rem] sm:p-8"
           >
             <div>
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary sm:h-11 sm:w-11">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 sm:h-11 sm:w-11">
                 <Bone className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" strokeWidth={1.6} />
               </span>
               <h2 className="mt-3.5 text-xl leading-snug sm:mt-4 sm:text-2xl">Für ältere Hunde</h2>
@@ -233,10 +233,10 @@ function Home() {
           </Link>
           <Link
             to="/katze"
-            className="group flex items-center justify-between gap-4 rounded-[1.5rem] bg-taupe/25 p-5 transition-colors hover:bg-taupe/40 sm:rounded-[1.75rem] sm:p-8"
+            className="group flex items-center justify-between gap-4 rounded-[1.5rem] bg-taupe/25 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-taupe/40 hover:shadow-lift sm:rounded-[1.75rem] sm:p-8"
           >
             <div>
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary sm:h-11 sm:w-11">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 sm:h-11 sm:w-11">
                 <Cat className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" strokeWidth={1.6} />
               </span>
               <h2 className="mt-3.5 text-xl leading-snug sm:mt-4 sm:text-2xl">Für ältere Katzen</h2>
