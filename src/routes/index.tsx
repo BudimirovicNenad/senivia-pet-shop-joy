@@ -435,16 +435,15 @@ function Home() {
           <p className="eyebrow text-bronze">Erfahrungen</p>
           <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">Was Kundinnen berichten</h2>
           <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-            {reviews.map((review) => (
-              <figure
-                key={review.author}
-                className="rounded-[1.25rem] border border-border/70 bg-card p-5 shadow-soft sm:rounded-[1.5rem] sm:p-7"
-              >
+            {reviews.map((review, i) => (
+              <Reveal key={review.author} delay={i * 100} className="h-full">
+              <figure className="h-full rounded-[1.25rem] border border-border/70 bg-card p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift sm:rounded-[1.5rem] sm:p-7">
                 <blockquote className="text-[1rem] leading-relaxed sm:text-lg">„{review.quote}“</blockquote>
                 <figcaption className="mt-4 text-[0.8rem] text-muted-foreground sm:mt-5 sm:text-sm">
                   {review.author} · {review.pet}
                 </figcaption>
               </figure>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -455,11 +454,9 @@ function Home() {
         <p className="eyebrow text-bronze">Ratgeber</p>
         <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">Wissen für die besten Jahre</h2>
         <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-          {articles.map((article) => (
-            <article
-              key={article.title}
-              className="rounded-[1.25rem] bg-secondary/60 p-5 transition-transform hover:-translate-y-1 sm:rounded-[1.5rem] sm:p-7"
-            >
+          {articles.map((article, i) => (
+            <Reveal key={article.title} delay={i * 100} className="h-full">
+            <article className="group h-full rounded-[1.25rem] bg-secondary/60 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-secondary sm:rounded-[1.5rem] sm:p-7">
               <p className="eyebrow text-bronze">{article.kicker}</p>
               <h3 className="mt-3 text-[1.1rem] leading-snug sm:text-xl">{article.title}</h3>
               <p className="mt-2.5 text-[0.82rem] leading-relaxed text-muted-foreground sm:mt-3 sm:text-sm">{article.text}</p>
@@ -467,9 +464,10 @@ function Home() {
                 to="/ratgeber"
                 className="mt-5 inline-flex items-center gap-1.5 text-[0.8rem] font-medium text-primary"
               >
-                Lesen <ArrowRight className="h-4 w-4" />
+                Lesen <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </article>
+            </Reveal>
           ))}
         </div>
       </section>
