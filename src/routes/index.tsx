@@ -219,7 +219,7 @@ function Home() {
       </div>
 
       {/* Species — Lifestyle photography split 1x2 */}
-      <section className="mx-auto max-w-6xl px-5 pt-10 pb-2 sm:pt-20 sm:pb-4">
+      <section className="mx-auto max-w-6xl px-5 py-10 sm:py-16">
         <Reveal className="mx-auto max-w-xl text-center">
           <span className="eyebrow text-bronze">Spezialisierte Pflege</span>
           <h2 className="mt-3 text-[1.7rem] leading-tight font-serif sm:text-4xl">
@@ -304,7 +304,7 @@ function Home() {
       </section>
 
       {/* Needs */}
-      <section className="mt-10 bg-secondary/45 bg-grain py-12 sm:mt-16 sm:py-20">
+      <section className="bg-secondary/45 bg-grain py-10 sm:py-16">
         <div className="mx-auto max-w-6xl px-5">
         <Reveal className="mx-auto max-w-xl text-center">
           <p className="eyebrow text-bronze">Nach Bedarf einkaufen</p>
@@ -348,7 +348,7 @@ function Home() {
       </section>
 
       {/* Bestseller */}
-      <section className="py-12 sm:pt-20 sm:pb-8">
+      <section className="py-10 sm:py-16">
         <div className="mx-auto max-w-6xl px-5">
           <Reveal className="mx-auto max-w-xl text-center">
             <p className="eyebrow text-bronze">Beliebt bei unseren Kundinnen</p>
@@ -374,7 +374,7 @@ function Home() {
       </section>
 
       {/* Boxen */}
-      <section className="mx-auto max-w-6xl px-5 pt-6 pb-12 sm:pt-10 sm:pb-20">
+      <section className="mx-auto max-w-6xl px-5 py-10 sm:py-16">
         <p className="eyebrow text-bronze">SENIVIA Box</p>
         <h2 className="mt-3 max-w-xl text-[1.7rem] leading-tight sm:text-4xl">
           Drei Boxen, sorgfältig zusammengestellt.
@@ -419,7 +419,7 @@ function Home() {
       </section>
 
       {/* Berater */}
-      <section className="mx-auto max-w-6xl px-5 pb-12 sm:pb-20">
+      <section className="mx-auto max-w-6xl px-5 py-10 sm:py-16">
         <div className="flex flex-col items-start gap-6 rounded-[1.5rem] bg-gradient-forest px-6 py-9 text-primary-foreground sm:gap-8 sm:rounded-[2rem] sm:px-8 sm:py-12 lg:flex-row lg:items-center lg:justify-between lg:px-12">
           <div>
             <p className="eyebrow text-primary-foreground/60">Produktberater</p>
@@ -441,7 +441,7 @@ function Home() {
       </section>
 
       {/* Werte + Katze */}
-      <section className="mx-auto max-w-6xl px-5 pb-12 sm:pb-20">
+      <section className="mx-auto max-w-6xl px-5 py-10 sm:py-16">
         <div className="grid items-center gap-7 sm:gap-10 lg:grid-cols-2">
           <img
             src={catImage}
@@ -482,7 +482,7 @@ function Home() {
       </section>
 
       {/* Erfahrungen */}
-      <section className="bg-card/60 py-12 sm:py-20">
+      <section className="bg-card/60 py-10 sm:py-16">
         <div className="mx-auto max-w-6xl px-5">
           <p className="eyebrow text-bronze">Erfahrungen</p>
           <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">Was Kundinnen berichten</h2>
@@ -502,7 +502,7 @@ function Home() {
       </section>
 
       {/* Ratgeber */}
-      <section className="mx-auto max-w-6xl px-5 py-12 sm:py-20">
+      <section className="mx-auto max-w-6xl px-5 py-10 sm:py-16">
         <p className="eyebrow text-bronze">Ratgeber</p>
         <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">Wissen für die besten Jahre</h2>
         <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
@@ -566,7 +566,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-gradient-forest pt-14 pb-14 text-primary-foreground sm:pt-20 sm:pb-20">
+      <section className="bg-gradient-forest py-10 text-primary-foreground sm:py-16">
         <Reveal className="mx-auto max-w-2xl px-5 text-center">
           <p className="eyebrow text-primary-foreground/60">Newsletter</p>
           <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">
