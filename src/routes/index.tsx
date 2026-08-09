@@ -4,8 +4,6 @@ import {
   RotateCcw,
   ShieldCheck,
   HeartHandshake,
-  Bone,
-  Cat,
   Sparkles,
   Leaf,
   Check,
