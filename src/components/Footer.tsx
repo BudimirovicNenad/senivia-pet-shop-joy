@@ -3,7 +3,7 @@ import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-gradient-forest text-primary-foreground">
+    <footer className="bg-gradient-forest text-primary-foreground">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Logo />
