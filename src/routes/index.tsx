@@ -8,6 +8,7 @@ import {
   Cat,
   Sparkles,
   Leaf,
+  Check,
   ArrowRight,
 } from "lucide-react";
 import heroImage from "@/assets/hero-senior-dog.jpg";
