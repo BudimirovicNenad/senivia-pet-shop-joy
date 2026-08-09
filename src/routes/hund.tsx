@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImage from "@/assets/hero-senior-dog.jpg";
 import { ProductCard } from "@/components/ProductCard";
+import { Reveal } from "@/components/Reveal";
 import { products } from "@/data/products";
 
 export const Route = createFileRoute("/hund")({
@@ -29,7 +30,7 @@ function DogPage() {
     <div>
       <section className="bg-gradient-forest text-primary-foreground">
         <div className="mx-auto grid max-w-6xl items-center gap-7 px-5 py-12 sm:gap-10 sm:py-16 lg:grid-cols-2">
-          <div>
+          <Reveal>
             <p className="eyebrow text-primary-foreground/60">Hund</p>
             <h1 className="mt-4 text-[2.1rem] leading-tight sm:text-5xl">
               Wenn die Spaziergänge kürzer werden.
@@ -40,23 +41,29 @@ function DogPage() {
               empfindlicher auf Futter, das Fell wird stumpfer. Für genau diese Themen haben wir
               unser Sortiment zusammengestellt.
             </p>
-          </div>
+          </Reveal>
+          <Reveal delay={140} className="overflow-hidden rounded-[1.25rem] sm:rounded-[1.75rem]">
           <img
             src={heroImage}
             alt="Älterer Golden Retriever ruht neben seiner Besitzerin"
             loading="lazy"
             width={1600}
             height={1104}
-            className="aspect-[4/3] w-full rounded-[1.25rem] object-cover shadow-lift sm:aspect-auto sm:rounded-[1.75rem]"
+            className="aspect-[4/3] w-full rounded-[1.25rem] object-cover shadow-lift transition-transform duration-[900ms] ease-out hover:scale-[1.04] sm:aspect-auto sm:rounded-[1.75rem]"
           />
+          </Reveal>
         </div>
       </section>
 
       <div className="mx-auto max-w-6xl px-5 py-12 sm:py-16">
-        <h2 className="text-xl sm:text-2xl">Passende Produkte für Hunde</h2>
+        <Reveal>
+          <h2 className="text-xl sm:text-2xl">Passende Produkte für Hunde</h2>
+        </Reveal>
         <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-6 lg:grid-cols-3">
-          {dogProducts.map((product) => (
-            <ProductCard key={product.slug} product={product} />
+          {dogProducts.map((product, i) => (
+            <Reveal key={product.slug} delay={(i % 3) * 90} className="h-full">
+              <ProductCard product={product} />
+            </Reveal>
           ))}
         </div>
       </div>

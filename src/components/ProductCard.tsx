@@ -13,7 +13,7 @@ export function ProductCard({
   const { add } = useCart();
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-[1.25rem] border border-border/70 bg-card p-2 shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift sm:rounded-3xl sm:p-3">
+    <article className="group flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-border/70 bg-card p-2 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/40 hover:shadow-lift sm:rounded-3xl sm:p-3">
       <div className="relative overflow-hidden rounded-[1rem] bg-secondary/40 sm:rounded-2xl">
         {badge && (
           <span className="absolute top-2 left-2 z-10 rounded-full bg-primary px-2.5 py-1 text-[0.6rem] tracking-wide text-primary-foreground uppercase sm:top-3 sm:left-3 sm:px-3 sm:text-[0.68rem]">
@@ -27,7 +27,7 @@ export function ProductCard({
             loading="lazy"
             width={800}
             height={800}
-            className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+            className="aspect-square w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.07]"
           />
         </Link>
       </div>
@@ -67,7 +67,7 @@ export function ProductCard({
             type="button"
             onClick={() => add("product", product.slug)}
             aria-label={`${product.name} in den Warenkorb`}
-            className="inline-flex h-10 w-full shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-[0.74rem] font-medium text-primary-foreground transition-colors hover:bg-forest-deep sm:h-11 sm:w-11"
+            className="inline-flex h-10 w-full shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-[0.74rem] font-medium text-primary-foreground transition-all duration-300 hover:bg-forest-deep hover:shadow-lift sm:h-11 sm:w-11 sm:group-hover:scale-105"
           >
             <ShoppingBag className="h-4 w-4 shrink-0 text-primary-foreground sm:h-[1.05rem] sm:w-[1.05rem]" />
             <span className="sm:hidden">In den Warenkorb</span>
