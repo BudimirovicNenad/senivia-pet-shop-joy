@@ -435,20 +435,36 @@ function Home() {
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="mx-auto max-w-6xl px-5 pb-20">
-        <div className="grid items-center gap-8 rounded-[2rem] bg-sage/25 px-8 py-12 lg:grid-cols-2 lg:px-12">
-          <div>
-            <p className="eyebrow text-bronze">Newsletter</p>
-            <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">
-              Wertvolle Hinweise für die besten Jahre
-            </h2>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-              Etwa einmal im Monat: Pflegehinweise, neue Produkte und ehrliche Empfehlungen.
-            </p>
-          </div>
+      {/* Warum SENIVIA */}
+      <section className="border-y border-border bg-card">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-10 gap-y-4 px-5 py-8">
+          <h2 className="text-2xl">Warum SENIVIA</h2>
+          {[
+            "Sorgfältig ausgewählt",
+            "Versand aus der Schweiz",
+            "Verständlich erklärt",
+            "Persönliche Beratung",
+          ].map((item) => (
+            <span key={item} className="flex items-center gap-2 text-sm text-foreground/80">
+              <Check className="h-4 w-4 text-bronze" strokeWidth={2} />
+              {item}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Newsletter — Forest-Band */}
+      <section className="bg-gradient-forest py-20 text-primary-foreground">
+        <div className="mx-auto max-w-2xl px-5 text-center">
+          <p className="eyebrow text-primary-foreground/60">Newsletter</p>
+          <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">
+            Wertvolle Hinweise für die besten Jahre
+          </h2>
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-primary-foreground/75">
+            Etwa einmal im Monat: Pflegehinweise, neue Produkte und ehrliche Empfehlungen.
+          </p>
           <form
-            className="flex flex-col gap-3 sm:flex-row"
+            className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
             onSubmit={(event) => event.preventDefault()}
           >
             <label htmlFor="newsletter-email" className="sr-only">
@@ -459,11 +475,11 @@ function Home() {
               type="email"
               required
               placeholder="Ihre E-Mail-Adresse"
-              className="flex-1 rounded-full border border-border bg-card px-5 py-4 text-sm outline-none focus:border-sage"
+              className="flex-1 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-5 py-4 text-sm text-primary-foreground outline-none placeholder:text-primary-foreground/55 focus:border-bronze"
             />
             <button
               type="submit"
-              className="rounded-full bg-primary px-7 py-4 text-[0.85rem] font-medium text-primary-foreground transition-colors hover:bg-forest-deep"
+              className="rounded-full bg-cream px-7 py-4 text-[0.85rem] font-medium text-primary transition-opacity hover:opacity-90"
             >
               Anmelden
             </button>
