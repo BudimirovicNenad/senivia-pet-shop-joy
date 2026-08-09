@@ -76,7 +76,7 @@
 }
 
 :root {
-  --radius: 0.25rem;
+  --radius: 0.9rem;
 
   --forest: oklch(0.322 0.045 165.5);
   --forest-deep: oklch(0.255 0.038 165.5);
