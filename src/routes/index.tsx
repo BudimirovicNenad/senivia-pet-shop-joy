@@ -298,17 +298,15 @@ function Home() {
       {/* Bestseller */}
       <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="mx-auto max-w-xl text-center">
+          <Reveal className="mx-auto max-w-xl text-center">
             <p className="eyebrow text-bronze">Beliebt bei unseren Kundinnen</p>
             <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">Häufig gewählt</h2>
-          </div>
+          </Reveal>
           <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-6 lg:grid-cols-4">
             {bestsellers.slice(0, 4).map((product, i) => (
-              <ProductCard
-                key={product.slug}
-                product={product}
-                badge={i === 0 ? "Bestseller" : undefined}
-              />
+              <Reveal key={product.slug} delay={i * 90} className="h-full">
+                <ProductCard product={product} badge={i === 0 ? "Bestseller" : undefined} />
+              </Reveal>
             ))}
           </div>
           <div className="mt-8 text-center sm:mt-10">
@@ -333,21 +331,23 @@ function Home() {
           Jede Box vereint vier Produkte, die zusammen wirken – als Geschenk oder als Einstieg.
         </p>
         <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-          {bundles.map((bundle) => (
+          {bundles.map((bundle, i) => (
+            <Reveal key={bundle.slug} delay={i * 110} className="h-full">
             <Link
-              key={bundle.slug}
               to="/box/$slug"
               params={{ slug: bundle.slug }}
-              className="group overflow-hidden rounded-[1.75rem] border border-border/70 bg-card p-3 shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift"
+              className="group block h-full overflow-hidden rounded-[1.75rem] border border-border/70 bg-card p-3 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/40 hover:shadow-lift"
             >
+              <div className="overflow-hidden rounded-2xl">
               <img
                 src={bundle.image}
                 alt={bundle.name}
                 loading="lazy"
                 width={1200}
                 height={900}
-                className="aspect-[4/3] w-full rounded-2xl object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                className="aspect-[4/3] w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.07]"
               />
+              </div>
               <div className="px-3 pt-4 pb-2 sm:px-4 sm:pt-5 sm:pb-3">
                 <h3 className="text-lg leading-snug sm:text-xl">{bundle.name}</h3>
                 <p className="mt-2 text-[0.82rem] leading-relaxed text-muted-foreground sm:text-sm">
@@ -361,6 +361,7 @@ function Home() {
                 </p>
               </div>
             </Link>
+            </Reveal>
           ))}
         </div>
       </section>
