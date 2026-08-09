@@ -9,6 +9,10 @@ import {
   Sparkles,
   Leaf,
   Check,
+  PawPrint,
+  Utensils,
+  Smile,
+  Droplets,
   ArrowRight,
 } from "lucide-react";
 import heroImage from "@/assets/hero-senior-dog.jpg";
