@@ -111,71 +111,71 @@ function Home() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative bg-secondary/50">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 pt-14 pb-28 lg:grid-cols-[1.05fr_1fr] lg:pt-20">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-card px-4 py-2 text-[0.78rem] text-primary shadow-soft">
+      {/* Hero — full-bleed Foto mit dunklem Verlauf */}
+      <section className="relative isolate overflow-hidden">
+        <img
+          src={heroImage}
+          alt="Ältere Golden-Retriever-Hündin liegt entspannt neben ihrer Besitzerin"
+          width={1600}
+          height={1104}
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-[65%_center]"
+        />
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(100deg, oklch(0.255 0.038 165.5 / 92%) 0%, oklch(0.255 0.038 165.5 / 72%) 42%, oklch(0.255 0.038 165.5 / 18%) 78%)",
+          }}
+        />
+        <div className="mx-auto max-w-6xl px-5 py-24 sm:py-32 lg:py-40">
+          <div className="max-w-xl text-primary-foreground">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-4 py-2 text-[0.74rem] tracking-[0.12em] uppercase backdrop-blur">
               <Leaf className="h-4 w-4 text-bronze" />
-              Schweizer Premium-Auswahl für Senioren
+              Für Hunde und Katzen ab ca. 7 Jahren
             </span>
-            <h1 className="mt-6 text-[2.7rem] leading-[1.06] sm:text-5xl lg:text-[3.6rem]">
-              Für noch viele{" "}
-              <span className="text-bronze">schöne Jahre</span> mit dir.
+            <h1 className="mt-7 text-[2.6rem] leading-[1.03] font-medium sm:text-[3.4rem] lg:text-[4rem]">
+              Für noch viele
+              <br />
+              schöne Jahre mit dir.
             </h1>
-            <p className="mt-6 max-w-md text-[1.02rem] leading-relaxed text-muted-foreground">
+            <p className="mt-6 max-w-md text-[1.02rem] leading-relaxed text-primary-foreground/80">
               Sorgfältig ausgewählte Produkte für mehr Wohlbefinden, Komfort und Lebensqualität im
-              höheren Alter – für Hunde und Katzen.
+              höheren Alter.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-9 flex flex-wrap gap-3">
               <Link
                 to="/box"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-[0.85rem] font-medium text-primary-foreground transition-colors hover:bg-forest-deep"
+                className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-4 text-[0.85rem] font-medium text-primary transition-opacity hover:opacity-90"
               >
                 SENIVIA Box entdecken
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                to="/berater"
-                className="rounded-full border border-primary/25 bg-card px-7 py-4 text-[0.85rem] font-medium text-primary transition-colors hover:border-primary"
+                to="/shop"
+                search={{}}
+                className="rounded-full border border-primary-foreground/45 px-7 py-4 text-[0.85rem] font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
               >
-                Produkt finden
+                Alle Produkte
               </Link>
             </div>
           </div>
-          <div className="relative">
-            <img
-              src={heroImage}
-              alt="Ältere Golden-Retriever-Hündin liegt entspannt neben ihrer Besitzerin auf dem Sofa"
-              width={1600}
-              height={1104}
-              className="w-full rounded-[2rem] object-cover shadow-lift"
-            />
-            <div className="absolute -bottom-6 -left-4 hidden rounded-2xl bg-card px-5 py-4 shadow-lift sm:block">
-              <p className="text-[0.7rem] tracking-[0.16em] text-muted-foreground uppercase">
-                Weil sie das Beste verdienen
-              </p>
-              <p className="mt-1 text-lg">12 Produkte · 3 Boxen</p>
-            </div>
-          </div>
         </div>
-
       </section>
 
-      {/* Service bar */}
-      <div className="relative z-10 mx-auto -mt-16 max-w-6xl px-5">
-        <div className="grid gap-6 rounded-[1.75rem] border border-border/70 bg-card px-6 py-7 shadow-soft sm:grid-cols-2 lg:grid-cols-4">
-            {service.map((item) => (
-              <div key={item.title} className="flex items-center gap-3.5">
-                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sage/25 text-primary">
-                  <item.icon className="h-5 w-5" strokeWidth={1.6} />
-                </span>
-                <div>
-                  <p className="text-sm font-medium">{item.title}</p>
-                  <p className="text-xs text-muted-foreground">{item.text}</p>
-                </div>
+      {/* Trust-Streifen */}
+      <div className="border-b border-border bg-card">
+        <div className="mx-auto grid max-w-6xl gap-5 px-5 py-7 sm:grid-cols-2 lg:grid-cols-4">
+          {service.map((item) => (
+            <div key={item.title} className="flex items-center gap-3.5">
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sage/25 text-primary">
+                <item.icon className="h-[1.15rem] w-[1.15rem]" strokeWidth={1.6} />
+              </span>
+              <div>
+                <p className="text-sm font-medium">{item.title}</p>
+                <p className="text-xs text-muted-foreground">{item.text}</p>
               </div>
-            ))}
+            </div>
+          ))}
         </div>
       </div>
 
