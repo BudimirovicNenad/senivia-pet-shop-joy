@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import catImage from "@/assets/cat-senior.jpg";
 import { ProductCard } from "@/components/ProductCard";
+import { Reveal } from "@/components/Reveal";
 import { products } from "@/data/products";
 
 export const Route = createFileRoute("/katze")({
@@ -29,7 +30,7 @@ function CatPage() {
     <div>
       <section className="bg-gradient-forest text-primary-foreground">
         <div className="mx-auto grid max-w-6xl items-center gap-7 px-5 py-12 sm:gap-10 sm:py-16 lg:grid-cols-2">
-          <div>
+          <Reveal>
             <p className="eyebrow text-primary-foreground/60">Katze</p>
             <h1 className="mt-4 text-[2.1rem] leading-tight sm:text-5xl">
               Katzen zeigen wenig. Umso genauer schauen wir hin.
@@ -40,23 +41,29 @@ function CatPage() {
               Älterwerdens leise. Unsere Auswahl setzt auf milde Rezepturen und Anwendungen ohne
               Stress.
             </p>
-          </div>
+          </Reveal>
+          <Reveal delay={140} className="overflow-hidden rounded-[1.25rem] sm:rounded-[1.75rem]">
           <img
             src={catImage}
             alt="Ältere getigerte Katze auf einem cremefarbenen Sessel"
             loading="lazy"
             width={1200}
             height={900}
-            className="aspect-[4/3] w-full rounded-[1.25rem] object-cover shadow-lift sm:aspect-auto sm:rounded-[1.75rem]"
+            className="aspect-[4/3] w-full rounded-[1.25rem] object-cover shadow-lift transition-transform duration-[900ms] ease-out hover:scale-[1.04] sm:aspect-auto sm:rounded-[1.75rem]"
           />
+          </Reveal>
         </div>
       </section>
 
       <div className="mx-auto max-w-6xl px-5 py-12 sm:py-16">
-        <h2 className="text-xl sm:text-2xl">Passende Produkte für Katzen</h2>
+        <Reveal>
+          <h2 className="text-xl sm:text-2xl">Passende Produkte für Katzen</h2>
+        </Reveal>
         <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-6 lg:grid-cols-3">
-          {catProducts.map((product) => (
-            <ProductCard key={product.slug} product={product} />
+          {catProducts.map((product, i) => (
+            <Reveal key={product.slug} delay={(i % 3) * 90} className="h-full">
+              <ProductCard product={product} />
+            </Reveal>
           ))}
         </div>
       </div>
