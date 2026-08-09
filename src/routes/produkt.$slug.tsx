@@ -8,7 +8,18 @@ export const Route = createFileRoute("/produkt/$slug")({
   loader: ({ params }) => {
     const product = getProduct(params.slug);
     if (!product) throw notFound();
-    return { slug: product.slug, name: product.name, tagline: product.tagline, brand: product.brand };
+    return {
+      slug: product.slug,
+      name: product.name,
+      tagline: product.tagline,
+      brand: product.brand,
+      price: product.price,
+      image: product.image,
+      description: product.description,
+      size: product.size,
+      rating: product.rating,
+      reviews: product.reviews,
+    };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -20,12 +31,56 @@ export const Route = createFileRoute("/produkt/$slug")({
       };
     }
     const title = `${loaderData.name} — ${loaderData.brand} | SENIVIA`;
+    const url = `/produkt/${loaderData.slug}`;
+    const description = `${loaderData.tagline}. ${loaderData.description}`.slice(0, 155);
     return {
       meta: [
         { title },
-        { name: "description", content: loaderData.tagline },
+        { name: "description", content: description },
         { property: "og:title", content: title },
-        { property: "og:description", content: loaderData.tagline },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: url },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: loaderData.name,
+            description: loaderData.description,
+            image: loaderData.image,
+            sku: loaderData.slug,
+            size: loaderData.size,
+            brand: { "@type": "Brand", name: loaderData.brand },
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: loaderData.rating,
+              reviewCount: loaderData.reviews,
+            },
+            offers: {
+              "@type": "Offer",
+              price: loaderData.price.toFixed(2),
+              priceCurrency: "CHF",
+              availability: "https://schema.org/InStock",
+              url,
+            },
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Shop", item: "/shop" },
+              { "@type": "ListItem", position: 2, name: loaderData.name, item: url },
+            ],
+          }),
+        },
       ],
     };
   },
