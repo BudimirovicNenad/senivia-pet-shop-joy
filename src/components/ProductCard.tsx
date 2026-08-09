@@ -3,7 +3,13 @@ import { Star, ShoppingBag } from "lucide-react";
 import { formatCHF, type Product } from "@/data/products";
 import { useCart } from "@/lib/cart";
 
-export function ProductCard({ product, badge }: { product: Product; badge?: string }) {
+export function ProductCard({
+  product,
+  badge,
+}: {
+  product: Product;
+  badge?: string | undefined;
+}) {
   const { add } = useCart();
 
   return (
