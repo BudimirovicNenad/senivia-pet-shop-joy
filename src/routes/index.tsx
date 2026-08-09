@@ -108,21 +108,17 @@ const articles = [
 
 const values = [
   { icon: Leaf, title: "Sorgfältig ausgewählt", text: "Nur Produkte, deren Zusammensetzung wir erklären können." },
+  { icon: Sparkles, title: "Für die zweite Lebenshälfte", text: "Ein Sortiment mit einem klaren Fokus: gute Tage." },
+  { icon: HeartHandshake, title: "Schweizer Betreuung", text: "Ruhige, ehrliche Antworten auf Ihre Fragen." },
 ];
 
-const brandNames = [
+const brandNames: string[] = [
   "Nature's Protection",
   "Tauro Pro Line",
   "Faugis",
   "Superior Care",
   "Daily Oral Care",
   "Healthy Ageing",
-];
-
-const valuesList = [
-  { icon: Leaf, title: "Sorgfältig ausgewählt", text: "Nur Produkte, deren Zusammensetzung wir erklären können." },
-  { icon: Sparkles, title: "Für die zweite Lebenshälfte", text: "Ein Sortiment mit einem klaren Fokus: gute Tage." },
-  { icon: HeartHandshake, title: "Schweizer Betreuung", text: "Ruhige, ehrliche Antworten auf Ihre Fragen." },
 ];
 
 function Home() {
