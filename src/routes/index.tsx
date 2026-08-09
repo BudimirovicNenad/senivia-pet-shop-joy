@@ -348,7 +348,7 @@ function Home() {
       </section>
 
       {/* Bestseller */}
-      <section className="py-12 sm:py-20">
+      <section className="py-12 sm:pt-20 sm:pb-8">
         <div className="mx-auto max-w-6xl px-5">
           <Reveal className="mx-auto max-w-xl text-center">
             <p className="eyebrow text-bronze">Beliebt bei unseren Kundinnen</p>
@@ -374,7 +374,7 @@ function Home() {
       </section>
 
       {/* Boxen */}
-      <section className="mx-auto max-w-6xl px-5 py-12 sm:py-20">
+      <section className="mx-auto max-w-6xl px-5 pt-6 pb-12 sm:pt-10 sm:pb-20">
         <p className="eyebrow text-bronze">SENIVIA Box</p>
         <h2 className="mt-3 max-w-xl text-[1.7rem] leading-tight sm:text-4xl">
           Drei Boxen, sorgfältig zusammengestellt.
