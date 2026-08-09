@@ -265,24 +265,26 @@ function Home() {
             </Link>
           </Reveal>
 
-          {/* Cat Card — coming soon lifestyle photo */}
           <Reveal delay={200} className="h-full">
-            <div className="group relative isolate block h-full min-h-[22rem] overflow-hidden rounded-[1.75rem] bg-white shadow-xl shadow-primary/5 transition-all duration-300 sm:min-h-[28rem] sm:rounded-[2.25rem]">
+            <Link
+              to="/katze"
+              className="group relative isolate block h-full min-h-[22rem] overflow-hidden rounded-[1.75rem] bg-white shadow-xl shadow-primary/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lift sm:min-h-[28rem] sm:rounded-[2.25rem]"
+            >
               <img
                 src={catImage}
                 alt="Ältere Katze in Ruhe"
                 width={400}
                 height={400}
-                className="absolute inset-0 -z-20 h-full w-full object-cover grayscale transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 -z-10 bg-gradient-to-t from-primary/95 via-primary/50 to-primary/20" />
+              <div className="absolute inset-0 -z-10 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
               <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
                 <div className="inline-flex items-center gap-2 mb-3">
                   <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/20 backdrop-blur-md">
                     <PawPrint className="h-3.5 w-3.5 text-white" strokeWidth={2} />
                   </span>
                   <span className="text-[11px] font-medium uppercase tracking-widest text-white/90">
-                    Demnächst
+                    Verfügbar
                   </span>
                 </div>
                 <h3 className="font-serif text-2xl font-medium text-white sm:text-3xl">
@@ -291,11 +293,12 @@ function Home() {
                 <p className="mt-2 max-w-md text-sm leading-relaxed text-white/80">
                   Milde Rezepturen und stressfreie Pflege für Katzen-Senioren.
                 </p>
-                <span className="mt-5 inline-flex items-center gap-2 self-start rounded-xl border border-white/40 bg-white/15 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm">
-                  Bald verfügbar
+                <span className="mt-5 inline-flex items-center gap-2 self-start rounded-xl bg-white px-5 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:bg-cream group-hover:translate-x-1">
+                  Entdecken
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
               </div>
-            </div>
+            </Link>
           </Reveal>
         </div>
       </section>
@@ -563,7 +566,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-gradient-forest py-14 text-primary-foreground sm:py-20">
+      <section className="bg-gradient-forest pt-14 pb-14 text-primary-foreground sm:pt-20 sm:pb-20">
         <Reveal className="mx-auto max-w-2xl px-5 text-center">
           <p className="eyebrow text-primary-foreground/60">Newsletter</p>
           <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">
