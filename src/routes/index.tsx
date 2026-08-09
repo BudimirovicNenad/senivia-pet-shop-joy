@@ -491,8 +491,31 @@ function Home() {
       </section>
 
       {/* Newsletter — Forest-Band */}
+      {/* Marken-Laufband */}
+      <section className="overflow-hidden border-b border-border bg-secondary/40 py-7 sm:py-9">
+        <p className="mb-5 text-center text-[0.66rem] tracking-[0.2em] uppercase text-muted-foreground">
+          Marken, denen wir vertrauen
+        </p>
+        <div className="mask-fade-x">
+          <div className="marquee-track gap-10 sm:gap-16">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex shrink-0 items-center gap-10 pr-10 sm:gap-16 sm:pr-16">
+                {brandNames.map((brand) => (
+                  <span
+                    key={`${copy}-${brand}`}
+                    className="font-serif text-lg whitespace-nowrap text-foreground/45 transition-colors hover:text-foreground/80 sm:text-2xl"
+                  >
+                    {brand}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-gradient-forest py-14 text-primary-foreground sm:py-20">
-        <div className="mx-auto max-w-2xl px-5 text-center">
+        <Reveal className="mx-auto max-w-2xl px-5 text-center">
           <p className="eyebrow text-primary-foreground/60">Newsletter</p>
           <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">
             Wertvolle Hinweise für die besten Jahre
@@ -516,12 +539,12 @@ function Home() {
             />
             <button
               type="submit"
-              className="rounded-full bg-cream px-7 py-4 text-[0.85rem] font-medium text-primary transition-opacity hover:opacity-90"
+              className="rounded-full bg-cream px-7 py-4 text-[0.85rem] font-medium text-primary transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift"
             >
               Anmelden
             </button>
           </form>
-        </div>
+        </Reveal>
       </section>
     </>
   );
