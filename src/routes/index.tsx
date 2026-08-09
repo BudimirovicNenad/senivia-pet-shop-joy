@@ -220,31 +220,31 @@ function Home() {
       </section>
 
       {/* Needs */}
-      <section className="mx-auto max-w-6xl px-5 py-20">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="eyebrow text-bronze">Nach Bedarf einkaufen</p>
-            <h2 className="mt-3 max-w-xl text-3xl leading-tight sm:text-4xl">
-              Wählen Sie, was Ihr Tier jetzt braucht.
-            </h2>
-          </div>
-          <Link
-            to="/shop"
-            search={{}}
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-[0.8rem] font-medium text-primary transition-colors hover:border-sage"
-          >
-            Alle Kategorien <ArrowRight className="h-4 w-4" />
-          </Link>
+      <section className="mt-16 bg-secondary/45 py-20">
+        <div className="mx-auto max-w-6xl px-5">
+        <div className="mx-auto max-w-xl text-center">
+          <p className="eyebrow text-bronze">Nach Bedarf einkaufen</p>
+          <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">
+            Wählen Sie, was Ihr Tier jetzt braucht.
+          </h2>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            Sechs Bereiche, in denen ältere Tiere am häufigsten Unterstützung brauchen.
+          </p>
         </div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {needs.map((need) => (
             <Link
               key={need.id}
               to="/shop"
               search={{ bedarf: need.id }}
-              className={`group rounded-[1.5rem] p-7 transition-transform hover:-translate-y-1 ${needTint[need.id] ?? "bg-secondary"}`}
+              className="group rounded-[1.5rem] border border-border/70 bg-card p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift"
             >
-              <h3 className="text-xl">{need.label}</h3>
+              <span
+                className={`inline-flex h-11 w-11 items-center justify-center rounded-full text-primary ${needTint[need.id] ?? "bg-secondary"}`}
+              >
+                <Sparkles className="h-5 w-5" strokeWidth={1.6} />
+              </span>
+              <h3 className="mt-4 text-xl">{need.label}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {need.description}
               </p>
@@ -253,6 +253,7 @@ function Home() {
               </span>
             </Link>
           ))}
+        </div>
         </div>
       </section>
 
