@@ -18,6 +18,7 @@ import {
 import heroImage from "@/assets/hero-senior-dog.jpg";
 import catImage from "@/assets/cat-senior.jpg";
 import { ProductCard } from "@/components/ProductCard";
+import { Reveal } from "@/components/Reveal";
 import { bundles, bundleValue, formatCHF, needs, products } from "@/data/products";
 
 export const Route = createFileRoute("/")({
@@ -111,6 +112,15 @@ const values = [
   { icon: HeartHandshake, title: "Schweizer Betreuung", text: "Ruhige, ehrliche Antworten auf Ihre Fragen." },
 ];
 
+const brandNames: string[] = [
+  "Nature's Protection",
+  "Tauro Pro Line",
+  "Faugis",
+  "Superior Care",
+  "Daily Oral Care",
+  "Healthy Ageing",
+];
+
 function Home() {
   const bestsellerSlugs = [
     "gelenk-gewebe-formel",
@@ -132,7 +142,7 @@ function Home() {
           alt="Ältere Golden-Retriever-Hündin liegt entspannt neben ihrer Besitzerin"
           width={1600}
           height={1104}
-          className="absolute inset-0 -z-10 h-full w-full object-cover object-[65%_center]"
+          className="animate-kenburns absolute inset-0 -z-10 h-full w-full object-cover object-[65%_center]"
         />
         <div
           className="absolute inset-0 -z-10"
@@ -143,35 +153,52 @@ function Home() {
         />
         <div className="mx-auto max-w-6xl px-5 py-16 sm:py-32 lg:py-40">
           <div className="max-w-xl text-primary-foreground">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-3.5 py-2 text-[0.62rem] tracking-[0.1em] uppercase backdrop-blur sm:px-4 sm:text-[0.74rem] sm:tracking-[0.12em]">
+            <span className="animate-rise inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-3.5 py-2 text-[0.62rem] tracking-[0.1em] uppercase backdrop-blur sm:px-4 sm:text-[0.74rem] sm:tracking-[0.12em]">
               <Leaf className="h-3.5 w-3.5 shrink-0 text-bronze sm:h-4 sm:w-4" />
               Für Hunde und Katzen ab ca. 7 Jahren
             </span>
-            <h1 className="mt-6 text-[2.35rem] leading-[1.05] font-medium sm:mt-7 sm:text-[3.4rem] sm:leading-[1.03] lg:text-[4rem]">
+            <h1
+              className="animate-rise mt-6 text-[2.35rem] leading-[1.05] font-medium sm:mt-7 sm:text-[3.4rem] sm:leading-[1.03] lg:text-[4rem]"
+              style={{ animationDelay: "120ms" }}
+            >
               Für noch viele
               <br />
               schöne Jahre mit dir.
             </h1>
-            <p className="mt-5 max-w-md text-[0.95rem] leading-relaxed text-primary-foreground/80 sm:mt-6 sm:text-[1.02rem]">
+            <p
+              className="animate-rise mt-5 max-w-md text-[0.95rem] leading-relaxed text-primary-foreground/80 sm:mt-6 sm:text-[1.02rem]"
+              style={{ animationDelay: "240ms" }}
+            >
               Sorgfältig ausgewählte Produkte für mehr Wohlbefinden, Komfort und Lebensqualität im
               höheren Alter.
             </p>
-            <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap">
+            <div
+              className="animate-rise mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap"
+              style={{ animationDelay: "360ms" }}
+            >
               <Link
                 to="/box"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-cream px-7 py-4 text-[0.85rem] font-medium text-primary transition-opacity hover:opacity-90"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-cream px-7 py-4 text-[0.85rem] font-medium text-primary shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift"
               >
                 SENIVIA Box entdecken
-                <ArrowRight className="h-4 w-4 shrink-0" />
+                <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/shop"
                 search={{}}
-                className="rounded-full border border-primary-foreground/45 px-7 py-4 text-center text-[0.85rem] font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+                className="rounded-full border border-primary-foreground/45 px-7 py-4 text-center text-[0.85rem] font-medium text-primary-foreground backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-foreground hover:bg-primary-foreground/10"
               >
                 Alle Produkte
               </Link>
             </div>
+          </div>
+        </div>
+        <div className="pointer-events-none absolute right-6 bottom-8 hidden lg:block">
+          <div className="animate-float rounded-2xl border border-primary-foreground/20 bg-primary-foreground/10 px-5 py-4 text-primary-foreground backdrop-blur-md">
+            <p className="text-[0.68rem] tracking-[0.16em] uppercase text-primary-foreground/70">
+              Weil sie das Beste verdient
+            </p>
+            <p className="mt-1 font-serif text-lg">12 Produkte · 3 Boxen</p>
           </div>
         </div>
       </section>
@@ -179,16 +206,16 @@ function Home() {
       {/* Trust-Streifen */}
       <div className="border-b border-border bg-card">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-4 gap-y-5 px-5 py-6 sm:py-7 lg:grid-cols-4 lg:gap-5">
-          {service.map((item) => (
-            <div key={item.title} className="flex items-center gap-2.5 sm:gap-3.5">
-              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sage/25 text-primary sm:h-10 sm:w-10">
+          {service.map((item, i) => (
+            <Reveal key={item.title} delay={i * 90} className="group flex items-center gap-2.5 sm:gap-3.5">
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sage/25 text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-sage/45 sm:h-10 sm:w-10">
                 <item.icon className="h-4 w-4 sm:h-[1.15rem] sm:w-[1.15rem]" strokeWidth={1.6} />
               </span>
               <div className="min-w-0">
                 <p className="text-[0.8rem] leading-snug font-medium sm:text-sm">{item.title}</p>
                 <p className="text-[0.7rem] leading-snug text-muted-foreground sm:text-xs">{item.text}</p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -198,10 +225,10 @@ function Home() {
         <div className="grid grid-cols-2 gap-3 sm:gap-5">
           <Link
             to="/hund"
-            className="group flex items-center justify-between gap-4 rounded-[1.5rem] bg-sage/25 p-5 transition-colors hover:bg-sage/40 sm:rounded-[1.75rem] sm:p-8"
+            className="group flex items-center justify-between gap-4 rounded-[1.5rem] bg-sage/25 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-sage/40 hover:shadow-lift sm:rounded-[1.75rem] sm:p-8"
           >
             <div>
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary sm:h-11 sm:w-11">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 sm:h-11 sm:w-11">
                 <Bone className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" strokeWidth={1.6} />
               </span>
               <h2 className="mt-3.5 text-xl leading-snug sm:mt-4 sm:text-2xl">Für ältere Hunde</h2>
@@ -215,10 +242,10 @@ function Home() {
           </Link>
           <Link
             to="/katze"
-            className="group flex items-center justify-between gap-4 rounded-[1.5rem] bg-taupe/25 p-5 transition-colors hover:bg-taupe/40 sm:rounded-[1.75rem] sm:p-8"
+            className="group flex items-center justify-between gap-4 rounded-[1.5rem] bg-taupe/25 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-taupe/40 hover:shadow-lift sm:rounded-[1.75rem] sm:p-8"
           >
             <div>
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary sm:h-11 sm:w-11">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 sm:h-11 sm:w-11">
                 <Cat className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" strokeWidth={1.6} />
               </span>
               <h2 className="mt-3.5 text-xl leading-snug sm:mt-4 sm:text-2xl">Für ältere Katzen</h2>
@@ -236,7 +263,7 @@ function Home() {
       {/* Needs */}
       <section className="mt-10 bg-secondary/45 py-12 sm:mt-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5">
-        <div className="mx-auto max-w-xl text-center">
+        <Reveal className="mx-auto max-w-xl text-center">
           <p className="eyebrow text-bronze">Nach Bedarf einkaufen</p>
           <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">
             Wählen Sie, was Ihr Tier jetzt braucht.
@@ -244,20 +271,20 @@ function Home() {
           <p className="mt-3 text-[0.85rem] leading-relaxed text-muted-foreground sm:mt-4 sm:text-sm">
             Sechs Bereiche, in denen ältere Tiere am häufigsten Unterstützung brauchen.
           </p>
-        </div>
+        </Reveal>
         <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 lg:grid-cols-3">
-          {needs.map((need) => (
+          {needs.map((need, i) => (
+            <Reveal key={need.id} delay={(i % 3) * 100} className="h-full">
             <Link
-              key={need.id}
               to="/shop"
               search={{ bedarf: need.id }}
-              className="group flex h-full flex-col rounded-[1.25rem] border border-border/70 bg-card p-4 shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift sm:rounded-[1.5rem] sm:p-7"
+              className="group flex h-full flex-col rounded-[1.25rem] border border-border/70 bg-card p-4 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/40 hover:shadow-lift sm:rounded-[1.5rem] sm:p-7"
             >
               {(() => {
                 const Icon = needIcon[need.id] ?? Sparkles;
                 return (
                   <span
-                    className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-primary sm:h-11 sm:w-11 ${needTint[need.id] ?? "bg-secondary"}`}
+                    className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-primary transition-transform duration-300 group-hover:scale-110 sm:h-11 sm:w-11 ${needTint[need.id] ?? "bg-secondary"}`}
                   >
                     <Icon className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" strokeWidth={1.6} />
                   </span>
@@ -271,6 +298,7 @@ function Home() {
                 Ansehen <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </span>
             </Link>
+            </Reveal>
           ))}
         </div>
         </div>
@@ -279,17 +307,15 @@ function Home() {
       {/* Bestseller */}
       <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="mx-auto max-w-xl text-center">
+          <Reveal className="mx-auto max-w-xl text-center">
             <p className="eyebrow text-bronze">Beliebt bei unseren Kundinnen</p>
             <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">Häufig gewählt</h2>
-          </div>
+          </Reveal>
           <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-6 lg:grid-cols-4">
             {bestsellers.slice(0, 4).map((product, i) => (
-              <ProductCard
-                key={product.slug}
-                product={product}
-                badge={i === 0 ? "Bestseller" : undefined}
-              />
+              <Reveal key={product.slug} delay={i * 90} className="h-full">
+                <ProductCard product={product} badge={i === 0 ? "Bestseller" : undefined} />
+              </Reveal>
             ))}
           </div>
           <div className="mt-8 text-center sm:mt-10">
@@ -314,21 +340,23 @@ function Home() {
           Jede Box vereint vier Produkte, die zusammen wirken – als Geschenk oder als Einstieg.
         </p>
         <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-          {bundles.map((bundle) => (
+          {bundles.map((bundle, i) => (
+            <Reveal key={bundle.slug} delay={i * 110} className="h-full">
             <Link
-              key={bundle.slug}
               to="/box/$slug"
               params={{ slug: bundle.slug }}
-              className="group overflow-hidden rounded-[1.75rem] border border-border/70 bg-card p-3 shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift"
+              className="group block h-full overflow-hidden rounded-[1.75rem] border border-border/70 bg-card p-3 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/40 hover:shadow-lift"
             >
+              <div className="overflow-hidden rounded-2xl">
               <img
                 src={bundle.image}
                 alt={bundle.name}
                 loading="lazy"
                 width={1200}
                 height={900}
-                className="aspect-[4/3] w-full rounded-2xl object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                className="aspect-[4/3] w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.07]"
               />
+              </div>
               <div className="px-3 pt-4 pb-2 sm:px-4 sm:pt-5 sm:pb-3">
                 <h3 className="text-lg leading-snug sm:text-xl">{bundle.name}</h3>
                 <p className="mt-2 text-[0.82rem] leading-relaxed text-muted-foreground sm:text-sm">
@@ -342,6 +370,7 @@ function Home() {
                 </p>
               </div>
             </Link>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -415,16 +444,15 @@ function Home() {
           <p className="eyebrow text-bronze">Erfahrungen</p>
           <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">Was Kundinnen berichten</h2>
           <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-            {reviews.map((review) => (
-              <figure
-                key={review.author}
-                className="rounded-[1.25rem] border border-border/70 bg-card p-5 shadow-soft sm:rounded-[1.5rem] sm:p-7"
-              >
+            {reviews.map((review, i) => (
+              <Reveal key={review.author} delay={i * 100} className="h-full">
+              <figure className="h-full rounded-[1.25rem] border border-border/70 bg-card p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift sm:rounded-[1.5rem] sm:p-7">
                 <blockquote className="text-[1rem] leading-relaxed sm:text-lg">„{review.quote}“</blockquote>
                 <figcaption className="mt-4 text-[0.8rem] text-muted-foreground sm:mt-5 sm:text-sm">
                   {review.author} · {review.pet}
                 </figcaption>
               </figure>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -435,11 +463,9 @@ function Home() {
         <p className="eyebrow text-bronze">Ratgeber</p>
         <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">Wissen für die besten Jahre</h2>
         <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-          {articles.map((article) => (
-            <article
-              key={article.title}
-              className="rounded-[1.25rem] bg-secondary/60 p-5 transition-transform hover:-translate-y-1 sm:rounded-[1.5rem] sm:p-7"
-            >
+          {articles.map((article, i) => (
+            <Reveal key={article.title} delay={i * 100} className="h-full">
+            <article className="group h-full rounded-[1.25rem] bg-secondary/60 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-secondary sm:rounded-[1.5rem] sm:p-7">
               <p className="eyebrow text-bronze">{article.kicker}</p>
               <h3 className="mt-3 text-[1.1rem] leading-snug sm:text-xl">{article.title}</h3>
               <p className="mt-2.5 text-[0.82rem] leading-relaxed text-muted-foreground sm:mt-3 sm:text-sm">{article.text}</p>
@@ -447,9 +473,10 @@ function Home() {
                 to="/ratgeber"
                 className="mt-5 inline-flex items-center gap-1.5 text-[0.8rem] font-medium text-primary"
               >
-                Lesen <ArrowRight className="h-4 w-4" />
+                Lesen <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </article>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -473,8 +500,31 @@ function Home() {
       </section>
 
       {/* Newsletter — Forest-Band */}
+      {/* Marken-Laufband */}
+      <section className="overflow-hidden border-b border-border bg-secondary/40 py-7 sm:py-9">
+        <p className="mb-5 text-center text-[0.66rem] tracking-[0.2em] uppercase text-muted-foreground">
+          Marken, denen wir vertrauen
+        </p>
+        <div className="mask-fade-x">
+          <div className="marquee-track gap-10 sm:gap-16">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex shrink-0 items-center gap-10 pr-10 sm:gap-16 sm:pr-16">
+                {brandNames.map((brand) => (
+                  <span
+                    key={`${copy}-${brand}`}
+                    className="font-serif text-lg whitespace-nowrap text-foreground/45 transition-colors hover:text-foreground/80 sm:text-2xl"
+                  >
+                    {brand}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-gradient-forest py-14 text-primary-foreground sm:py-20">
-        <div className="mx-auto max-w-2xl px-5 text-center">
+        <Reveal className="mx-auto max-w-2xl px-5 text-center">
           <p className="eyebrow text-primary-foreground/60">Newsletter</p>
           <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">
             Wertvolle Hinweise für die besten Jahre
@@ -498,12 +548,12 @@ function Home() {
             />
             <button
               type="submit"
-              className="rounded-full bg-cream px-7 py-4 text-[0.85rem] font-medium text-primary transition-opacity hover:opacity-90"
+              className="rounded-full bg-cream px-7 py-4 text-[0.85rem] font-medium text-primary transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift"
             >
               Anmelden
             </button>
           </form>
-        </div>
+        </Reveal>
       </section>
     </>
   );
