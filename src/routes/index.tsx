@@ -112,7 +112,7 @@ function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-secondary/50">
+      <section className="relative bg-secondary/50">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 pt-14 pb-28 lg:grid-cols-[1.05fr_1fr] lg:pt-20">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-card px-4 py-2 text-[0.78rem] text-primary shadow-soft">
@@ -160,9 +160,11 @@ function Home() {
           </div>
         </div>
 
-        {/* Service bar */}
-        <div className="mx-auto -mb-16 max-w-6xl translate-y-[-2rem] px-5">
-          <div className="grid gap-6 rounded-[1.75rem] border border-border/70 bg-card px-6 py-7 shadow-soft sm:grid-cols-2 lg:grid-cols-4">
+      </section>
+
+      {/* Service bar */}
+      <div className="relative z-10 mx-auto -mt-16 max-w-6xl px-5">
+        <div className="grid gap-6 rounded-[1.75rem] border border-border/70 bg-card px-6 py-7 shadow-soft sm:grid-cols-2 lg:grid-cols-4">
             {service.map((item) => (
               <div key={item.title} className="flex items-center gap-3.5">
                 <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sage/25 text-primary">
@@ -174,12 +176,11 @@ function Home() {
                 </div>
               </div>
             ))}
-          </div>
         </div>
-      </section>
+      </div>
 
       {/* Species */}
-      <section className="mx-auto max-w-6xl px-5 pt-24 pb-4">
+      <section className="mx-auto max-w-6xl px-5 pt-20 pb-4">
         <div className="grid gap-5 sm:grid-cols-2">
           <Link
             to="/hund"
