@@ -563,7 +563,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-gradient-forest py-14 text-primary-foreground sm:py-20">
+      <section className="bg-gradient-forest pt-14 pb-14 text-primary-foreground sm:pt-20 sm:pb-20">
         <Reveal className="mx-auto max-w-2xl px-5 text-center">
           <p className="eyebrow text-primary-foreground/60">Newsletter</p>
           <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">
