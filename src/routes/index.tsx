@@ -304,7 +304,7 @@ function Home() {
       </section>
 
       {/* Needs */}
-      <section className="mt-10 bg-secondary/45 bg-paw-pattern py-12 sm:mt-16 sm:py-20">
+      <section className="mt-10 bg-secondary/45 bg-grain py-12 sm:mt-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5">
         <Reveal className="mx-auto max-w-xl text-center">
           <p className="eyebrow text-bronze">Nach Bedarf einkaufen</p>
