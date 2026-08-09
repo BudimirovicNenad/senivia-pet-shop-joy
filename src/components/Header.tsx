@@ -27,15 +27,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50">
       <div className="bg-forest-deep text-primary-foreground/80">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-1 px-5 py-2 text-[0.68rem] tracking-[0.14em] uppercase sm:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-1 px-5 py-2 text-[0.6rem] tracking-[0.12em] uppercase sm:justify-between sm:text-[0.68rem] sm:tracking-[0.14em]">
           <span>Schweizer Versand ab CHF 79 gratis</span>
           <span className="hidden sm:inline">30 Tage Rückgaberecht</span>
           <span className="hidden sm:inline">Persönliche Beratung</span>
         </div>
       </div>
       <div className="border-b border-border bg-card/95 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-4">
-          <Link to="/" aria-label="SENIVIA Startseite">
+        <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3.5 sm:py-4 lg:flex lg:justify-between lg:gap-6">
+          <Link to="/" aria-label="SENIVIA Startseite" className="min-w-0">
             <Logo tone="dark" />
           </Link>
 
@@ -52,7 +52,7 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2">
             <Link
               to="/berater"
               aria-label="Produktberater"

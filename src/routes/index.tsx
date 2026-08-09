@@ -141,33 +141,33 @@ function Home() {
               "linear-gradient(100deg, oklch(0.255 0.038 165.5 / 92%) 0%, oklch(0.255 0.038 165.5 / 72%) 42%, oklch(0.255 0.038 165.5 / 18%) 78%)",
           }}
         />
-        <div className="mx-auto max-w-6xl px-5 py-24 sm:py-32 lg:py-40">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:py-32 lg:py-40">
           <div className="max-w-xl text-primary-foreground">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-4 py-2 text-[0.74rem] tracking-[0.12em] uppercase backdrop-blur">
-              <Leaf className="h-4 w-4 text-bronze" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-3.5 py-2 text-[0.62rem] tracking-[0.1em] uppercase backdrop-blur sm:px-4 sm:text-[0.74rem] sm:tracking-[0.12em]">
+              <Leaf className="h-3.5 w-3.5 shrink-0 text-bronze sm:h-4 sm:w-4" />
               Für Hunde und Katzen ab ca. 7 Jahren
             </span>
-            <h1 className="mt-7 text-[2.6rem] leading-[1.03] font-medium sm:text-[3.4rem] lg:text-[4rem]">
+            <h1 className="mt-6 text-[2.35rem] leading-[1.05] font-medium sm:mt-7 sm:text-[3.4rem] sm:leading-[1.03] lg:text-[4rem]">
               Für noch viele
               <br />
               schöne Jahre mit dir.
             </h1>
-            <p className="mt-6 max-w-md text-[1.02rem] leading-relaxed text-primary-foreground/80">
+            <p className="mt-5 max-w-md text-[0.95rem] leading-relaxed text-primary-foreground/80 sm:mt-6 sm:text-[1.02rem]">
               Sorgfältig ausgewählte Produkte für mehr Wohlbefinden, Komfort und Lebensqualität im
               höheren Alter.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap">
               <Link
                 to="/box"
-                className="inline-flex items-center gap-2 rounded-full bg-cream px-7 py-4 text-[0.85rem] font-medium text-primary transition-opacity hover:opacity-90"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-cream px-7 py-4 text-[0.85rem] font-medium text-primary transition-opacity hover:opacity-90"
               >
                 SENIVIA Box entdecken
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 shrink-0" />
               </Link>
               <Link
                 to="/shop"
                 search={{}}
-                className="rounded-full border border-primary-foreground/45 px-7 py-4 text-[0.85rem] font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+                className="rounded-full border border-primary-foreground/45 px-7 py-4 text-center text-[0.85rem] font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
               >
                 Alle Produkte
               </Link>
@@ -178,15 +178,15 @@ function Home() {
 
       {/* Trust-Streifen */}
       <div className="border-b border-border bg-card">
-        <div className="mx-auto grid max-w-6xl gap-5 px-5 py-7 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-4 gap-y-5 px-5 py-6 sm:py-7 lg:grid-cols-4 lg:gap-5">
           {service.map((item) => (
-            <div key={item.title} className="flex items-center gap-3.5">
-              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sage/25 text-primary">
-                <item.icon className="h-[1.15rem] w-[1.15rem]" strokeWidth={1.6} />
+            <div key={item.title} className="flex items-center gap-2.5 sm:gap-3.5">
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sage/25 text-primary sm:h-10 sm:w-10">
+                <item.icon className="h-4 w-4 sm:h-[1.15rem] sm:w-[1.15rem]" strokeWidth={1.6} />
               </span>
-              <div>
-                <p className="text-sm font-medium">{item.title}</p>
-                <p className="text-xs text-muted-foreground">{item.text}</p>
+              <div className="min-w-0">
+                <p className="text-[0.8rem] leading-snug font-medium sm:text-sm">{item.title}</p>
+                <p className="text-[0.7rem] leading-snug text-muted-foreground sm:text-xs">{item.text}</p>
               </div>
             </div>
           ))}
@@ -194,38 +194,38 @@ function Home() {
       </div>
 
       {/* Species */}
-      <section className="mx-auto max-w-6xl px-5 pt-20 pb-4">
-        <div className="grid gap-5 sm:grid-cols-2">
+      <section className="mx-auto max-w-6xl px-5 pt-10 pb-2 sm:pt-20 sm:pb-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5">
           <Link
             to="/hund"
-            className="group flex items-center justify-between gap-4 rounded-[1.75rem] bg-sage/25 p-8 transition-colors hover:bg-sage/40"
+            className="group flex items-center justify-between gap-4 rounded-[1.5rem] bg-sage/25 p-5 transition-colors hover:bg-sage/40 sm:rounded-[1.75rem] sm:p-8"
           >
             <div>
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-card text-primary">
-                <Bone className="h-5 w-5" strokeWidth={1.6} />
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary sm:h-11 sm:w-11">
+                <Bone className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" strokeWidth={1.6} />
               </span>
-              <h2 className="mt-4 text-2xl">Für ältere Hunde</h2>
-              <p className="mt-2 max-w-xs text-sm text-muted-foreground">
+              <h2 className="mt-3.5 text-xl leading-snug sm:mt-4 sm:text-2xl">Für ältere Hunde</h2>
+              <p className="mt-2 max-w-xs text-[0.8rem] leading-snug text-muted-foreground sm:text-sm">
                 Gelenke, Ernährung, Pflege und Zahnpflege.
               </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-[0.8rem] font-medium text-primary">
+              <span className="mt-3.5 inline-flex items-center gap-1.5 text-[0.8rem] font-medium text-primary sm:mt-4">
                 Entdecken <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </span>
             </div>
           </Link>
           <Link
             to="/katze"
-            className="group flex items-center justify-between gap-4 rounded-[1.75rem] bg-taupe/25 p-8 transition-colors hover:bg-taupe/40"
+            className="group flex items-center justify-between gap-4 rounded-[1.5rem] bg-taupe/25 p-5 transition-colors hover:bg-taupe/40 sm:rounded-[1.75rem] sm:p-8"
           >
             <div>
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-card text-primary">
-                <Cat className="h-5 w-5" strokeWidth={1.6} />
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary sm:h-11 sm:w-11">
+                <Cat className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" strokeWidth={1.6} />
               </span>
-              <h2 className="mt-4 text-2xl">Für ältere Katzen</h2>
-              <p className="mt-2 max-w-xs text-sm text-muted-foreground">
+              <h2 className="mt-3.5 text-xl leading-snug sm:mt-4 sm:text-2xl">Für ältere Katzen</h2>
+              <p className="mt-2 max-w-xs text-[0.8rem] leading-snug text-muted-foreground sm:text-sm">
                 Milde Rezepturen, kleine Mengen, ohne Stress.
               </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-[0.8rem] font-medium text-primary">
+              <span className="mt-3.5 inline-flex items-center gap-1.5 text-[0.8rem] font-medium text-primary sm:mt-4">
                 Entdecken <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </span>
             </div>
@@ -234,40 +234,40 @@ function Home() {
       </section>
 
       {/* Needs */}
-      <section className="mt-16 bg-secondary/45 py-20">
+      <section className="mt-10 bg-secondary/45 py-12 sm:mt-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5">
         <div className="mx-auto max-w-xl text-center">
           <p className="eyebrow text-bronze">Nach Bedarf einkaufen</p>
-          <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">
+          <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">
             Wählen Sie, was Ihr Tier jetzt braucht.
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-3 text-[0.85rem] leading-relaxed text-muted-foreground sm:mt-4 sm:text-sm">
             Sechs Bereiche, in denen ältere Tiere am häufigsten Unterstützung brauchen.
           </p>
         </div>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 lg:grid-cols-3">
           {needs.map((need) => (
             <Link
               key={need.id}
               to="/shop"
               search={{ bedarf: need.id }}
-              className="group rounded-[1.5rem] border border-border/70 bg-card p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift"
+              className="group flex h-full flex-col rounded-[1.25rem] border border-border/70 bg-card p-4 shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift sm:rounded-[1.5rem] sm:p-7"
             >
               {(() => {
                 const Icon = needIcon[need.id] ?? Sparkles;
                 return (
                   <span
-                    className={`inline-flex h-11 w-11 items-center justify-center rounded-full text-primary ${needTint[need.id] ?? "bg-secondary"}`}
+                    className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-primary sm:h-11 sm:w-11 ${needTint[need.id] ?? "bg-secondary"}`}
                   >
-                    <Icon className="h-5 w-5" strokeWidth={1.6} />
+                    <Icon className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" strokeWidth={1.6} />
                   </span>
                 );
               })()}
-              <h3 className="mt-4 text-xl">{need.label}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              <h3 className="mt-3.5 text-[1.05rem] leading-snug sm:mt-4 sm:text-xl">{need.label}</h3>
+              <p className="mt-2 text-[0.8rem] leading-snug text-muted-foreground sm:mt-3 sm:text-sm sm:leading-relaxed">
                 {need.description}
               </p>
-              <span className="mt-5 inline-flex items-center gap-1.5 text-[0.8rem] font-medium text-primary">
+              <span className="mt-auto inline-flex items-center gap-1.5 pt-3.5 text-[0.78rem] font-medium text-primary sm:pt-5 sm:text-[0.8rem]">
                 Ansehen <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </span>
             </Link>
@@ -277,13 +277,13 @@ function Home() {
       </section>
 
       {/* Bestseller */}
-      <section className="py-20">
+      <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-6xl px-5">
           <div className="mx-auto max-w-xl text-center">
             <p className="eyebrow text-bronze">Beliebt bei unseren Kundinnen</p>
-            <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">Häufig gewählt</h2>
+            <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">Häufig gewählt</h2>
           </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-6 lg:grid-cols-4">
             {bestsellers.slice(0, 4).map((product, i) => (
               <ProductCard
                 key={product.slug}
@@ -292,7 +292,7 @@ function Home() {
               />
             ))}
           </div>
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center sm:mt-10">
             <Link
               to="/shop"
               search={{}}
@@ -305,15 +305,15 @@ function Home() {
       </section>
 
       {/* Boxen */}
-      <section className="mx-auto max-w-6xl px-5 py-20">
+      <section className="mx-auto max-w-6xl px-5 py-12 sm:py-20">
         <p className="eyebrow text-bronze">SENIVIA Box</p>
-        <h2 className="mt-3 max-w-xl text-3xl leading-tight sm:text-4xl">
+        <h2 className="mt-3 max-w-xl text-[1.7rem] leading-tight sm:text-4xl">
           Drei Boxen, sorgfältig zusammengestellt.
         </h2>
-        <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-3 max-w-xl text-[0.85rem] leading-relaxed text-muted-foreground sm:mt-4 sm:text-sm">
           Jede Box vereint vier Produkte, die zusammen wirken – als Geschenk oder als Einstieg.
         </p>
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {bundles.map((bundle) => (
             <Link
               key={bundle.slug}
@@ -329,12 +329,12 @@ function Home() {
                 height={900}
                 className="aspect-[4/3] w-full rounded-2xl object-cover transition-transform duration-700 group-hover:scale-[1.03]"
               />
-              <div className="px-4 pt-5 pb-3">
-                <h3 className="text-xl">{bundle.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              <div className="px-3 pt-4 pb-2 sm:px-4 sm:pt-5 sm:pb-3">
+                <h3 className="text-lg leading-snug sm:text-xl">{bundle.name}</h3>
+                <p className="mt-2 text-[0.82rem] leading-relaxed text-muted-foreground sm:text-sm">
                   {bundle.subtitle}
                 </p>
-                <p className="mt-5 text-lg">
+                <p className="mt-4 text-lg sm:mt-5">
                   {formatCHF(bundle.price)}{" "}
                   <span className="text-xs text-muted-foreground line-through">
                     {formatCHF(bundleValue(bundle))}
@@ -347,21 +347,21 @@ function Home() {
       </section>
 
       {/* Berater */}
-      <section className="mx-auto max-w-6xl px-5 pb-20">
-        <div className="flex flex-col items-start gap-8 rounded-[2rem] bg-gradient-forest px-8 py-12 text-primary-foreground lg:flex-row lg:items-center lg:justify-between lg:px-12">
+      <section className="mx-auto max-w-6xl px-5 pb-12 sm:pb-20">
+        <div className="flex flex-col items-start gap-6 rounded-[1.5rem] bg-gradient-forest px-6 py-9 text-primary-foreground sm:gap-8 sm:rounded-[2rem] sm:px-8 sm:py-12 lg:flex-row lg:items-center lg:justify-between lg:px-12">
           <div>
             <p className="eyebrow text-primary-foreground/60">Produktberater</p>
-            <h2 className="mt-3 max-w-lg text-3xl leading-tight sm:text-4xl">
+            <h2 className="mt-3 max-w-lg text-[1.7rem] leading-tight sm:text-4xl">
               Was braucht Ihr Tier jetzt am meisten?
             </h2>
-            <p className="mt-4 max-w-lg text-sm leading-relaxed text-primary-foreground/75">
+            <p className="mt-3 max-w-lg text-[0.85rem] leading-relaxed text-primary-foreground/75 sm:mt-4 sm:text-sm">
               Wenige ruhige Fragen – am Ende sehen Sie, welche Produkte zu Tierart, Alter und
               Bedürfnis passen. Eine Kaufhilfe, keine tierärztliche Diagnose.
             </p>
           </div>
           <Link
             to="/berater"
-            className="inline-flex items-center gap-2 rounded-full bg-cream px-8 py-4 text-[0.85rem] font-medium text-primary transition-opacity hover:opacity-90"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-cream px-8 py-4 text-[0.85rem] font-medium text-primary transition-opacity hover:opacity-90 sm:w-auto"
           >
             Berater starten <ArrowRight className="h-4 w-4" />
           </Link>
@@ -369,30 +369,30 @@ function Home() {
       </section>
 
       {/* Werte + Katze */}
-      <section className="mx-auto max-w-6xl px-5 pb-20">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
+      <section className="mx-auto max-w-6xl px-5 pb-12 sm:pb-20">
+        <div className="grid items-center gap-7 sm:gap-10 lg:grid-cols-2">
           <img
             src={catImage}
             alt="Ältere getigerte Katze sitzt entspannt auf einem cremefarbenen Sessel am Fenster"
             loading="lazy"
             width={1200}
             height={900}
-            className="w-full rounded-[2rem] object-cover shadow-soft"
+            className="aspect-[4/3] w-full rounded-[1.5rem] object-cover shadow-soft sm:aspect-auto sm:rounded-[2rem]"
           />
           <div>
             <p className="eyebrow text-bronze">Unser Versprechen</p>
-            <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">
+            <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">
               Älter werden ist keine Krankheit.
             </h2>
-            <div className="mt-8 space-y-6">
+            <div className="mt-6 space-y-5 sm:mt-8 sm:space-y-6">
               {values.map((value) => (
-                <div key={value.title} className="flex gap-4">
-                  <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sage/25 text-primary">
-                    <value.icon className="h-5 w-5" strokeWidth={1.6} />
+                <div key={value.title} className="flex gap-3.5 sm:gap-4">
+                  <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sage/25 text-primary sm:h-11 sm:w-11">
+                    <value.icon className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" strokeWidth={1.6} />
                   </span>
-                  <div>
-                    <h3 className="text-lg">{value.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  <div className="min-w-0">
+                    <h3 className="text-[1.05rem] sm:text-lg">{value.title}</h3>
+                    <p className="mt-1 text-[0.82rem] leading-relaxed text-muted-foreground sm:text-sm">
                       {value.text}
                     </p>
                   </div>
@@ -401,7 +401,7 @@ function Home() {
             </div>
             <Link
               to="/ueber-uns"
-              className="mt-8 inline-flex items-center gap-2 rounded-full border border-primary/25 px-6 py-3.5 text-[0.82rem] font-medium text-primary transition-colors hover:border-primary"
+              className="mt-7 inline-flex items-center gap-2 rounded-full border border-primary/25 px-6 py-3.5 text-[0.82rem] font-medium text-primary transition-colors hover:border-primary sm:mt-8"
             >
               Mehr über SENIVIA <ArrowRight className="h-4 w-4" />
             </Link>
@@ -410,18 +410,18 @@ function Home() {
       </section>
 
       {/* Erfahrungen */}
-      <section className="bg-card/60 py-20">
+      <section className="bg-card/60 py-12 sm:py-20">
         <div className="mx-auto max-w-6xl px-5">
           <p className="eyebrow text-bronze">Erfahrungen</p>
-          <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">Was Kundinnen berichten</h2>
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">Was Kundinnen berichten</h2>
+          <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {reviews.map((review) => (
               <figure
                 key={review.author}
-                className="rounded-[1.5rem] border border-border/70 bg-card p-7 shadow-soft"
+                className="rounded-[1.25rem] border border-border/70 bg-card p-5 shadow-soft sm:rounded-[1.5rem] sm:p-7"
               >
-                <blockquote className="text-lg leading-relaxed">„{review.quote}“</blockquote>
-                <figcaption className="mt-5 text-sm text-muted-foreground">
+                <blockquote className="text-[1rem] leading-relaxed sm:text-lg">„{review.quote}“</blockquote>
+                <figcaption className="mt-4 text-[0.8rem] text-muted-foreground sm:mt-5 sm:text-sm">
                   {review.author} · {review.pet}
                 </figcaption>
               </figure>
@@ -431,18 +431,18 @@ function Home() {
       </section>
 
       {/* Ratgeber */}
-      <section className="mx-auto max-w-6xl px-5 py-20">
+      <section className="mx-auto max-w-6xl px-5 py-12 sm:py-20">
         <p className="eyebrow text-bronze">Ratgeber</p>
-        <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">Wissen für die besten Jahre</h2>
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+        <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">Wissen für die besten Jahre</h2>
+        <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {articles.map((article) => (
             <article
               key={article.title}
-              className="rounded-[1.5rem] bg-secondary/60 p-7 transition-transform hover:-translate-y-1"
+              className="rounded-[1.25rem] bg-secondary/60 p-5 transition-transform hover:-translate-y-1 sm:rounded-[1.5rem] sm:p-7"
             >
               <p className="eyebrow text-bronze">{article.kicker}</p>
-              <h3 className="mt-3 text-xl leading-snug">{article.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{article.text}</p>
+              <h3 className="mt-3 text-[1.1rem] leading-snug sm:text-xl">{article.title}</h3>
+              <p className="mt-2.5 text-[0.82rem] leading-relaxed text-muted-foreground sm:mt-3 sm:text-sm">{article.text}</p>
               <Link
                 to="/ratgeber"
                 className="mt-5 inline-flex items-center gap-1.5 text-[0.8rem] font-medium text-primary"
@@ -456,16 +456,16 @@ function Home() {
 
       {/* Warum SENIVIA */}
       <section className="border-y border-border bg-card">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-10 gap-y-4 px-5 py-8">
-          <h2 className="text-2xl">Warum SENIVIA</h2>
+        <div className="mx-auto grid max-w-6xl grid-cols-2 items-center gap-x-6 gap-y-3.5 px-5 py-7 sm:flex sm:flex-wrap sm:gap-x-10 sm:gap-y-4 sm:py-8">
+          <h2 className="col-span-2 text-xl sm:text-2xl">Warum SENIVIA</h2>
           {[
             "Sorgfältig ausgewählt",
             "Versand aus der Schweiz",
             "Verständlich erklärt",
             "Persönliche Beratung",
           ].map((item) => (
-            <span key={item} className="flex items-center gap-2 text-sm text-foreground/80">
-              <Check className="h-4 w-4 text-bronze" strokeWidth={2} />
+            <span key={item} className="flex min-w-0 items-center gap-2 text-[0.8rem] text-foreground/80 sm:text-sm">
+              <Check className="h-4 w-4 shrink-0 text-bronze" strokeWidth={2} />
               {item}
             </span>
           ))}
@@ -473,17 +473,17 @@ function Home() {
       </section>
 
       {/* Newsletter — Forest-Band */}
-      <section className="bg-gradient-forest py-20 text-primary-foreground">
+      <section className="bg-gradient-forest py-14 text-primary-foreground sm:py-20">
         <div className="mx-auto max-w-2xl px-5 text-center">
           <p className="eyebrow text-primary-foreground/60">Newsletter</p>
-          <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">
+          <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">
             Wertvolle Hinweise für die besten Jahre
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-primary-foreground/75">
+          <p className="mx-auto mt-3 max-w-md text-[0.85rem] leading-relaxed text-primary-foreground/75 sm:mt-4 sm:text-sm">
             Etwa einmal im Monat: Pflegehinweise, neue Produkte und ehrliche Empfehlungen.
           </p>
           <form
-            className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
+            className="mx-auto mt-7 flex max-w-md flex-col gap-3 sm:mt-8 sm:flex-row"
             onSubmit={(event) => event.preventDefault()}
           >
             <label htmlFor="newsletter-email" className="sr-only">

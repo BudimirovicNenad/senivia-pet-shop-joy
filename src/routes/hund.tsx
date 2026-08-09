@@ -28,14 +28,14 @@ function DogPage() {
   return (
     <div>
       <section className="bg-gradient-forest text-primary-foreground">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-6xl items-center gap-7 px-5 py-12 sm:gap-10 sm:py-16 lg:grid-cols-2">
           <div>
             <p className="eyebrow text-primary-foreground/60">Hund</p>
-            <h1 className="mt-4 text-4xl leading-tight sm:text-5xl">
+            <h1 className="mt-4 text-[2.1rem] leading-tight sm:text-5xl">
               Wenn die Spaziergänge kürzer werden.
             </h1>
             <div className="rule-bronze mt-7" />
-            <p className="mt-7 max-w-md text-[0.98rem] leading-relaxed text-primary-foreground/80">
+            <p className="mt-6 max-w-md text-[0.9rem] leading-relaxed text-primary-foreground/80 sm:mt-7 sm:text-[0.98rem]">
               Ältere Hunde verändern sich langsam: Sie zögern beim Aufstehen, reagieren
               empfindlicher auf Futter, das Fell wird stumpfer. Für genau diese Themen haben wir
               unser Sortiment zusammengestellt.
@@ -47,14 +47,14 @@ function DogPage() {
             loading="lazy"
             width={1600}
             height={1104}
-            className="w-full rounded-sm object-cover shadow-lift"
+            className="aspect-[4/3] w-full rounded-[1.25rem] object-cover shadow-lift sm:aspect-auto sm:rounded-[1.75rem]"
           />
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl px-5 py-16">
-        <h2 className="text-2xl">Passende Produkte für Hunde</h2>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto max-w-6xl px-5 py-12 sm:py-16">
+        <h2 className="text-xl sm:text-2xl">Passende Produkte für Hunde</h2>
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-6 lg:grid-cols-3">
           {dogProducts.map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}
