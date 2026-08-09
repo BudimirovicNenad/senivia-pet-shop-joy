@@ -254,7 +254,7 @@ function Home() {
       {/* Needs */}
       <section className="mt-10 bg-secondary/45 py-12 sm:mt-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5">
-        <div className="mx-auto max-w-xl text-center">
+        <Reveal className="mx-auto max-w-xl text-center">
           <p className="eyebrow text-bronze">Nach Bedarf einkaufen</p>
           <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">
             Wählen Sie, was Ihr Tier jetzt braucht.
@@ -262,20 +262,20 @@ function Home() {
           <p className="mt-3 text-[0.85rem] leading-relaxed text-muted-foreground sm:mt-4 sm:text-sm">
             Sechs Bereiche, in denen ältere Tiere am häufigsten Unterstützung brauchen.
           </p>
-        </div>
+        </Reveal>
         <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 lg:grid-cols-3">
-          {needs.map((need) => (
+          {needs.map((need, i) => (
+            <Reveal key={need.id} delay={(i % 3) * 100} className="h-full">
             <Link
-              key={need.id}
               to="/shop"
               search={{ bedarf: need.id }}
-              className="group flex h-full flex-col rounded-[1.25rem] border border-border/70 bg-card p-4 shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift sm:rounded-[1.5rem] sm:p-7"
+              className="group flex h-full flex-col rounded-[1.25rem] border border-border/70 bg-card p-4 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/40 hover:shadow-lift sm:rounded-[1.5rem] sm:p-7"
             >
               {(() => {
                 const Icon = needIcon[need.id] ?? Sparkles;
                 return (
                   <span
-                    className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-primary sm:h-11 sm:w-11 ${needTint[need.id] ?? "bg-secondary"}`}
+                    className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-primary transition-transform duration-300 group-hover:scale-110 sm:h-11 sm:w-11 ${needTint[need.id] ?? "bg-secondary"}`}
                   >
                     <Icon className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" strokeWidth={1.6} />
                   </span>
@@ -289,6 +289,7 @@ function Home() {
                 Ansehen <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </span>
             </Link>
+            </Reveal>
           ))}
         </div>
         </div>
