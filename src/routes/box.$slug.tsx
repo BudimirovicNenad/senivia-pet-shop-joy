@@ -6,7 +6,14 @@ export const Route = createFileRoute("/box/$slug")({
   loader: ({ params }) => {
     const bundle = getBundle(params.slug);
     if (!bundle) throw notFound();
-    return { slug: bundle.slug, name: bundle.name, subtitle: bundle.subtitle };
+    return {
+      slug: bundle.slug,
+      name: bundle.name,
+      subtitle: bundle.subtitle,
+      intro: bundle.intro,
+      price: bundle.price,
+      image: bundle.image,
+    };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -14,12 +21,38 @@ export const Route = createFileRoute("/box/$slug")({
         meta: [{ title: "Box nicht gefunden — SENIVIA" }, { name: "robots", content: "noindex" }],
       };
     }
+    const url = `/box/${loaderData.slug}`;
     return {
       meta: [
         { title: `${loaderData.name} — SENIVIA Box` },
         { name: "description", content: loaderData.subtitle },
         { property: "og:title", content: `${loaderData.name} — SENIVIA Box` },
         { property: "og:description", content: loaderData.subtitle },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: url },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: `SENIVIA Box ${loaderData.name}`,
+            description: loaderData.intro,
+            image: loaderData.image,
+            sku: loaderData.slug,
+            brand: { "@type": "Brand", name: "SENIVIA" },
+            offers: {
+              "@type": "Offer",
+              price: loaderData.price.toFixed(2),
+              priceCurrency: "CHF",
+              availability: "https://schema.org/InStock",
+              url,
+            },
+          }),
+        },
       ],
     };
   },
