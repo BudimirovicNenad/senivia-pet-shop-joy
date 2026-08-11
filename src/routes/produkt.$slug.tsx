@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { bundles, formatCHF, getProduct, needs, products } from "@/data/products";
 import { ProductCard } from "@/components/ProductCard";
+import { ProductGallery } from "@/components/ProductGallery";
 import { useCart } from "@/lib/cart";
 
 export const Route = createFileRoute("/produkt/$slug")({
@@ -15,6 +16,9 @@ export const Route = createFileRoute("/produkt/$slug")({
       brand: product.brand,
       price: product.price,
       image: product.image,
+      images: product.images ?? [product.image],
+      sku: product.sku,
+      barcode: product.barcode,
       description: product.description,
       size: product.size,
       rating: product.rating,
@@ -52,8 +56,9 @@ export const Route = createFileRoute("/produkt/$slug")({
             "@type": "Product",
             name: loaderData.name,
             description: loaderData.description,
-            image: loaderData.image,
-            sku: loaderData.slug,
+            image: loaderData.images,
+            sku: loaderData.sku ?? loaderData.slug,
+            ...(loaderData.barcode ? { gtin13: loaderData.barcode } : {}),
             size: loaderData.size,
             brand: { "@type": "Brand", name: loaderData.brand },
             aggregateRating: {
@@ -108,15 +113,10 @@ function ProductDetail() {
       </Link>
 
       <div className="mt-8 grid gap-12 lg:grid-cols-2">
-        <figure className="overflow-hidden rounded-sm bg-card shadow-soft">
-          <img
-            src={product.image}
-            alt={`${product.brand} ${product.name}`}
-            width={800}
-            height={800}
-            className="aspect-square w-full object-cover"
-          />
-        </figure>
+        <ProductGallery
+          images={product.images?.length ? product.images : [product.image]}
+          alt={`${product.brand} ${product.name}`}
+        />
 
         <div>
           <p className="eyebrow text-muted-foreground">{product.brand}</p>
@@ -178,6 +178,29 @@ function ProductDetail() {
               </li>
             ))}
           </ul>
+
+          {product.specs && product.specs.length > 0 && (
+            <dl className="mt-8 grid gap-x-6 gap-y-2 border-t border-border pt-7 text-sm sm:grid-cols-2">
+              {product.specs.map((spec) => (
+                <div key={spec.label} className="flex justify-between gap-4 sm:block">
+                  <dt className="text-muted-foreground">{spec.label}</dt>
+                  <dd>{spec.value}</dd>
+                </div>
+              ))}
+              {product.sku && (
+                <div className="flex justify-between gap-4 sm:block">
+                  <dt className="text-muted-foreground">Artikelnummer</dt>
+                  <dd>{product.sku}</dd>
+                </div>
+              )}
+              {product.barcode && (
+                <div className="flex justify-between gap-4 sm:block">
+                  <dt className="text-muted-foreground">EAN</dt>
+                  <dd>{product.barcode}</dd>
+                </div>
+              )}
+            </dl>
+          )}
         </div>
       </div>
 

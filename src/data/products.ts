@@ -1,4 +1,9 @@
 import mobilityFormula from "@/assets/products/p-mobility-formula.jpg";
+import gelenk1 from "@/assets/products/gelenk/gelenk-1.jpg.asset.json";
+import gelenk2 from "@/assets/products/gelenk/gelenk-2.jpg.asset.json";
+import gelenk3 from "@/assets/products/gelenk/gelenk-3.jpg.asset.json";
+import gelenk4 from "@/assets/products/gelenk/gelenk-4.jpg.asset.json";
+import gelenk5 from "@/assets/products/gelenk/gelenk-5.jpg.asset.json";
 import healthyAgeing from "@/assets/products/p-healthy-ageing.jpg";
 import salmonOil from "@/assets/products/p-salmon-oil.jpg";
 import mobilitySnacks from "@/assets/products/p-mobility-snacks.jpg";
@@ -34,10 +39,14 @@ export type Product = {
   species: Species;
   needs: NeedId[];
   image: string;
+  images?: string[];
   benefits: string[];
   description: string;
   usage: string;
   sourceUrl: string;
+  sku?: string;
+  barcode?: string;
+  specs?: { label: string; value: string }[];
   rating: number;
   reviews: number;
 };
@@ -54,24 +63,41 @@ export const needs: { id: NeedId; label: string; description: string }[] = [
 export const products: Product[] = [
   {
     slug: "gelenk-gewebe-formel",
-    name: "Gelenk- & Gewebeformel",
+    name: "Mobility Formula – Gelenke & Gewebe",
     brand: "Nature's Protection",
-    tagline: "Ergänzungsfutter für Gelenke und Bindegewebe",
-    price: 34,
-    size: "60 Tabletten",
+    tagline: "Ergänzungsfuttermittel für erwachsene Hunde – Gelenke und Gewebe",
+    price: 32,
+    size: "75 g · 75 Tabletten",
     species: "hund",
     needs: ["mobilitaet"],
     image: mobilityFormula,
+    images: [
+      gelenk1.url,
+      gelenk2.url,
+      gelenk3.url,
+      gelenk4.url,
+      gelenk5.url,
+    ],
     benefits: [
-      "Mit Glucosamin, Chondroitin und MSM",
-      "Für Hunde mit nachlassender Beweglichkeit",
-      "Tägliche Gabe, einfach zu dosieren",
+      "Für Gelenke, Knorpel und Bindegewebe",
+      "Mit Microzeogen-Detox-Komplex",
+      "Unterstützt Haut, Fell und Verdauung",
+      "Für das natürliche Abwehrsystem",
     ],
     description:
-      "Eine sorgfältig zusammengestellte Formel für Hunde, deren Gelenke im Alter mehr Aufmerksamkeit brauchen. Die Kombination aus Gelenkbausteinen und Pflanzenextrakten unterstützt Knorpel und Bindegewebe im täglichen Bewegungsablauf.",
+      "Ergänzungsfuttermittel mit Vitaminen und Mineralstoffen für erwachsene Hunde, deren Gelenke im Alter mehr Aufmerksamkeit brauchen. Die Formel unterstützt Knorpel und Bindegewebe, wirkt über den Microzeogen-Komplex entlastend auf den Stoffwechsel und begleitet zugleich Haut, Fell, Verdauung und das natürliche Abwehrsystem. Basis: Fisch.",
     usage: "Täglich mit dem Futter geben. Dosierung nach Gewicht gemäss Packungsangabe.",
     sourceUrl:
       "https://petly-groom.shop/it/product/nature-s-protection-complementary-feed-for-adult-dogs-for-joint-and-tissues-supp--CAN63297",
+    sku: "CAN63297",
+    barcode: "4779051632978",
+    specs: [
+      { label: "Hauptzutat", value: "Fisch" },
+      { label: "Format", value: "75 g (75 Tabletten)" },
+      { label: "Bruttogewicht", value: "100 g" },
+      { label: "Masse", value: "9.8 × 4.5 × 4.5 cm" },
+      { label: "Volumen", value: "198 cm³" },
+    ],
     rating: 4.8,
     reviews: 34,
   },
