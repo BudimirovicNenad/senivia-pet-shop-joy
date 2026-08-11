@@ -54,7 +54,7 @@ function CartPage() {
       <p className="eyebrow text-bronze">Warenkorb</p>
       <h1 className="mt-4 text-4xl leading-tight">Ihre Auswahl</h1>
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-[1.6fr_1fr]">
+      <div className="mt-10 grid gap-8 md:grid-cols-[1.6fr_1fr] md:gap-10">
         <ul className="divide-y divide-border border-y border-border">
           {detailed.map((item) => (
             <li key={item.line.id} className="flex gap-5 py-6">

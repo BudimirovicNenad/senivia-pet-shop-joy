@@ -7,7 +7,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-5">
         <div className="border-t border-primary-foreground/10" />
       </div>
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-10 sm:grid-cols-2 sm:py-16 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-10 sm:grid-cols-2 sm:py-16 md:grid-cols-4">
         <div>
           <Logo />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-primary-foreground/70">

@@ -112,7 +112,7 @@ function ProductDetail() {
         ← Alle Produkte
       </Link>
 
-      <div className="mt-8 grid gap-12 lg:grid-cols-2">
+      <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-10 lg:gap-12">
         <ProductGallery
           images={product.images?.length ? product.images : [product.image]}
           alt={`${product.brand} ${product.name}`}
@@ -204,7 +204,7 @@ function ProductDetail() {
         </div>
       </div>
 
-      <div className="mt-16 grid gap-12 lg:grid-cols-[1.4fr_1fr]">
+      <div className="mt-16 grid gap-10 md:grid-cols-[1.4fr_1fr] md:gap-12">
         <div>
           <h2 className="text-2xl">Beschreibung</h2>
           <p className="mt-4 text-[0.98rem] leading-relaxed">{product.description}</p>
@@ -284,7 +284,7 @@ function ProductDetail() {
       {related.length > 0 && (
         <section className="mt-20">
           <h2 className="text-2xl">Passt dazu</h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {related.map((item) => (
               <ProductCard key={item.slug} product={item} />
             ))}

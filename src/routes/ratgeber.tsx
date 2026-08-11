@@ -76,7 +76,7 @@ function Ratgeber() {
         würden: ruhig, konkret und ohne Panik.
       </p>
 
-      <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-x-8 gap-y-10 sm:mt-14 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-12 md:grid-cols-3">
         {articles.map((article) => (
           <article key={article.title} className="border-t border-border pt-6">
             <p className="eyebrow text-bronze">{article.kicker}</p>

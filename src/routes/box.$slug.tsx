@@ -71,7 +71,7 @@ function BoxDetail() {
         ← Alle Boxen
       </Link>
 
-      <div className="mt-8 grid gap-12 lg:grid-cols-2">
+      <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-10 lg:gap-12">
         <figure className="overflow-hidden rounded-sm bg-card shadow-soft">
           <img
             src={bundle.image}
@@ -124,7 +124,7 @@ function BoxDetail() {
 
       <section className="mt-20">
         <h2 className="text-2xl">Diese vier Produkte sind enthalten</h2>
-        <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 sm:gap-8 md:grid-cols-4">
           {items.map((product) => (
             <article key={product.slug}>
               <Link to="/produkt/$slug" params={{ slug: product.slug }}>
