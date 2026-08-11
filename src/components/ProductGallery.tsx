@@ -6,6 +6,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
   const [zoom, setZoom] = useState(false);
   const count = images.length;
   const go = (dir: number) => setActive((i) => (i + dir + count) % count);
+  const [touchX, setTouchX] = useState<number | null>(null);
 
   useEffect(() => {
     if (!zoom) return;
@@ -24,7 +25,16 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
 
   return (
     <div>
-      <div className="group relative overflow-hidden rounded-[1.25rem] bg-card shadow-soft sm:rounded-3xl">
+      <div
+        className="group relative overflow-hidden rounded-[1.25rem] bg-card shadow-soft sm:rounded-3xl"
+        onTouchStart={(e) => setTouchX(e.touches[0]?.clientX ?? null)}
+        onTouchEnd={(e) => {
+          if (touchX === null) return;
+          const dx = (e.changedTouches[0]?.clientX ?? touchX) - touchX;
+          if (Math.abs(dx) > 45) go(dx < 0 ? 1 : -1);
+          setTouchX(null);
+        }}
+      >
         <button
           type="button"
           onClick={() => setZoom(true)}
@@ -45,7 +55,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
               type="button"
               onClick={() => go(-1)}
               aria-label="Vorheriges Bild"
-              className="absolute top-1/2 left-3 -translate-y-1/2 rounded-full bg-background/85 p-2 text-foreground shadow-soft transition-colors hover:bg-background"
+              className="absolute top-1/2 left-2 -translate-y-1/2 rounded-full bg-background/85 p-2.5 text-foreground shadow-soft transition-colors hover:bg-background sm:left-3"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -53,7 +63,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
               type="button"
               onClick={() => go(1)}
               aria-label="Nächstes Bild"
-              className="absolute top-1/2 right-3 -translate-y-1/2 rounded-full bg-background/85 p-2 text-foreground shadow-soft transition-colors hover:bg-background"
+              className="absolute top-1/2 right-2 -translate-y-1/2 rounded-full bg-background/85 p-2.5 text-foreground shadow-soft transition-colors hover:bg-background sm:right-3"
             >
               <ChevronRight className="h-4 w-4" />
             </button>
@@ -65,7 +75,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
       </div>
 
       {count > 1 && (
-        <div className="mt-3 flex gap-2.5 overflow-x-auto pb-1 sm:mt-4 sm:gap-3">
+        <div className="mt-3 grid grid-cols-5 gap-2 sm:mt-4 sm:gap-3">
           {images.map((src, i) => (
             <button
               key={src}
@@ -73,7 +83,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
               onClick={() => setActive(i)}
               aria-label={`Bild ${i + 1} anzeigen`}
               aria-current={i === active}
-              className={`h-16 w-16 shrink-0 overflow-hidden rounded-xl border transition-all sm:h-20 sm:w-20 ${
+              className={`aspect-square w-full overflow-hidden rounded-xl border transition-all ${
                 i === active
                   ? "border-bronze ring-1 ring-bronze/40"
                   : "border-border/70 opacity-75 hover:opacity-100"
