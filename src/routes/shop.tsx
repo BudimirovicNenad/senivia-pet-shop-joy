@@ -74,7 +74,7 @@ function Shop() {
         ))}
       </div>
 
-      <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-6 lg:grid-cols-3">
+      <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-6 md:grid-cols-3 lg:gap-7 xl:grid-cols-4">
         {filtered.map((product, i) => (
           <Reveal key={product.slug} delay={(i % 3) * 90} className="h-full">
             <ProductCard product={product} />

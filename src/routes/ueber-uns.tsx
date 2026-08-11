@@ -57,7 +57,7 @@ function About() {
           className="mt-12 w-full rounded-sm object-cover shadow-soft"
         />
 
-        <dl className="mt-14 grid gap-8 sm:grid-cols-3">
+        <dl className="mt-10 grid gap-8 sm:mt-14 sm:grid-cols-3">
           <div>
             <dt className="eyebrow text-muted-foreground">Kuratiert</dt>
             <dd className="mt-2 text-sm leading-relaxed">

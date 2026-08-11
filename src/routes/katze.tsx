@@ -29,7 +29,7 @@ function CatPage() {
   return (
     <div>
       <section className="bg-gradient-forest text-primary-foreground">
-        <div className="mx-auto grid max-w-6xl items-center gap-7 px-5 py-12 sm:gap-10 sm:py-16 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-6xl items-center gap-7 px-5 py-12 sm:gap-10 sm:py-16 md:grid-cols-2 md:py-14">
           <Reveal>
             <p className="eyebrow text-primary-foreground/60">Katze</p>
             <h1 className="mt-4 text-[2.1rem] leading-tight sm:text-5xl">
@@ -59,7 +59,7 @@ function CatPage() {
         <Reveal>
           <h2 className="text-xl sm:text-2xl">Passende Produkte für Katzen</h2>
         </Reveal>
-        <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-6 lg:grid-cols-3">
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-6 md:grid-cols-3 xl:grid-cols-4">
           {catProducts.map((product, i) => (
             <Reveal key={product.slug} delay={(i % 3) * 90} className="h-full">
               <ProductCard product={product} />

@@ -50,26 +50,31 @@ function CartPage() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-5 py-16">
+    <div className="mx-auto max-w-5xl px-5 py-10 sm:py-16">
       <p className="eyebrow text-bronze">Warenkorb</p>
-      <h1 className="mt-4 text-4xl leading-tight">Ihre Auswahl</h1>
+      <h1 className="mt-4 text-[1.9rem] leading-tight sm:text-4xl">Ihre Auswahl</h1>
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-[1.6fr_1fr]">
+      <div className="mt-10 grid gap-8 md:grid-cols-[1.6fr_1fr] md:gap-10">
         <ul className="divide-y divide-border border-y border-border">
           {detailed.map((item) => (
-            <li key={item.line.id} className="flex gap-5 py-6">
+            <li key={item.line.id} className="flex gap-4 py-5 sm:gap-5 sm:py-6">
               <img
                 src={item.image}
                 alt={item.title}
                 loading="lazy"
                 width={160}
                 height={160}
-                className="h-24 w-24 shrink-0 rounded-sm object-cover"
+                className="h-20 w-20 shrink-0 rounded-sm object-cover sm:h-24 sm:w-24"
               />
-              <div className="flex-1">
-                <h2 className="text-lg leading-snug">{item.title}</h2>
+              <div className="min-w-0 flex-1">
+                <div className="flex items-start justify-between gap-3">
+                  <h2 className="min-w-0 text-[1.02rem] leading-snug sm:text-lg">{item.title}</h2>
+                  <p className="shrink-0 text-sm whitespace-nowrap">
+                    {formatCHF(item.price * item.line.qty)}
+                  </p>
+                </div>
                 <p className="mt-1 text-xs text-muted-foreground">{item.subtitle}</p>
-                <div className="mt-3 flex items-center gap-4">
+                <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
                   <div className="flex items-center rounded-sm border border-input">
                     <button
                       type="button"
@@ -98,12 +103,11 @@ function CartPage() {
                   </button>
                 </div>
               </div>
-              <p className="text-sm">{formatCHF(item.price * item.line.qty)}</p>
             </li>
           ))}
         </ul>
 
-        <aside className="h-fit rounded-sm border border-border bg-card p-7">
+        <aside className="h-fit rounded-sm border border-border bg-card p-5 sm:p-7">
           <h2 className="text-xl">Zusammenfassung</h2>
           <dl className="mt-6 space-y-3 text-sm">
             <div className="flex justify-between">

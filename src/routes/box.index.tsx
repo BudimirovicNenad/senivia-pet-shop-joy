@@ -39,7 +39,7 @@ function BoxOverview() {
         {bundles.map((bundle, index) => (
           <Reveal key={bundle.slug} as="section">
           <article
-            className={`group grid items-center gap-10 lg:grid-cols-2 ${
+            className={`group grid items-center gap-8 md:grid-cols-2 md:gap-10 ${
               index % 2 === 1 ? "lg:[&>figure]:order-2" : ""
             }`}
           >
