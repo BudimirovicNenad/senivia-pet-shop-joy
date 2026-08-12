@@ -44,6 +44,7 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+  --color-product-canvas: var(--product-canvas);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
@@ -89,6 +90,8 @@
   --foreground: oklch(0.253 0.008 155);
   --card: oklch(0.985 0.008 88);
   --card-foreground: oklch(0.253 0.008 155);
+  /* matches the white studio background of the product photography */
+  --product-canvas: oklch(1 0 0);
   --popover: oklch(0.985 0.008 88);
   --popover-foreground: oklch(0.253 0.008 155);
   --primary: var(--forest);
