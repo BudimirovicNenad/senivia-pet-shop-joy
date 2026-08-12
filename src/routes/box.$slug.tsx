@@ -78,7 +78,7 @@ function BoxDetail() {
             alt={bundle.name}
             width={1200}
             height={900}
-            className="w-full object-cover"
+            className="aspect-square w-full bg-card object-contain p-4 sm:p-6"
           />
         </figure>
 
@@ -134,7 +134,7 @@ function BoxDetail() {
                   loading="lazy"
                   width={800}
                   height={800}
-                  className="aspect-square w-full rounded-sm object-cover"
+                  className="aspect-square w-full rounded-sm bg-card object-contain p-3"
                 />
               </Link>
               <p className="eyebrow mt-4 text-muted-foreground">{product.brand}</p>
