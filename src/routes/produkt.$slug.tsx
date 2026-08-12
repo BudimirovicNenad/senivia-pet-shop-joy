@@ -97,6 +97,7 @@ function ProductDetail() {
   const product = getProduct(slug)!;
   const { add } = useCart();
   const [qty, setQty] = useState(1);
+  const buyRef = useRef<HTMLDivElement>(null);
 
   const speciesLabel =
     product.species === "beide" ? "Für Hund und Katze" : product.species === "hund" ? "Für Hunde" : "Für Katzen";
@@ -141,7 +142,7 @@ function ProductDetail() {
 
           <p className="mt-6 text-2xl">{formatCHF(product.price)}</p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-3">
+          <div ref={buyRef} className="mt-6 flex flex-wrap items-center gap-3">
             <div className="flex items-center rounded-sm border border-input">
               <button
                 type="button"
@@ -291,6 +292,21 @@ function ProductDetail() {
           </div>
         </section>
       )}
+
+      <StickyBuyBar
+        watchRef={buyRef}
+        title={product.name}
+        price={formatCHF(product.price)}
+        action={
+          <button
+            type="button"
+            onClick={() => add("product", product.slug, qty)}
+            className="rounded-sm bg-primary px-5 py-3 text-[0.72rem] tracking-[0.14em] text-primary-foreground uppercase"
+          >
+            In den Warenkorb
+          </button>
+        }
+      />
     </div>
   );
 }
