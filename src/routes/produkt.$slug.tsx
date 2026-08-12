@@ -1,8 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { bundles, formatCHF, getProduct, needs, products } from "@/data/products";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductGallery } from "@/components/ProductGallery";
+import { StickyBuyBar } from "@/components/StickyBuyBar";
 import { useCart } from "@/lib/cart";
 
 export const Route = createFileRoute("/produkt/$slug")({

@@ -17,7 +17,11 @@ export function StickyBuyBar({ watchRef, title, price, compareAt, action }: Prop
     const target = watchRef.current;
     if (!target) return;
     const observer = new IntersectionObserver(
-      ([entry]) => setVisible(!entry.isIntersecting && entry.boundingClientRect.top < 0),
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+        setVisible(!entry.isIntersecting && entry.boundingClientRect.top < 0);
+      },
       { threshold: 0 },
     );
     observer.observe(target);
