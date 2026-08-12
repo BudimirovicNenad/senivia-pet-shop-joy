@@ -14,7 +14,7 @@ export function ProductCard({
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-border/70 bg-card p-2 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/40 hover:shadow-lift sm:rounded-3xl sm:p-3">
-      <div className="relative overflow-hidden rounded-[1rem] bg-secondary/40 sm:rounded-2xl">
+      <div className="relative overflow-hidden rounded-[1rem] bg-product-canvas sm:rounded-2xl">
         {badge && (
           <span className="absolute top-2 left-2 z-10 rounded-full bg-primary px-2.5 py-1 text-[0.6rem] tracking-wide text-primary-foreground uppercase sm:top-3 sm:left-3 sm:px-3 sm:text-[0.68rem]">
             {badge}
@@ -27,7 +27,7 @@ export function ProductCard({
             loading="lazy"
             width={800}
             height={800}
-            className="aspect-square w-full bg-card object-contain transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
+            className="aspect-square w-full bg-product-canvas object-contain transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
           />
         </Link>
       </div>
