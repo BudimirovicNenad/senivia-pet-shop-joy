@@ -23,7 +23,7 @@ export const Route = createFileRoute("/box/")({
 
 function BoxOverview() {
   return (
-    <div className="mx-auto max-w-6xl px-5 py-16">
+    <div className="mx-auto max-w-6xl px-5 py-14">
       <Reveal>
         <p className="eyebrow text-bronze">SENIVIA Box</p>
         <h1 className="mt-4 max-w-2xl text-4xl leading-tight sm:text-5xl">
@@ -35,15 +35,15 @@ function BoxOverview() {
         </p>
       </Reveal>
 
-      <div className="mt-14 space-y-16">
+      <div className="mt-10 space-y-12 sm:mt-14 sm:space-y-16">
         {bundles.map((bundle, index) => (
           <Reveal key={bundle.slug} as="section">
           <article
-            className={`group grid items-center gap-8 md:grid-cols-2 md:gap-10 ${
+            className={`group grid items-start gap-8 md:grid-cols-2 md:items-center md:gap-10 lg:gap-12 ${
               index % 2 === 1 ? "lg:[&>figure]:order-2" : ""
             }`}
           >
-            <figure className="overflow-hidden rounded-[1.5rem] bg-product-canvas shadow-soft transition-all duration-300 group-hover:shadow-lift">
+            <figure className="overflow-hidden rounded-[1.25rem] bg-product-canvas shadow-soft transition-all duration-300 group-hover:shadow-lift sm:rounded-3xl">
               <img
                 src={bundle.image}
                 alt={bundle.name}
@@ -54,8 +54,8 @@ function BoxOverview() {
               />
             </figure>
             <div>
-              <h2 className="text-3xl leading-tight">{bundle.name}</h2>
-              <p className="mt-2 text-sm text-muted-foreground">{bundle.subtitle}</p>
+              <h2 className="text-3xl leading-tight sm:text-4xl">{bundle.name}</h2>
+              <p className="mt-3 text-sm text-muted-foreground">{bundle.subtitle}</p>
               <div className="rule-bronze mt-6" />
               <p className="mt-6 text-[0.98rem] leading-relaxed">{bundle.intro}</p>
               <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
@@ -66,16 +66,16 @@ function BoxOverview() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 text-lg">
+              <p className="mt-6 text-2xl">
                 {formatCHF(bundle.price)}{" "}
-                <span className="text-xs text-muted-foreground line-through">
+                <span className="text-sm text-muted-foreground line-through">
                   {formatCHF(bundleValue(bundle))}
                 </span>
               </p>
               <Link
                 to="/box/$slug"
                 params={{ slug: bundle.slug }}
-                className="mt-6 inline-block rounded-full bg-primary px-7 py-4 text-[0.8rem] tracking-[0.16em] text-primary-foreground uppercase transition-all duration-300 hover:-translate-y-0.5 hover:bg-forest-deep hover:shadow-lift"
+                className="mt-6 block w-full rounded-sm bg-primary px-7 py-4 text-center text-[0.8rem] tracking-[0.16em] text-primary-foreground uppercase transition-all duration-300 hover:-translate-y-0.5 hover:bg-forest-deep hover:shadow-lift sm:inline-block sm:w-auto"
               >
                 Box ansehen
               </Link>

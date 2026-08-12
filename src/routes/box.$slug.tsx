@@ -72,7 +72,7 @@ function BoxDetail() {
       </Link>
 
       <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-10 lg:gap-12">
-        <figure className="overflow-hidden rounded-sm bg-product-canvas shadow-soft">
+        <figure className="overflow-hidden rounded-[1.25rem] bg-product-canvas shadow-soft sm:rounded-3xl">
           <img
             src={bundle.image}
             alt={bundle.name}
@@ -86,10 +86,10 @@ function BoxDetail() {
           <p className="eyebrow text-bronze">SENIVIA Box</p>
           <h1 className="mt-4 text-4xl leading-tight">{bundle.name}</h1>
           <p className="mt-3 text-sm text-muted-foreground">{bundle.subtitle}</p>
-          <div className="rule-bronze mt-7" />
-          <p className="mt-7 text-[0.98rem] leading-relaxed">{bundle.intro}</p>
+          <div className="rule-bronze mt-6" />
+          <p className="mt-6 text-[0.98rem] leading-relaxed">{bundle.intro}</p>
 
-          <p className="mt-7 flex items-baseline gap-3">
+          <p className="mt-6 flex flex-wrap items-baseline gap-3">
             <span className="text-2xl">{formatCHF(bundle.price)}</span>
             <span className="text-sm text-muted-foreground line-through">
               {formatCHF(bundleValue(bundle))}
@@ -102,12 +102,12 @@ function BoxDetail() {
           <button
             type="button"
             onClick={() => add("bundle", bundle.slug)}
-            className="mt-7 w-full rounded-sm bg-primary px-7 py-4 text-[0.8rem] tracking-[0.16em] text-primary-foreground uppercase transition-colors hover:bg-forest-deep sm:w-auto"
+            className="mt-6 w-full rounded-sm bg-primary px-7 py-4 text-[0.8rem] tracking-[0.16em] text-primary-foreground uppercase transition-colors hover:bg-forest-deep sm:w-auto"
           >
             Box in den Warenkorb
           </button>
 
-          <dl className="mt-9 space-y-4 border-t border-border pt-7 text-sm">
+          <dl className="mt-8 space-y-4 border-t border-border pt-7 text-sm">
             <div>
               <dt className="eyebrow text-muted-foreground">Für wen</dt>
               <dd className="mt-2 leading-relaxed">{bundle.forWhom}</dd>
@@ -122,7 +122,7 @@ function BoxDetail() {
         </div>
       </div>
 
-      <section className="mt-20">
+      <section className="mt-16 sm:mt-20">
         <h2 className="text-2xl">Diese vier Produkte sind enthalten</h2>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 sm:gap-8 md:grid-cols-4">
           {items.map((product) => (
