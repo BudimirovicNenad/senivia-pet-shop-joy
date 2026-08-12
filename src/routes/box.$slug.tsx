@@ -72,13 +72,13 @@ function BoxDetail() {
       </Link>
 
       <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-10 lg:gap-12">
-        <figure className="overflow-hidden rounded-sm bg-card shadow-soft">
+        <figure className="overflow-hidden rounded-sm bg-product-canvas shadow-soft">
           <img
             src={bundle.image}
             alt={bundle.name}
             width={1200}
             height={900}
-            className="aspect-square w-full bg-card object-contain"
+            className="aspect-square w-full bg-product-canvas object-contain"
           />
         </figure>
 
@@ -134,7 +134,7 @@ function BoxDetail() {
                   loading="lazy"
                   width={800}
                   height={800}
-                  className="aspect-square w-full rounded-sm bg-card object-contain"
+                  className="aspect-square w-full rounded-sm bg-product-canvas object-contain"
                 />
               </Link>
               <p className="eyebrow mt-4 text-muted-foreground">{product.brand}</p>

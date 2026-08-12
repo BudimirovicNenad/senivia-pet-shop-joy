@@ -26,7 +26,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
   return (
     <div>
       <div
-        className="group relative overflow-hidden rounded-[1.25rem] bg-card shadow-soft sm:rounded-3xl"
+        className="group relative overflow-hidden rounded-[1.25rem] bg-product-canvas shadow-soft sm:rounded-3xl"
         onTouchStart={(e) => setTouchX(e.touches[0]?.clientX ?? null)}
         onTouchEnd={(e) => {
           if (touchX === null) return;
@@ -46,7 +46,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
             alt={`${alt} – Bild ${active + 1}`}
             width={1000}
             height={1000}
-            className="aspect-square w-full bg-card object-contain transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
+            className="aspect-square w-full bg-product-canvas object-contain transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
           />
         </button>
         {count > 1 && (
@@ -93,7 +93,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
                 src={src}
                 alt=""
                 loading="lazy"
-                className="aspect-square h-full w-full bg-card object-contain"
+                className="aspect-square h-full w-full bg-product-canvas object-contain"
               />
             </button>
           ))}
