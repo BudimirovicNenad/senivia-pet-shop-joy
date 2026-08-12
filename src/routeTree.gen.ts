@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BeraterRouteImport } from './routes/berater'
+import { Route as FavoritenRouteImport } from './routes/favoriten'
 import { Route as HundRouteImport } from './routes/hund'
 import { Route as KatzeRouteImport } from './routes/katze'
+import { Route as KontoRouteImport } from './routes/konto'
 import { Route as RatgeberRouteImport } from './routes/ratgeber'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as UeberUnsRouteImport } from './routes/ueber-uns'
@@ -31,6 +33,11 @@ const BeraterRoute = BeraterRouteImport.update({
   path: '/berater',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FavoritenRoute = FavoritenRouteImport.update({
+  id: '/favoriten',
+  path: '/favoriten',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HundRoute = HundRouteImport.update({
   id: '/hund',
   path: '/hund',
@@ -39,6 +46,11 @@ const HundRoute = HundRouteImport.update({
 const KatzeRoute = KatzeRouteImport.update({
   id: '/katze',
   path: '/katze',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontoRoute = KontoRouteImport.update({
+  id: '/konto',
+  path: '/konto',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RatgeberRoute = RatgeberRouteImport.update({
@@ -80,8 +92,10 @@ const ProduktSlugRoute = ProduktSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/berater': typeof BeraterRoute
+  '/favoriten': typeof FavoritenRoute
   '/hund': typeof HundRoute
   '/katze': typeof KatzeRoute
+  '/konto': typeof KontoRoute
   '/ratgeber': typeof RatgeberRoute
   '/shop': typeof ShopRoute
   '/ueber-uns': typeof UeberUnsRoute
@@ -93,8 +107,10 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/berater': typeof BeraterRoute
+  '/favoriten': typeof FavoritenRoute
   '/hund': typeof HundRoute
   '/katze': typeof KatzeRoute
+  '/konto': typeof KontoRoute
   '/ratgeber': typeof RatgeberRoute
   '/shop': typeof ShopRoute
   '/ueber-uns': typeof UeberUnsRoute
@@ -107,8 +123,10 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/berater': typeof BeraterRoute
+  '/favoriten': typeof FavoritenRoute
   '/hund': typeof HundRoute
   '/katze': typeof KatzeRoute
+  '/konto': typeof KontoRoute
   '/ratgeber': typeof RatgeberRoute
   '/shop': typeof ShopRoute
   '/ueber-uns': typeof UeberUnsRoute
@@ -122,8 +140,10 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/berater'
+    | '/favoriten'
     | '/hund'
     | '/katze'
+    | '/konto'
     | '/ratgeber'
     | '/shop'
     | '/ueber-uns'
@@ -135,8 +155,10 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/berater'
+    | '/favoriten'
     | '/hund'
     | '/katze'
+    | '/konto'
     | '/ratgeber'
     | '/shop'
     | '/ueber-uns'
@@ -148,8 +170,10 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/berater'
+    | '/favoriten'
     | '/hund'
     | '/katze'
+    | '/konto'
     | '/ratgeber'
     | '/shop'
     | '/ueber-uns'
@@ -162,8 +186,10 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BeraterRoute: typeof BeraterRoute
+  FavoritenRoute: typeof FavoritenRoute
   HundRoute: typeof HundRoute
   KatzeRoute: typeof KatzeRoute
+  KontoRoute: typeof KontoRoute
   RatgeberRoute: typeof RatgeberRoute
   ShopRoute: typeof ShopRoute
   UeberUnsRoute: typeof UeberUnsRoute
@@ -189,6 +215,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BeraterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/favoriten': {
+      id: '/favoriten'
+      path: '/favoriten'
+      fullPath: '/favoriten'
+      preLoaderRoute: typeof FavoritenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hund': {
       id: '/hund'
       path: '/hund'
@@ -201,6 +234,13 @@ declare module '@tanstack/react-router' {
       path: '/katze'
       fullPath: '/katze'
       preLoaderRoute: typeof KatzeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/konto': {
+      id: '/konto'
+      path: '/konto'
+      fullPath: '/konto'
+      preLoaderRoute: typeof KontoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ratgeber': {
@@ -258,8 +298,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BeraterRoute: BeraterRoute,
+  FavoritenRoute: FavoritenRoute,
   HundRoute: HundRoute,
   KatzeRoute: KatzeRoute,
+  KontoRoute: KontoRoute,
   RatgeberRoute: RatgeberRoute,
   ShopRoute: ShopRoute,
   UeberUnsRoute: UeberUnsRoute,
