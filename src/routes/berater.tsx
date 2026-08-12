@@ -172,7 +172,7 @@ function Berater() {
                   loading="lazy"
                   width={1200}
                   height={900}
-                  className="w-full rounded-sm object-cover"
+                  className="aspect-square w-full rounded-sm bg-card object-contain p-3"
                 />
                 <div>
                   <h2 className="text-2xl leading-tight">{recommendedBundle.name}</h2>
