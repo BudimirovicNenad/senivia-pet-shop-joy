@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Star, ShoppingBag } from "lucide-react";
 import { formatCHF, type Product } from "@/data/products";
 import { useCart } from "@/lib/cart";
+import { FavoriteButton } from "./FavoriteButton";
 
 export function ProductCard({
   product,
@@ -30,6 +31,9 @@ export function ProductCard({
             className="aspect-square w-full bg-product-canvas object-contain transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
           />
         </Link>
+        <span className="absolute top-2 right-2 z-10 sm:top-3 sm:right-3">
+          <FavoriteButton slug={product.slug} label={product.name} />
+        </span>
       </div>
       <div className="flex flex-1 flex-col px-2 pt-3 pb-1 sm:px-2.5 sm:pt-4 sm:pb-2">
         <p className="truncate text-[0.62rem] tracking-[0.1em] whitespace-nowrap text-muted-foreground uppercase sm:text-[0.7rem] sm:tracking-[0.16em]">
