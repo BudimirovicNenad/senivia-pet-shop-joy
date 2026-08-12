@@ -28,9 +28,6 @@ export function StickyBuyBar({ watchRef, title, price, compareAt, action }: Prop
     };
   }, [watchRef]);
 
-  return () => observer.disconnect();
-  }, [watchRef]);
-
   return (
     <div
       ref={barRef}
