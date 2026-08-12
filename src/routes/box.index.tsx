@@ -50,7 +50,7 @@ function BoxOverview() {
                 loading="lazy"
                 width={1200}
                 height={900}
-                className="w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
+                className="aspect-square w-full bg-card object-contain p-4 transition-transform duration-[900ms] ease-out group-hover:scale-[1.03] sm:p-6"
               />
             </figure>
             <div>

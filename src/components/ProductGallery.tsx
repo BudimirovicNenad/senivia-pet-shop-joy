@@ -46,7 +46,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
             alt={`${alt} – Bild ${active + 1}`}
             width={1000}
             height={1000}
-            className="aspect-square w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+            className="aspect-square w-full bg-card object-contain p-4 transition-transform duration-[900ms] ease-out group-hover:scale-[1.03] sm:p-6"
           />
         </button>
         {count > 1 && (
@@ -93,7 +93,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
                 src={src}
                 alt=""
                 loading="lazy"
-                className="h-full w-full object-cover"
+                className="aspect-square h-full w-full bg-card object-contain p-1.5"
               />
             </button>
           ))}
