@@ -78,7 +78,7 @@ function BoxDetail() {
             alt={bundle.name}
             width={1200}
             height={900}
-            className="aspect-square w-full bg-product-canvas object-contain"
+            className="aspect-[4/3] w-full object-cover"
           />
         </figure>
 

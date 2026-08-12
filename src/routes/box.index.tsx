@@ -43,14 +43,14 @@ function BoxOverview() {
               index % 2 === 1 ? "lg:[&>figure]:order-2" : ""
             }`}
           >
-            <figure className="overflow-hidden rounded-[1.5rem] bg-card shadow-soft transition-all duration-300 group-hover:shadow-lift">
+            <figure className="overflow-hidden rounded-[1.5rem] bg-product-canvas shadow-soft transition-all duration-300 group-hover:shadow-lift">
               <img
                 src={bundle.image}
                 alt={bundle.name}
                 loading="lazy"
                 width={1200}
                 height={900}
-                className="aspect-square w-full bg-product-canvas object-contain transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
+                className="aspect-[4/3] w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
               />
             </figure>
             <div>
