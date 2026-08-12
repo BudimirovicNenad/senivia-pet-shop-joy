@@ -93,7 +93,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
                 src={src}
                 alt=""
                 loading="lazy"
-                className="aspect-square h-full w-full bg-card object-contain p-1.5"
+                className="aspect-square h-full w-full bg-card object-contain"
               />
             </button>
           ))}

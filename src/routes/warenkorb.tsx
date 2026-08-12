@@ -64,7 +64,7 @@ function CartPage() {
                 loading="lazy"
                 width={160}
                 height={160}
-                className="h-20 w-20 shrink-0 rounded-sm bg-card object-contain p-1.5 sm:h-24 sm:w-24"
+                className="h-20 w-20 shrink-0 rounded-sm bg-card object-contain sm:h-24 sm:w-24"
               />
               <div className="min-w-0 flex-1">
                 <div className="flex items-start justify-between gap-3">
