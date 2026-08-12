@@ -14,18 +14,21 @@ export function StickyBuyBar({ watchRef, title, price, compareAt, action }: Prop
   const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const target = watchRef.current;
-    if (!target) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (!entry) return;
-        setVisible(!entry.isIntersecting && entry.boundingClientRect.top < 0);
-      },
-      { threshold: 0 },
-    );
-    observer.observe(target);
-    return () => observer.disconnect();
+    const update = () => {
+      const target = watchRef.current;
+      if (!target) return;
+      setVisible(target.getBoundingClientRect().bottom < 0);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [watchRef]);
+
+  return () => observer.disconnect();
   }, [watchRef]);
 
   return (
