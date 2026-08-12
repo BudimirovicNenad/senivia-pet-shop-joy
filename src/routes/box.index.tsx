@@ -43,7 +43,7 @@ function BoxOverview() {
               index % 2 === 1 ? "lg:[&>figure]:order-2" : ""
             }`}
           >
-            <figure className="overflow-hidden rounded-[1.5rem] bg-card shadow-soft transition-all duration-300 group-hover:shadow-lift">
+            <figure className="overflow-hidden rounded-[1.5rem] bg-product-canvas shadow-soft transition-all duration-300 group-hover:shadow-lift">
               <img
                 src={bundle.image}
                 alt={bundle.name}
