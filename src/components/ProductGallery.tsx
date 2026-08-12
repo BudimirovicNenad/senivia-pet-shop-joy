@@ -46,7 +46,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
             alt={`${alt} – Bild ${active + 1}`}
             width={1000}
             height={1000}
-            className="aspect-square w-full bg-card object-contain p-4 transition-transform duration-[900ms] ease-out group-hover:scale-[1.03] sm:p-6"
+            className="aspect-square w-full bg-card object-contain transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
           />
         </button>
         {count > 1 && (

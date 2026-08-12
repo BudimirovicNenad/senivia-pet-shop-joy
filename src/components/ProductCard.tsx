@@ -27,7 +27,7 @@ export function ProductCard({
             loading="lazy"
             width={800}
             height={800}
-            className="aspect-square w-full bg-card object-contain transition-transform duration-[900ms] ease-out group-hover:scale-[1.05] sm:p-4"
+            className="aspect-square w-full bg-card object-contain transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
           />
         </Link>
       </div>
