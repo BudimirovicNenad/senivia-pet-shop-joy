@@ -33,6 +33,8 @@ export function Footer() {
             <li><Link to="/ratgeber" className="hover:text-primary-foreground">Ratgeber</Link></li>
             <li><Link to="/ueber-uns" className="hover:text-primary-foreground">Über SENIVIA</Link></li>
             <li><Link to="/warenkorb" className="hover:text-primary-foreground">Warenkorb</Link></li>
+            <li><Link to="/favoriten" className="hover:text-primary-foreground">Favoriten</Link></li>
+            <li><Link to="/konto" className="hover:text-primary-foreground">Mein Konto</Link></li>
           </ul>
         </div>
 
