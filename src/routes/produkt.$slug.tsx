@@ -4,6 +4,7 @@ import { bundles, formatCHF, getProduct, needs, products } from "@/data/products
 import { ProductCard } from "@/components/ProductCard";
 import { ProductGallery } from "@/components/ProductGallery";
 import { StickyBuyBar } from "@/components/StickyBuyBar";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { useCart } from "@/lib/cart";
 
 export const Route = createFileRoute("/produkt/$slug")({
@@ -170,6 +171,7 @@ function ProductDetail() {
             >
               In den Warenkorb
             </button>
+            <FavoriteButton slug={product.slug} label={product.name} />
           </div>
 
           <ul className="mt-8 space-y-2.5 border-t border-border pt-7 text-sm">
