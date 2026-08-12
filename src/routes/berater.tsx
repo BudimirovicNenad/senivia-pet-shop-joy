@@ -172,7 +172,7 @@ function Berater() {
                   loading="lazy"
                   width={1200}
                   height={900}
-                  className="aspect-[4/3] w-full rounded-sm object-cover"
+                  className="aspect-square w-full rounded-sm bg-product-canvas object-contain sm:aspect-[4/3] sm:object-cover"
                 />
                 <div>
                   <h2 className="text-2xl leading-tight">{recommendedBundle.name}</h2>
