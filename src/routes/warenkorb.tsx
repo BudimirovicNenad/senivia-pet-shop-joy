@@ -130,14 +130,14 @@ function CartPage() {
             </p>
           )}
 
-          <button
-            type="button"
-            className="mt-7 w-full rounded-sm bg-primary px-6 py-4 text-[0.8rem] tracking-[0.16em] text-primary-foreground uppercase transition-colors hover:bg-forest-deep"
+          <Link
+            to="/kasse"
+            className="mt-7 block w-full rounded-sm bg-primary px-6 py-4 text-center text-[0.8rem] tracking-[0.16em] text-primary-foreground uppercase transition-colors hover:bg-forest-deep"
           >
             Zur Kasse
-          </button>
+          </Link>
           <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-            Bezahlung wird im nächsten Schritt aktiviert. Kauf ist auch ohne Kundenkonto möglich.
+            Sichere Bezahlung mit Karte, TWINT oder Rechnung. Kauf ist auch ohne Kundenkonto möglich.
           </p>
         </aside>
       </div>

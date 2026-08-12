@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Search, ShoppingBag, Menu, X, ArrowRight, Truck } from "lucide-react";
+import { Search, ShoppingBag, Menu, X, ArrowRight, Truck, Heart, User } from "lucide-react";
 import { Logo } from "./Logo";
 import { useCart } from "@/lib/cart";
+import { useFavorites } from "@/lib/favorites";
 
 const nav = [
   { to: "/hund", label: "Hund" },
@@ -15,6 +16,7 @@ const nav = [
 
 export function Header() {
   const { count } = useCart();
+  const { count: favCount } = useFavorites();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -59,6 +61,25 @@ export function Header() {
               className="hidden h-10 w-10 items-center justify-center rounded-full text-primary transition-colors hover:bg-secondary lg:inline-flex"
             >
               <Search className="h-[1.15rem] w-[1.15rem]" />
+            </Link>
+            <Link
+              to="/favoriten"
+              aria-label="Favoriten"
+              className="relative hidden h-10 w-10 items-center justify-center rounded-full text-primary transition-colors hover:bg-secondary lg:inline-flex"
+            >
+              <Heart className="h-[1.15rem] w-[1.15rem]" />
+              {favCount > 0 && (
+                <span className="absolute top-1 right-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-bronze px-1 text-[0.6rem] text-primary-foreground">
+                  {favCount}
+                </span>
+              )}
+            </Link>
+            <Link
+              to="/konto"
+              aria-label="Mein Konto"
+              className="hidden h-10 w-10 items-center justify-center rounded-full text-primary transition-colors hover:bg-secondary lg:inline-flex"
+            >
+              <User className="h-[1.15rem] w-[1.15rem]" />
             </Link>
             <Link
               to="/warenkorb"
@@ -136,6 +157,30 @@ export function Header() {
                     </li>
                   ))}
                 </ul>
+
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  <Link
+                    to="/favoriten"
+                    onClick={() => setOpen(false)}
+                    className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-4 py-3 text-sm text-foreground/80"
+                  >
+                    <Heart className="h-4 w-4 shrink-0 text-primary" />
+                    Favoriten
+                    {favCount > 0 && (
+                      <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-sage/50 px-1.5 text-[0.7rem]">
+                        {favCount}
+                      </span>
+                    )}
+                  </Link>
+                  <Link
+                    to="/konto"
+                    onClick={() => setOpen(false)}
+                    className="flex items-center justify-center gap-2 rounded-full border border-border bg-card px-4 py-3 text-sm text-foreground/80"
+                  >
+                    <User className="h-4 w-4 shrink-0 text-primary" />
+                    Konto
+                  </Link>
+                </div>
               </div>
 
               <div className="border-t border-border px-5 py-5">
