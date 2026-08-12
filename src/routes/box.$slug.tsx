@@ -1,4 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { useRef } from "react";
+import { StickyBuyBar } from "@/components/StickyBuyBar";
 import { bundleProducts, bundleValue, formatCHF, getBundle } from "@/data/products";
 import { useCart } from "@/lib/cart";
 
@@ -64,6 +66,7 @@ function BoxDetail() {
   const bundle = getBundle(slug)!;
   const items = bundleProducts(bundle);
   const { add } = useCart();
+  const buyRef = useRef<HTMLButtonElement>(null);
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-14">
@@ -100,6 +103,7 @@ function BoxDetail() {
           </p>
 
           <button
+            ref={buyRef}
             type="button"
             onClick={() => add("bundle", bundle.slug)}
             className="mt-6 w-full rounded-sm bg-primary px-7 py-4 text-[0.8rem] tracking-[0.16em] text-primary-foreground uppercase transition-colors hover:bg-forest-deep sm:w-auto"
@@ -148,6 +152,22 @@ function BoxDetail() {
           ))}
         </div>
       </section>
+
+      <StickyBuyBar
+        watchRef={buyRef}
+        title={bundle.name}
+        price={formatCHF(bundle.price)}
+        compareAt={formatCHF(bundleValue(bundle))}
+        action={
+          <button
+            type="button"
+            onClick={() => add("bundle", bundle.slug)}
+            className="rounded-sm bg-primary px-5 py-3 text-[0.72rem] tracking-[0.14em] text-primary-foreground uppercase"
+          >
+            In den Warenkorb
+          </button>
+        }
+      />
     </div>
   );
 }
