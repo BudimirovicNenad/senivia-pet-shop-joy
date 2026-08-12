@@ -397,7 +397,7 @@ function Home() {
                 loading="lazy"
                 width={1200}
                 height={900}
-                className="aspect-square w-full bg-card object-contain p-3 transition-transform duration-[900ms] ease-out group-hover:scale-[1.04] sm:p-4"
+                className="aspect-square w-full bg-card object-contain transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
               />
               </div>
               <div className="px-3 pt-4 pb-2 sm:px-4 sm:pt-5 sm:pb-3">
