@@ -1,4 +1,3 @@
-import { BoxImage } from "@/components/BoxImage";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { bundles, formatCHF, products, type NeedId, type Species } from "@/data/products";
@@ -167,11 +166,13 @@ function Berater() {
             <p className="eyebrow text-muted-foreground">Unsere Empfehlung</p>
             {recommendedBundle && (
               <div className="mt-6 grid gap-7 sm:grid-cols-[1fr_1.2fr]">
-                <BoxImage
+                <img
                   src={recommendedBundle.image}
                   alt={recommendedBundle.name}
                   loading="lazy"
-                  className="rounded-sm"
+                  width={1200}
+                  height={900}
+                  className="aspect-square w-full rounded-sm bg-product-canvas object-contain sm:aspect-[4/3] sm:object-cover"
                 />
                 <div>
                   <h2 className="text-2xl leading-tight">{recommendedBundle.name}</h2>
