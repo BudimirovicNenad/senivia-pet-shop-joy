@@ -100,7 +100,31 @@ const reviews = [
   },
 ];
 
+const faqs = [
+  {
+    question: "Wie wähle ich die richtige SENIVIA Box?",
+    answer:
+      "Die drei Boxen decken die häufigsten Bedürfnisse im höheren Alter ab. Unsicher? Der Produktberater stellt Ihnen in wenigen Schritten die passende Box zusammen.",
+  },
+  {
+    question: "Für welches Alter ist SENIVIA gedacht?",
+    answer:
+      "Unser Sortiment ist für gesunde Hunde und Katzen ab etwa 7 Jahren gedacht, die mehr Wohlbefinden, Beweglichkeit und sanfte Pflege im Alltag verdienen.",
+  },
+  {
+    question: "Was ist der Unterschied zwischen einer Box und dem Einzelkauf?",
+    answer:
+      "Jede Box enthält eine aufeinander abgestimmte Auswahl passender Produkte – einfacher, günstiger und als komplettes Geschenkset verpackt.",
+  },
+  {
+    question: "Wie funktioniert der Produktberater?",
+    answer:
+      "Sie beantworten einige ruhige Fragen zu Tierart, Alter und aktuellem Bedürfnis. Am Ende erhalten Sie eine transparente Empfehlung, ohne Zwang und ohne tierärztliche Diagnose.",
+  },
+];
+
 function Home() {
+
   const bestsellerSlugs = [
     "gelenk-gewebe-formel",
     "healthy-ageing",
