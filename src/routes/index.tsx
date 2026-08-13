@@ -263,76 +263,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Needs */}
-      <section className="bg-secondary/45 bg-grain py-10 sm:py-16">
-        <div className="mx-auto max-w-6xl px-5">
-        <Reveal className="mx-auto max-w-xl text-center">
-          <p className="eyebrow text-bronze">Nach Bedarf einkaufen</p>
-          <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">
-            Wählen Sie, was Ihr Tier jetzt braucht.
-          </h2>
-          <p className="mt-3 text-[0.85rem] leading-relaxed text-muted-foreground sm:mt-4 sm:text-sm">
-            Sechs Bereiche, in denen ältere Tiere am häufigsten Unterstützung brauchen.
-          </p>
-        </Reveal>
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 md:grid-cols-3 lg:grid-cols-3">
-          {needs.map((need, i) => (
-            <Reveal key={need.id} delay={(i % 3) * 100} className="h-full">
-            <Link
-              to="/shop"
-              search={{ bedarf: need.id }}
-              className="group flex h-full flex-col rounded-[1.25rem] border border-border/70 bg-card p-4 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/40 hover:shadow-lift sm:rounded-[1.5rem] sm:p-7"
-            >
-              {(() => {
-                const Icon = needIcon[need.id] ?? Sparkles;
-                return (
-                  <span
-                    className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-primary transition-transform duration-300 group-hover:scale-110 sm:h-11 sm:w-11 ${needTint[need.id] ?? "bg-secondary"}`}
-                  >
-                    <Icon className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" strokeWidth={1.6} />
-                  </span>
-                );
-              })()}
-              <h3 className="mt-3.5 text-[1.05rem] leading-snug sm:mt-4 sm:text-xl">{need.label}</h3>
-              <p className="mt-2 text-[0.8rem] leading-snug text-muted-foreground sm:mt-3 sm:text-sm sm:leading-relaxed">
-                {need.description}
-              </p>
-              <span className="mt-auto inline-flex items-center gap-1.5 pt-3.5 text-[0.78rem] font-medium text-primary sm:pt-5 sm:text-[0.8rem]">
-                Ansehen <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </span>
-            </Link>
-            </Reveal>
-          ))}
-        </div>
-        </div>
-      </section>
-
-      {/* Bestseller */}
-      <section className="py-10 sm:py-16">
-        <div className="mx-auto max-w-6xl px-5">
-          <Reveal className="mx-auto max-w-xl text-center">
-            <p className="eyebrow text-bronze">Beliebt bei unseren Kundinnen</p>
-            <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">Häufig gewählt</h2>
-          </Reveal>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-6 md:grid-cols-4">
-            {bestsellers.slice(0, 4).map((product, i) => (
-              <Reveal key={product.slug} delay={i * 90} className="h-full">
-                <ProductCard product={product} badge={i === 0 ? "Bestseller" : undefined} />
-              </Reveal>
-            ))}
-          </div>
-          <div className="mt-8 text-center sm:mt-10">
-            <Link
-              to="/shop"
-              search={{}}
-              className="inline-flex items-center gap-2 rounded-full border border-primary/25 px-7 py-3.5 text-[0.82rem] font-medium text-primary transition-colors hover:border-primary"
-            >
-              Alle Produkte ansehen <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Species — Lifestyle photography split 1x2 */}
       <section className="mx-auto max-w-6xl px-5 py-10 sm:py-16">
         <Reveal className="mx-auto max-w-xl text-center">
@@ -415,6 +345,76 @@ function Home() {
               </div>
             </Link>
           </Reveal>
+        </div>
+      </section>
+
+      {/* Bestseller */}
+      <section className="py-10 sm:py-16">
+        <div className="mx-auto max-w-6xl px-5">
+          <Reveal className="mx-auto max-w-xl text-center">
+            <p className="eyebrow text-bronze">Beliebt bei unseren Kundinnen</p>
+            <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">Häufig gewählt</h2>
+          </Reveal>
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-6 md:grid-cols-4">
+            {bestsellers.slice(0, 4).map((product, i) => (
+              <Reveal key={product.slug} delay={i * 90} className="h-full">
+                <ProductCard product={product} badge={i === 0 ? "Bestseller" : undefined} />
+              </Reveal>
+            ))}
+          </div>
+          <div className="mt-8 text-center sm:mt-10">
+            <Link
+              to="/shop"
+              search={{}}
+              className="inline-flex items-center gap-2 rounded-full border border-primary/25 px-7 py-3.5 text-[0.82rem] font-medium text-primary transition-colors hover:border-primary"
+            >
+              Alle Produkte ansehen <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Needs */}
+      <section className="bg-secondary/45 bg-grain py-10 sm:py-16">
+        <div className="mx-auto max-w-6xl px-5">
+        <Reveal className="mx-auto max-w-xl text-center">
+          <p className="eyebrow text-bronze">Nach Bedarf einkaufen</p>
+          <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">
+            Wählen Sie, was Ihr Tier jetzt braucht.
+          </h2>
+          <p className="mt-3 text-[0.85rem] leading-relaxed text-muted-foreground sm:mt-4 sm:text-sm">
+            Sechs Bereiche, in denen ältere Tiere am häufigsten Unterstützung brauchen.
+          </p>
+        </Reveal>
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 md:grid-cols-3 lg:grid-cols-3">
+          {needs.map((need, i) => (
+            <Reveal key={need.id} delay={(i % 3) * 100} className="h-full">
+            <Link
+              to="/shop"
+              search={{ bedarf: need.id }}
+              className="group flex h-full flex-col rounded-[1.25rem] border border-border/70 bg-card p-4 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/40 hover:shadow-lift sm:rounded-[1.5rem] sm:p-7"
+            >
+              {(() => {
+                const Icon = needIcon[need.id] ?? Sparkles;
+                return (
+                  <span
+                    className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-primary transition-transform duration-300 group-hover:scale-110 sm:h-11 sm:w-11 ${needTint[need.id] ?? "bg-secondary"}`}
+                  >
+                    <Icon className="h-[1.15rem] w-[1.15rem] sm:h-5 sm:w-5" strokeWidth={1.6} />
+                  </span>
+                );
+              })()}
+              <h3 className="mt-3.5 text-[1.05rem] leading-snug sm:mt-4 sm:text-xl">{need.label}</h3>
+              <p className="mt-2 text-[0.8rem] leading-snug text-muted-foreground sm:mt-3 sm:text-sm sm:leading-relaxed">
+                {need.description}
+              </p>
+              <span className="mt-auto inline-flex items-center gap-1.5 pt-3.5 text-[0.78rem] font-medium text-primary sm:pt-5 sm:text-[0.8rem]">
+                Ansehen <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+            </Reveal>
+          ))}
+        </div>
         </div>
       </section>
 
