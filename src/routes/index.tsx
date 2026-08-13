@@ -461,25 +461,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Erfahrungen */}
-      <section className="bg-card/60 py-10 sm:py-16">
-        <div className="mx-auto max-w-6xl px-5">
-          <p className="eyebrow text-bronze">Erfahrungen</p>
-          <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">Was Kundinnen berichten</h2>
-          <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 md:grid-cols-3">
-            {reviews.map((review, i) => (
-              <Reveal key={review.author} delay={i * 100} className="h-full">
-              <figure className="h-full rounded-[1.25rem] border border-border/70 bg-card p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift sm:rounded-[1.5rem] sm:p-7">
-                <blockquote className="text-[1rem] leading-relaxed sm:text-lg">„{review.quote}“</blockquote>
-                <figcaption className="mt-4 text-[0.8rem] text-muted-foreground sm:mt-5 sm:text-sm">
-                  {review.author} · {review.pet}
-                </figcaption>
-              </figure>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Ratgeber */}
       <section className="mx-auto max-w-6xl px-5 py-10 sm:py-16">
