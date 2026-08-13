@@ -142,8 +142,8 @@ function Home() {
 
   return (
     <>
-      {/* Hero — kompakt */}
-      <section className="relative isolate flex min-h-[26rem] items-center overflow-hidden sm:min-h-[28rem]">
+      {/* Hero */}
+      <section className="relative isolate flex min-h-[34rem] items-center overflow-hidden sm:min-h-[42rem]">
         <img
           src={heroImage}
           alt="Ältere Golden-Retriever-Hündin liegt entspannt neben ihrer Besitzerin"
@@ -158,32 +158,43 @@ function Home() {
               "linear-gradient(100deg, oklch(0.255 0.038 165.5 / 92%) 0%, oklch(0.255 0.038 165.5 / 72%) 42%, oklch(0.255 0.038 165.5 / 18%) 78%)",
           }}
         />
-        <div className="mx-auto w-full max-w-6xl px-5 py-12 sm:py-14">
+        <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:py-20">
           <div className="max-w-xl text-primary-foreground">
-            <h1 className="text-[2.15rem] leading-[1.06] font-medium sm:text-[2.9rem] lg:text-[3.35rem]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-4 py-2 text-[0.7rem] font-medium tracking-[0.14em] uppercase backdrop-blur-sm">
+              <Leaf className="h-3.5 w-3.5 text-bronze" strokeWidth={1.8} />
+              Für Hunde und Katzen ab ca. 7 Jahren
+            </span>
+            <h1 className="mt-6 text-[2.4rem] leading-[1.05] font-medium sm:text-[3.4rem] lg:text-[4rem]">
               Für noch viele schöne Jahre mit dir.
             </h1>
-            <p className="mt-4 max-w-lg text-[0.92rem] leading-relaxed text-primary-foreground/85 sm:text-[1rem]">
-              Sorgfältig zusammengestellte Boxen für Beweglichkeit, Verdauung und Zahnpflege im
+            <p className="mt-5 max-w-lg text-[0.95rem] leading-relaxed text-primary-foreground/85 sm:text-[1.05rem]">
+              Sorgfältig ausgewählte Produkte für mehr Wohlbefinden, Komfort und Lebensqualität im
               höheren Alter.
             </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href="#senivia-boxen"
                 onClick={scrollToBoxes}
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-cream px-7 py-3.5 text-[0.85rem] font-medium text-primary shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift"
               >
-                Box auswählen
+                SENIVIA Box entdecken
                 <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
               <Link
-                to="/berater"
+                to="/shop"
+                search={{}}
                 className="rounded-full border border-primary-foreground/45 px-7 py-3.5 text-center text-[0.85rem] font-medium text-primary-foreground backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-foreground hover:bg-primary-foreground/10"
               >
-                Produktberater
+                Alle Produkte
               </Link>
             </div>
           </div>
+        </div>
+        <div className="pointer-events-none absolute right-5 bottom-6 hidden rounded-[1.25rem] border border-primary-foreground/20 bg-primary/45 px-6 py-4 text-primary-foreground backdrop-blur-md lg:block">
+          <p className="text-[0.62rem] tracking-[0.18em] uppercase text-primary-foreground/70">
+            Weil sie das Beste verdient
+          </p>
+          <p className="mt-1 text-xl">12 Produkte · 3 Boxen</p>
         </div>
       </section>
 
