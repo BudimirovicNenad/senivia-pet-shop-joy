@@ -324,32 +324,35 @@ function Home() {
             <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">
               Wählen Sie, was Ihr Tier jetzt braucht.
             </h2>
+            <p className="mt-4 text-[0.85rem] leading-relaxed text-muted-foreground sm:text-sm">
+              Sechs Bereiche, in denen ältere Tiere am häufigsten Unterstützung brauchen.
+            </p>
           </Reveal>
-          <div className="mt-7 grid grid-cols-2 gap-3 sm:mt-9 sm:gap-4 md:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 md:grid-cols-3">
             {needs.map((need, i) => (
               <Reveal key={need.id} delay={(i % 3) * 90} className="h-full">
                 <Link
                   to="/shop"
                   search={{ bedarf: need.id }}
-                  className="group flex h-full items-center gap-3 rounded-[1.25rem] border border-border/70 bg-card px-4 py-4 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-bronze/40 hover:shadow-lift sm:px-5"
+                  className="group flex h-full flex-col rounded-[1.5rem] border border-border/60 bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-bronze/40 hover:shadow-lift sm:p-7"
                 >
                   {(() => {
                     const Icon = needIcon[need.id] ?? Sparkles;
                     return (
                       <span
-                        className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-primary transition-transform duration-300 group-hover:scale-110 ${needTint[need.id] ?? "bg-secondary"}`}
+                        className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-primary transition-transform duration-300 group-hover:scale-110 ${needTint[need.id] ?? "bg-secondary"}`}
                       >
-                        <Icon className="h-[1.15rem] w-[1.15rem]" strokeWidth={1.6} />
+                        <Icon className="h-[1.2rem] w-[1.2rem]" strokeWidth={1.6} />
                       </span>
                     );
                   })()}
-                  <span className="min-w-0">
-                    <span className="block text-[0.95rem] leading-snug font-medium sm:text-[1.05rem]">
-                      {need.label}
-                    </span>
-                    <span className="mt-0.5 hidden text-[0.78rem] leading-snug text-muted-foreground sm:block">
-                      {need.description}
-                    </span>
+                  <h3 className="mt-5 text-lg leading-snug sm:text-xl">{need.label}</h3>
+                  <p className="mt-3 flex-1 text-[0.85rem] leading-relaxed text-muted-foreground sm:text-sm">
+                    {need.description}
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-[0.8rem] font-medium text-primary">
+                    Ansehen
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
                 </Link>
               </Reveal>
