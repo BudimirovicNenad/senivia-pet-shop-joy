@@ -65,26 +65,6 @@ const needIcon: Record<string, typeof Leaf> = {
   vitalitaet: Sparkles,
 };
 
-const reviews = [
-  {
-    quote:
-      "Nach vier Wochen steht Emma morgens wieder ohne Zögern auf. Wir hätten nicht gedacht, dass so wenig so viel verändert.",
-    author: "Barbara K.",
-    pet: "Emma, Labrador, 11 Jahre",
-  },
-  {
-    quote:
-      "Endlich ein Shop, der nichts verspricht, sondern erklärt. Die Beratung per Mail war ausführlich und ehrlich.",
-    author: "Marc D.",
-    pet: "Fritz, Mischling, 13 Jahre",
-  },
-  {
-    quote:
-      "Die Zahnpflege-Box hat unseren Alltag gerettet. Mit der Fingerbürste lässt Mira es zum ersten Mal zu.",
-    author: "Sibylle R.",
-    pet: "Mira, Hauskatze, 14 Jahre",
-  },
-];
 
 const articles = [
   {
