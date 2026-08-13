@@ -1,3 +1,4 @@
+import { BoxImage } from "@/components/BoxImage";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useRef } from "react";
 import { StickyBuyBar } from "@/components/StickyBuyBar";
@@ -75,14 +76,8 @@ function BoxDetail() {
       </Link>
 
       <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-10 lg:gap-12">
-        <figure className="overflow-hidden rounded-[1.25rem] bg-product-canvas shadow-soft sm:rounded-3xl">
-          <img
-            src={bundle.image}
-            alt={bundle.name}
-            width={1200}
-            height={900}
-            className="aspect-square w-full bg-product-canvas object-contain sm:aspect-[4/3] sm:object-cover"
-          />
+        <figure className="overflow-hidden rounded-[1.25rem] shadow-soft sm:rounded-3xl">
+          <BoxImage src={bundle.image} alt={bundle.name} />
         </figure>
 
         <div>

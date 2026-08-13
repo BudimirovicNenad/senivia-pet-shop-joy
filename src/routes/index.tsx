@@ -1,3 +1,4 @@
+import { BoxImage } from "@/components/BoxImage";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Truck,
@@ -236,13 +237,11 @@ function Home() {
               className="group block h-full overflow-hidden rounded-[1.75rem] border border-border/70 bg-card p-3 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/40 hover:shadow-lift"
             >
               <div className="overflow-hidden rounded-2xl">
-              <img
+              <BoxImage
                 src={bundle.image}
                 alt={bundle.name}
                 loading="lazy"
-                width={1200}
-                height={900}
-                className="aspect-square w-full bg-product-canvas object-contain transition-transform duration-[900ms] ease-out group-hover:scale-[1.04] sm:aspect-[4/3] sm:object-cover"
+                imgClassName="transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
               />
               </div>
               <div className="px-3 pt-4 pb-2 sm:px-4 sm:pt-5 sm:pb-3">

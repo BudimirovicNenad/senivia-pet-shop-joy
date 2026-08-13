@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
+import { BoxImage } from "@/components/BoxImage";
 import { bundles, bundleProducts, bundleValue, formatCHF } from "@/data/products";
 
 export const Route = createFileRoute("/box/")({
@@ -43,14 +44,12 @@ function BoxOverview() {
               index % 2 === 1 ? "lg:[&>figure]:order-2" : ""
             }`}
           >
-            <figure className="overflow-hidden rounded-[1.25rem] bg-product-canvas shadow-soft transition-all duration-300 group-hover:shadow-lift sm:rounded-3xl">
-              <img
+            <figure className="overflow-hidden rounded-[1.25rem] shadow-soft transition-all duration-300 group-hover:shadow-lift sm:rounded-3xl">
+              <BoxImage
                 src={bundle.image}
                 alt={bundle.name}
                 loading="lazy"
-                width={1200}
-                height={900}
-                className="aspect-square w-full bg-product-canvas object-contain transition-transform duration-[900ms] ease-out group-hover:scale-[1.03] sm:aspect-[4/3] sm:object-cover"
+                imgClassName="transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
               />
             </figure>
             <div>
