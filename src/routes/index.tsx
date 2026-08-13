@@ -12,7 +12,14 @@ import {
   Droplets,
   ArrowRight,
 } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import heroImage from "@/assets/hero-senior-dog.jpg";
+
 import catImage from "@/assets/cat-senior.jpg";
 import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
