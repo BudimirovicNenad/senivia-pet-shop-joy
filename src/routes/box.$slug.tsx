@@ -75,13 +75,13 @@ function BoxDetail() {
       </Link>
 
       <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-10 lg:gap-12">
-        <figure className="overflow-hidden rounded-[1.25rem] bg-product-canvas shadow-soft sm:rounded-3xl">
+        <figure className="overflow-hidden rounded-[1.25rem] bg-box-canvas shadow-soft sm:rounded-3xl">
           <img
             src={bundle.image}
             alt={bundle.name}
             width={1200}
             height={900}
-            className="aspect-square w-full bg-product-canvas object-contain"
+            className="aspect-square w-full bg-box-canvas object-contain"
           />
         </figure>
 
