@@ -12,7 +12,14 @@ import {
   Droplets,
   ArrowRight,
 } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import heroImage from "@/assets/hero-senior-dog.jpg";
+
 import catImage from "@/assets/cat-senior.jpg";
 import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
@@ -93,7 +100,31 @@ const reviews = [
   },
 ];
 
+const faqs = [
+  {
+    question: "Wie wähle ich die richtige SENIVIA Box?",
+    answer:
+      "Die drei Boxen decken die häufigsten Bedürfnisse im höheren Alter ab. Unsicher? Der Produktberater stellt Ihnen in wenigen Schritten die passende Box zusammen.",
+  },
+  {
+    question: "Für welches Alter ist SENIVIA gedacht?",
+    answer:
+      "Unser Sortiment ist für gesunde Hunde und Katzen ab etwa 7 Jahren gedacht, die mehr Wohlbefinden, Beweglichkeit und sanfte Pflege im Alltag verdienen.",
+  },
+  {
+    question: "Was ist der Unterschied zwischen einer Box und dem Einzelkauf?",
+    answer:
+      "Jede Box enthält eine aufeinander abgestimmte Auswahl passender Produkte – einfacher, günstiger und als komplettes Geschenkset verpackt.",
+  },
+  {
+    question: "Wie funktioniert der Produktberater?",
+    answer:
+      "Sie beantworten einige ruhige Fragen zu Tierart, Alter und aktuellem Bedürfnis. Am Ende erhalten Sie eine transparente Empfehlung, ohne Zwang und ohne tierärztliche Diagnose.",
+  },
+];
+
 function Home() {
+
   const bestsellerSlugs = [
     "gelenk-gewebe-formel",
     "healthy-ageing",
@@ -399,7 +430,34 @@ function Home() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="py-10 sm:py-14">
+        <div className="mx-auto max-w-3xl px-5">
+          <Reveal className="text-center">
+            <p className="eyebrow text-bronze">Fragen & Antworten</p>
+            <h2 className="mt-3 text-[1.7rem] leading-tight sm:text-4xl">
+              Kurz erklärt.
+            </h2>
+          </Reveal>
+          <Reveal delay={100} className="mt-7 sm:mt-9">
+            <Accordion type="single" collapsible className="rounded-[1.5rem] border border-border/70 bg-card p-4 sm:p-6">
+              {faqs.map((item, i) => (
+                <AccordionItem key={i} value={`item-${i}`}>
+                  <AccordionTrigger className="text-[0.95rem] font-medium sm:text-[1.05rem]">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-[0.85rem] leading-relaxed text-muted-foreground sm:text-sm">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Erfahrungen */}
+
       <section className="py-10 sm:py-14">
         <div className="mx-auto max-w-6xl px-5">
           <Reveal className="mx-auto max-w-xl text-center">
