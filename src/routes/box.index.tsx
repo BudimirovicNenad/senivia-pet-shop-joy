@@ -43,17 +43,19 @@ function BoxOverview() {
               index % 2 === 1 ? "lg:[&>figure]:order-2" : ""
             }`}
           >
-            <figure className="overflow-hidden rounded-[1.25rem] bg-product-canvas shadow-soft transition-all duration-300 group-hover:shadow-lift sm:rounded-3xl">
+            <figure className="aspect-[4/3] w-full overflow-hidden rounded-[1.25rem] bg-product-canvas shadow-soft transition-all duration-300 group-hover:shadow-lift sm:rounded-3xl">
               <img
                 src={bundle.image}
                 alt={bundle.name}
-                loading="lazy"
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
+                sizes="(min-width: 768px) 50vw, 100vw"
                 width={1200}
                 height={900}
-                className="aspect-[4/3] w-full bg-product-canvas object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
+                className="h-full w-full bg-product-canvas object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
               />
             </figure>
-            <div>
+            <div className="flex flex-col">
               <h2 className="text-3xl leading-tight sm:text-4xl">{bundle.name}</h2>
               <p className="mt-3 text-sm text-muted-foreground">{bundle.subtitle}</p>
               <div className="rule-bronze mt-6" />

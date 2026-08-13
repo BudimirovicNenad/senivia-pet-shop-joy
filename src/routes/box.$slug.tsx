@@ -75,13 +75,16 @@ function BoxDetail() {
       </Link>
 
       <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-10 lg:gap-12">
-        <figure className="overflow-hidden rounded-[1.25rem] bg-product-canvas shadow-soft sm:rounded-3xl">
+        <figure className="aspect-[4/3] w-full overflow-hidden rounded-[1.25rem] bg-product-canvas shadow-soft sm:rounded-3xl">
           <img
             src={bundle.image}
             alt={bundle.name}
+            loading="eager"
+            decoding="async"
+            sizes="(min-width: 768px) 50vw, 100vw"
             width={1200}
             height={900}
-            className="aspect-[4/3] w-full bg-product-canvas object-cover"
+            className="h-full w-full bg-product-canvas object-cover"
           />
         </figure>
 
@@ -128,26 +131,36 @@ function BoxDetail() {
 
       <section className="mt-16 sm:mt-20">
         <h2 className="text-2xl">Diese vier Produkte sind enthalten</h2>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 sm:gap-8 md:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-8 md:grid-cols-4">
           {items.map((product) => (
-            <article key={product.slug}>
-              <Link to="/produkt/$slug" params={{ slug: product.slug }}>
+            <article key={product.slug} className="flex h-full flex-col">
+              <Link
+                to="/produkt/$slug"
+                params={{ slug: product.slug }}
+                className="block aspect-square w-full overflow-hidden rounded-sm bg-product-canvas"
+              >
                 <img
                   src={product.image}
                   alt={`${product.brand} ${product.name}`}
                   loading="lazy"
+                  decoding="async"
+                  sizes="(min-width: 768px) 25vw, 50vw"
                   width={800}
                   height={800}
-                  className="aspect-square w-full rounded-sm bg-product-canvas object-contain"
+                  className="h-full w-full bg-product-canvas object-contain"
                 />
               </Link>
-              <p className="eyebrow mt-4 text-muted-foreground">{product.brand}</p>
-              <h3 className="mt-2 text-lg leading-snug">
+              <p className="eyebrow mt-4 text-[0.65rem] text-muted-foreground sm:text-[0.7rem]">
+                {product.brand}
+              </p>
+              <h3 className="mt-2 text-base leading-snug sm:text-lg">
                 <Link to="/produkt/$slug" params={{ slug: product.slug }} className="hover:text-primary">
                   {product.name}
                 </Link>
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{product.tagline}</p>
+              <p className="mt-2 text-[0.8rem] leading-relaxed text-muted-foreground sm:text-sm">
+                {product.tagline}
+              </p>
             </article>
           ))}
         </div>
