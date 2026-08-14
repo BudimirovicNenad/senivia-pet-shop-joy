@@ -147,7 +147,7 @@ function Home() {
               className="animate-rise mt-5 max-w-md text-[0.95rem] leading-relaxed text-primary-foreground/80 sm:mt-6 sm:text-[1.02rem]"
               style={{ animationDelay: "240ms" }}
             >
-              Sorgfältig ausgewählte Produkte für mehr Wohlbefinden, Komfort und Lebensqualität im
+              Sorgfältig zusammengestellte Boxen für Beweglichkeit, Verdauung und Zahnpflege im
               höheren Alter.
             </p>
             <div
@@ -213,9 +213,9 @@ function Home() {
             <Link
               to="/box/$slug"
               params={{ slug: bundle.slug }}
-              className="group block h-full overflow-hidden rounded-[1.75rem] border border-border/70 bg-card p-3 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/40 hover:shadow-lift"
+              className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/70 bg-card p-3 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/40 hover:shadow-lift"
             >
-              <div className="overflow-hidden rounded-2xl">
+              <div className="shrink-0 overflow-hidden rounded-2xl">
               <img
                 src={bundle.image}
                 alt={bundle.name}
@@ -225,17 +225,21 @@ function Home() {
                 className="aspect-square w-full bg-product-canvas object-contain transition-transform duration-[900ms] ease-out group-hover:scale-[1.04] sm:aspect-[4/3] sm:object-cover"
               />
               </div>
-              <div className="px-3 pt-4 pb-2 sm:px-4 sm:pt-5 sm:pb-3">
+              <div className="flex flex-1 flex-col px-3 pt-4 pb-2 sm:px-4 sm:pt-5 sm:pb-3">
                 <h3 className="text-lg leading-snug sm:text-xl">{bundle.name}</h3>
                 <p className="mt-2 text-[0.82rem] leading-relaxed text-muted-foreground sm:text-sm">
                   {bundle.subtitle}
                 </p>
-                <p className="mt-4 text-lg sm:mt-5">
+                <p className="mt-auto pt-4 text-lg sm:pt-5">
                   {formatCHF(bundle.price)}{" "}
                   <span className="text-xs text-muted-foreground line-through">
                     {formatCHF(bundleValue(bundle))}
                   </span>
                 </p>
+                <span className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-[0.78rem] font-medium tracking-[0.06em] text-primary-foreground uppercase transition-all duration-300 group-hover:bg-forest-deep">
+                  Entdecken
+                  <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
               </div>
             </Link>
             </Reveal>
