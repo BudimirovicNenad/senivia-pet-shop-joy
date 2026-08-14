@@ -76,8 +76,8 @@ function CheckoutPage() {
       <p className="eyebrow text-bronze">Kasse</p>
       <h1 className="mt-4 text-[1.9rem] leading-tight sm:text-4xl">Bestellung abschliessen</h1>
 
-      <div className="mt-9 grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
-        <div className="space-y-5 sm:space-y-6">
+      <div className="mt-9 grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-12">
+        <div className="min-w-0 space-y-5 sm:space-y-6">
           <Section title="1. Kontakt">
             <Input
               label="E-Mail"
@@ -140,8 +140,8 @@ function CheckoutPage() {
             </div>
 
             {method === "card" && (
-              <div className="mt-6 grid gap-6 sm:grid-cols-[minmax(0,1fr)_260px] sm:items-start">
-                <div className="grid gap-4">
+              <div className="mt-6 grid min-w-0 gap-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,260px)] sm:items-start">
+                <div className="grid min-w-0 gap-4">
                   <Input
                     label="Kartennummer"
                     required
@@ -190,7 +190,7 @@ function CheckoutPage() {
           </Section>
         </div>
 
-        <aside className="h-fit rounded-[1.25rem] border border-border bg-card p-5 shadow-soft sm:rounded-3xl sm:p-7 lg:sticky lg:top-28">
+        <aside className="h-fit min-w-0 rounded-[1.25rem] border border-border bg-card p-5 shadow-soft sm:rounded-3xl sm:p-7 lg:sticky lg:top-28">
           <h2 className="text-xl">Ihre Bestellung</h2>
           <ul className="mt-5 divide-y divide-border border-y border-border">
             {detailed.map((item) => (
@@ -227,7 +227,7 @@ function CheckoutPage() {
           </dl>
           <button
             type="submit"
-            className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-[0.78rem] tracking-[0.16em] text-primary-foreground uppercase transition-colors hover:bg-forest-deep"
+            className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-4 text-center text-[0.7rem] tracking-[0.1em] text-primary-foreground uppercase transition-colors hover:bg-forest-deep sm:px-6 sm:text-[0.78rem] sm:tracking-[0.16em]"
           >
             <Lock className="h-4 w-4" strokeWidth={1.7} />
             Kostenpflichtig bestellen
