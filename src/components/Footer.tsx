@@ -19,10 +19,10 @@ export function Footer() {
         <div>
           <h3 className="eyebrow text-primary-foreground/60">Sortiment</h3>
           <ul className="mt-4 space-y-2.5 text-sm text-primary-foreground/75">
-            <li><Link to="/hund" className="hover:text-primary-foreground">HUNDE</Link></li>
-            <li><Link to="/katze" className="hover:text-primary-foreground">KATZEN</Link></li>
+            <li><Link to="/hund" className="hover:text-primary-foreground">Hunde</Link></li>
+            <li><Link to="/katze" className="hover:text-primary-foreground">Katzen</Link></li>
             <li><Link to="/shop" className="hover:text-primary-foreground">Alle Produkte</Link></li>
-            <li><Link to="/box" className="hover:text-primary-foreground">SENIVIA BOX</Link></li>
+            <li><Link to="/box" className="hover:text-primary-foreground">SENIVIA Box</Link></li>
           </ul>
         </div>
 
