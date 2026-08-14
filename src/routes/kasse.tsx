@@ -76,8 +76,8 @@ function CheckoutPage() {
       <p className="eyebrow text-bronze">Kasse</p>
       <h1 className="mt-4 text-[1.9rem] leading-tight sm:text-4xl">Bestellung abschliessen</h1>
 
-      <div className="mt-9 grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
-        <div className="space-y-5 sm:space-y-6">
+      <div className="mt-9 grid gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-12">
+        <div className="min-w-0 space-y-5 sm:space-y-6">
           <Section title="1. Kontakt">
             <Input
               label="E-Mail"
@@ -140,8 +140,8 @@ function CheckoutPage() {
             </div>
 
             {method === "card" && (
-              <div className="mt-6 grid gap-6 sm:grid-cols-[minmax(0,1fr)_260px] sm:items-start">
-                <div className="grid gap-4">
+              <div className="mt-6 grid min-w-0 gap-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,260px)] sm:items-start">
+                <div className="grid min-w-0 gap-4">
                   <Input
                     label="Kartennummer"
                     required
