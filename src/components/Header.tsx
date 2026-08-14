@@ -6,9 +6,9 @@ import { useCart } from "@/lib/cart";
 import { useFavorites } from "@/lib/favorites";
 
 const nav = [
-  { to: "/hund", label: "HUNDE" },
-  { to: "/katze", label: "KATZEN" },
-  { to: "/box", label: "SENIVIA BOX" },
+  { to: "/hund", label: "Hunde" },
+  { to: "/katze", label: "Katzen" },
+  { to: "/box", label: "SENIVIA Box" },
   { to: "/berater", label: "Berater" },
   { to: "/ratgeber", label: "Ratgeber" },
   { to: "/ueber-uns", label: "Über SENIVIA" },
