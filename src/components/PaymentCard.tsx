@@ -22,7 +22,9 @@ export function PaymentCard({
           <CreditCard className="h-5 w-5 text-primary-foreground/80" strokeWidth={1.5} />
         </div>
         <div className="mt-4 h-8 w-12 rounded-md bg-bronze/70" />
-        <p className="font-mono text-[1.05rem] tracking-[0.18em] sm:text-xl">{groups.join(" ")}</p>
+        <p className="font-mono text-[0.95rem] tracking-[0.12em] break-all sm:text-xl sm:tracking-[0.18em]">
+          {groups.join(" ")}
+        </p>
         <div className="flex items-end justify-between gap-4 text-[0.7rem] tracking-[0.14em] uppercase">
           <span className="min-w-0 truncate text-primary-foreground/85">
             {name || "Karteninhaber"}
