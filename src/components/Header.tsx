@@ -6,8 +6,8 @@ import { useCart } from "@/lib/cart";
 import { useFavorites } from "@/lib/favorites";
 
 const nav = [
-  { to: "/hund", label: "PSI" },
-  { to: "/katze", label: "MAČKE" },
+  { to: "/hund", label: "HUNDE" },
+  { to: "/katze", label: "KATZEN" },
   { to: "/box", label: "SENIVIA BOX" },
   { to: "/berater", label: "Berater" },
   { to: "/ratgeber", label: "Ratgeber" },
