@@ -207,7 +207,7 @@ function Home() {
         <p className="mt-3 max-w-xl text-[0.85rem] leading-relaxed text-muted-foreground sm:mt-4 sm:text-sm">
           Jede Box vereint vier Produkte, die zusammen wirken – als Geschenk oder als Einstieg.
         </p>
-        <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 md:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {bundles.map((bundle, i) => (
             <Reveal key={bundle.slug} delay={i * 110} className="h-full">
             <Link
@@ -236,7 +236,7 @@ function Home() {
                     {formatCHF(bundleValue(bundle))}
                   </span>
                 </p>
-                <span className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-[0.78rem] font-medium tracking-[0.06em] text-primary-foreground uppercase transition-all duration-300 group-hover:bg-forest-deep">
+                <span className="mt-4 inline-flex min-h-[2.85rem] w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-[0.78rem] font-medium tracking-[0.06em] text-primary-foreground uppercase transition-all duration-300 group-hover:bg-forest-deep">
                   Entdecken
                   <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
