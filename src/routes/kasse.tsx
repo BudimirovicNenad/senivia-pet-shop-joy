@@ -227,7 +227,7 @@ function CheckoutPage() {
           </dl>
           <button
             type="submit"
-            className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-[0.78rem] tracking-[0.16em] text-primary-foreground uppercase transition-colors hover:bg-forest-deep"
+            className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-4 text-center text-[0.7rem] tracking-[0.1em] text-primary-foreground uppercase transition-colors hover:bg-forest-deep sm:px-6 sm:text-[0.78rem] sm:tracking-[0.16em]"
           >
             <Lock className="h-4 w-4" strokeWidth={1.7} />
             Kostenpflichtig bestellen
