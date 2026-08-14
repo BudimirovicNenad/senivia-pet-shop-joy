@@ -223,14 +223,12 @@ function ProductDetail() {
           </p>
 
           <p className="mt-8 text-xs text-muted-foreground">
-            Produktinformationen des Herstellers:{" "}
+            Fragen zu Zusammensetzung oder Anwendung? Unser Team hilft gerne weiter:{" "}
             <a
-              href={product.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:hallo@senivia.ch"
               className="underline decoration-bronze underline-offset-4"
             >
-              Datenblatt ansehen
+              hallo@senivia.ch
             </a>
           </p>
         </div>
