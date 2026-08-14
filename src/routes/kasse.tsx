@@ -76,7 +76,7 @@ function CheckoutPage() {
       <p className="eyebrow text-bronze">Kasse</p>
       <h1 className="mt-4 text-[1.9rem] leading-tight sm:text-4xl">Bestellung abschliessen</h1>
 
-      <div className="mt-9 grid gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-12">
+      <div className="mt-9 grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-12">
         <div className="min-w-0 space-y-5 sm:space-y-6">
           <Section title="1. Kontakt">
             <Input
@@ -190,7 +190,7 @@ function CheckoutPage() {
           </Section>
         </div>
 
-        <aside className="h-fit rounded-[1.25rem] border border-border bg-card p-5 shadow-soft sm:rounded-3xl sm:p-7 lg:sticky lg:top-28">
+        <aside className="h-fit min-w-0 rounded-[1.25rem] border border-border bg-card p-5 shadow-soft sm:rounded-3xl sm:p-7 lg:sticky lg:top-28">
           <h2 className="text-xl">Ihre Bestellung</h2>
           <ul className="mt-5 divide-y divide-border border-y border-border">
             {detailed.map((item) => (
